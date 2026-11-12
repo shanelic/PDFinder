@@ -1,5 +1,5 @@
 {
-  "scope": "Curated migration content, SHA-256 integrity only",
+  "scope": "Repository content, SHA-256 integrity only; this manifest excludes itself",
   "files": [
     {
       "path": ".gitignore",
@@ -18,8 +18,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 2383,
-      "sha256": "085e6e2706fd9b330d6221bc31759d4177b64b24f726ee389694edef6e8548b7"
+      "bytes": 2463,
+      "sha256": "bb778ac20f9f0ca23bd840faa38ad6d83e1808cc6f4725f928d6c5179c8f7bb2"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -45,6 +45,16 @@
       "path": "docs/migration.md",
       "bytes": 2438,
       "sha256": "b90fb7b11de1793a83849826d6047522cb6bf2eae9214d03b04008aaa11a18b9"
+    },
+    {
+      "path": "docs/status.zh-TW.md",
+      "bytes": 4706,
+      "sha256": "35ec83ccf005d2e00feebdb9e8e3dd51892638fb8afe8da325128fa8791f3603"
+    },
+    {
+      "path": "docs/verification/stage1-20261112.json",
+      "bytes": 2032,
+      "sha256": "e9fb2717b63d713c2e2e7a5f31e5f6e09c520ccca4a7dd1681a1c911dfab708d"
     },
     {
       "path": "package-lock.json",

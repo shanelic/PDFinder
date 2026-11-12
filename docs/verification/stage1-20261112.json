@@ -1,0 +1,55 @@
+{
+  "schema": "pdfinder-stage1-baseline-v1",
+  "observedAt": "2026-11-12T16:49:32.556Z",
+  "branch": "feature/import-existing-research",
+  "trackedTreeClean": true,
+  "runtime": "v24.22.1",
+  "esbuild": "0.28.0",
+  "lockfileSha256": "a886f42bb560a388b1d3fba6d21a1872ccdd0986711cc6ad3084d82ef3f0bf33",
+  "sourceManifestFilesVerified": 29,
+  "fixturesVerified": 7,
+  "fixtureManifestSha256": "70dad34d23ef58d2c20fc8b0593d0041ddb6f601f1cd8a1d5ba34d0f15fb1cd8",
+  "verify": {
+    "interface": {
+      "passed": 302,
+      "failed": 0
+    },
+    "sourceParser": {
+      "passed": 32,
+      "failed": 0,
+      "observedGlobalFetchCalls": 0
+    },
+    "build": "passed"
+  },
+  "packagedParser": {
+    "passed": 32,
+    "failed": 0,
+    "observedGlobalFetchCalls": 0
+  },
+  "bundle": {
+    "bytes": 3740357,
+    "gzipBytes": 800421,
+    "sha256": "6842618014df5b10d24bb618acbfb3b2556066e2074cf076be621f664797bf79"
+  },
+  "installation": "Existing pinned dependency used; npm ci not rerun, no install or network step",
+  "remote": "At test time no push, merge, cloud upload, deployment or hosted invocation; this summary is subsequently recorded on the feature branch.",
+  "limits": [
+    "Source and built-artifact parser suites overlap; do not count as unique new scenarios",
+    "Node verification is not hosted Cloudflare CPU/memory/egress verification",
+    "Missing hosted invocation permission remains unresolved",
+    "Existing install used; clean npm ci installation not rerun"
+  ],
+  "baseline": {
+    "remoteCommit": "74c1b95e29151783a5edaa0172ff17ef10353387",
+    "localTestCommit": "1c62a29d5191e839457e7d65d6d8b7b4adbe2d42",
+    "tree": "9b19150ba35769efea8f237fa4505baea3825415",
+    "remoteLocalBlobEntriesCompared": 30,
+    "remoteLocalBlobEntriesMatched": 30,
+    "treeTruncated": false
+  },
+  "recordedBy": "Jarvis",
+  "logSha256": {
+    "verify.log": "63ecf09535dbaaf22f3f3eb3544c677aa730c3d782b42799d1a30f57d1d9a10a",
+    "packaged-artifact.log": "e607c9c02cc3de76c0feee884d426bdac53ed3913def5a8b599e456e5497b075"
+  }
+}

@@ -1,32 +1,32 @@
 # PDFinder
 
-Experimental encrypted PDF text extraction toolkit with synthetic benchmarks for Cloudflare Workers and MCP integration.
+文字型加密 PDF 解析研究工具，包含 Cloudflare Workers 與 MCP 整合的合成測試資料。
 
-**Research snapshot, not a production attachment service.** Development and cloud deployment are paused. This repository records existing work and makes its local verification reproducible. No real mail, documents, passwords, cloud account configuration, or deployment credentials are included.
+**開發中的研究原型，不是正式郵件附件服務。** 已恢復開發並完成階段 1 的來源與建置產物驗證；階段 2 尚待確認受支援的雲端 HTTP 測試通道。本庫不含真實郵件、文件、密碼、雲端帳號設定或部署憑證。
 
-## Local use
+## 本機使用
 
-Node.js 22 or newer (migration verified on Node.js 24.22.1):
+Node.js 22 以上；本輪驗證使用 Node.js 24.22.1：
 
 ```sh
 npm ci
 npm run verify
 ```
 
-`npm test` runs 302 interface checks with controlled dependencies. `npm run test:parser` runs 32 checks against the actual parser with fixed synthetic fixtures; outbound fetch is blocked. `npm run build` bundles to ignored `dist/worker.mjs`. None of these commands deploys or contacts a Worker. No deployment automation is provided.
+`npm test` 執行 302 項使用受控依賴的介面檢查；`npm run test:parser` 執行 32 項實際解析器檢查，測試中攔截 global fetch。`npm run build` 產生忽略追蹤的 `dist/worker.mjs`。這些命令不部署、不呼叫線上 Worker；本庫尚未提供雲端部署自動化。攔截 fetch 不等於平台網路隔離。
 
-Supported fixture coverage: plain PDF, RC4-128, AES-128, AES-256, and an embedded-font Chinese PDF. Password literals in fixtures are public synthetic data, not secrets. The worker accepts only fixed fixture IDs and returns bounded metadata, not arbitrary uploaded documents. Authentication and expiration configuration are required by its existing interface; this repository contains no working credentials.
+固定合成資料涵蓋未加密、RC4-128、AES-128、AES-256 與內嵌字型的中文 PDF。資料中的密碼是公開假值，不是秘密。Worker 只接受固定 fixture ID，回傳有限度的測試中繼資料，不接受任意文件上傳。現有介面要求驗證與到期設定，本庫不提供可用憑證。
 
-## Evidence and limits
+## 證據與限制
 
-- Local migration verification: **302 interface checks + 32 actual-parser checks passed**; local build passed.
-- Latest historical cloud attempt: **HTTP 403 at the MCP outbound channel**, with no verified parser response or request CPU measurement.
-- Cloudflare Workers Free request CPU feasibility remains **unknown**. Whole-process local CPU measurements are not cloud per-request CPU.
-- Mailbox integration, real-document acceptance, reusable password handling, and phone-to-mail-to-PDF flow are **not completed**.
-- These tests cover fixtures, not all PDFs, encryption variants, fonts, or layouts.
+- 階段 1：**302 項介面檢查與 32 項實際解析器檢查全數通過**，建置成功；同一組 32 項另對建置產物驗證通過，不重複計為新的情境。
+- 最新歷史雲端嘗試遇到 **MCP 外連通道 HTTP 403**，沒有已驗證的解析回應或每請求 CPU 數據。本輪沒有再次部署或呼叫。
+- Cloudflare Workers Free 的每請求 CPU 可行性仍然**未知**。本機整個程序 CPU 不是線上每請求 CPU。
+- 正式信箱整合、真實文件驗收、密碼重用及手機到附件解析的完整流程**尚未完成**。
+- 目前測試不涵蓋全部 PDF、加密變體、字型與版面，也不提供 OCR。
 
-See [status and history](docs/historical-handoff.zh-TW.md), [migration record](docs/migration.md), [architecture](docs/architecture.md), and [Gitflow](CONTRIBUTING.md).
+請參閱[目前進度與下一步](docs/status.zh-TW.md)、[階段 1 驗證紀錄](docs/verification/stage1-20261112.json)、[歷史交接](docs/historical-handoff.zh-TW.md)、[匯入紀錄](docs/migration.md)、[架構](docs/architecture.md)與 [Gitflow](CONTRIBUTING.md)。歷史交接中的「暫停」描述是當時狀態，不代表目前狀態。
 
-## License
+## 授權
 
-Project code: Apache-2.0, matching the repository owner's initial license. Vendored dependencies and embedded font data retain their own licenses. Read [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) before redistribution; do not distribute a generated bundle without its required notices.
+專案程式採 Apache-2.0，沿用擁有者建立 repository 時的授權。納入的依賴及字型資料保留各自授權；再散布前請閱讀 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)，建置產物也須附上必要聲明。
