@@ -1,0 +1,150 @@
+{
+  "scope": "Curated migration content, SHA-256 integrity only",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 63,
+      "sha256": "78034c0e60a90d1c58494408b0e87b55665903d5f40bf9284159ff3102031c13"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "bytes": 1199,
+      "sha256": "bd738d72de0548c86ef4e195a9bcbe0bbf32d7233003964a2a68113a1db2547a"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2383,
+      "sha256": "085e6e2706fd9b330d6221bc31759d4177b64b24f726ee389694edef6e8548b7"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 1899,
+      "sha256": "315f15b92240a2b3f080e5735ff36eae7f45dd31eedf9796787745a2cd735e1f"
+    },
+    {
+      "path": "docs/architecture.md",
+      "bytes": 985,
+      "sha256": "801de0a7e0fa35a389f42089b7c098455da5b2a831b51381ade1aad784c0ffef"
+    },
+    {
+      "path": "docs/fixture-manifest.json",
+      "bytes": 2224,
+      "sha256": "70dad34d23ef58d2c20fc8b0593d0041ddb6f601f1cd8a1d5ba34d0f15fb1cd8"
+    },
+    {
+      "path": "docs/historical-handoff.zh-TW.md",
+      "bytes": 6287,
+      "sha256": "3eb7b7bcb46528922828290ddcd4e88db540c737d3d2607e6251ff9aa7faa7ef"
+    },
+    {
+      "path": "docs/migration.md",
+      "bytes": 2438,
+      "sha256": "b90fb7b11de1793a83849826d6047522cb6bf2eae9214d03b04008aaa11a18b9"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 14543,
+      "sha256": "a886f42bb560a388b1d3fba6d21a1872ccdd0986711cc6ad3084d82ef3f0bf33"
+    },
+    {
+      "path": "package.json",
+      "bytes": 487,
+      "sha256": "98014bcd9a11f063a8eebb92b7e129ff28e69d6f44f1724792ce9f01984d2bb1"
+    },
+    {
+      "path": "scripts/build.mjs",
+      "bytes": 940,
+      "sha256": "7dcd3abd84f63d5b2fe83618ddf1dc37e7f9442d737f2fa6b231c94e3604b76e"
+    },
+    {
+      "path": "scripts/test-parser.mjs",
+      "bytes": 179,
+      "sha256": "4ad5ebbdfbee737b38a9a7af146ac9ffe89a7ac03fea9d3e75af58faa12b8ea9"
+    },
+    {
+      "path": "scripts/test.mjs",
+      "bytes": 127,
+      "sha256": "181a8322f758280b44001e427666a5d2360a248735d81ae289dade506bf0b387"
+    },
+    {
+      "path": "src/candidate-factory.mjs",
+      "bytes": 15293,
+      "sha256": "19c2aecf854ce3236374f19a16663a3f4e526f64baa4b6618bde13943c992c5e"
+    },
+    {
+      "path": "src/fixed-fixtures.mjs",
+      "bytes": 35236,
+      "sha256": "41cbee67b93bed8f754d9c97d5c159c94dfdaf78bb576c60ef39f55a9ed730bb"
+    },
+    {
+      "path": "src/guarded-extractor.mjs",
+      "bytes": 8241,
+      "sha256": "c62d705fd58df324ff58c85a8b6eab22f3f9c17527dbc4a1f5b0d0e516df3feb"
+    },
+    {
+      "path": "src/lazy-loader.mjs",
+      "bytes": 848,
+      "sha256": "69d2c70d9e6add48e6ed1a81d73642d659e9737a00cc8afc651ad8ed0577951c"
+    },
+    {
+      "path": "src/worker.mjs",
+      "bytes": 541,
+      "sha256": "60ed22048b327c8f0736c392a80b1204fea5f2341cb901232cb2ee292d9cc649"
+    },
+    {
+      "path": "tests/interface-suite.mjs",
+      "bytes": 17211,
+      "sha256": "f507fad61630c06ed8ecc4440e40f9079643aa4a36be2aedf812daff1f986237"
+    },
+    {
+      "path": "vendor/canvas/LICENSE",
+      "bytes": 1075,
+      "sha256": "8802fecf9da4367bc23bcf20b21cc143785fc6c92b152f3fa7fbe6ce08d344d6"
+    },
+    {
+      "path": "vendor/canvas/geometry.js",
+      "bytes": 19312,
+      "sha256": "2e0ae365059fdb0424ddd2da8401e240a250c52b7efca68680996a99e804c1a1"
+    },
+    {
+      "path": "vendor/cmaps/Adobe-CMap-LICENSE.txt",
+      "bytes": 2080,
+      "sha256": "aa92ab5a472974865a96fd4a4e9c13bb41bf6fe1b309cb6b8da48bc9e19839a2"
+    },
+    {
+      "path": "vendor/cmaps/candidate-packaged-cmaps.mjs",
+      "bytes": 103889,
+      "sha256": "c405d851a9153dfa8811579cf3562f9072d1161d66069cbfdb32ec2a81e24bce"
+    },
+    {
+      "path": "vendor/licenses/NotoSansCJK-OFL.txt",
+      "bytes": 4621,
+      "sha256": "c17a8fd48bc0cccfc758f62c6bf7c6122079080acf7516924252ca5ad33e5fe9"
+    },
+    {
+      "path": "vendor/licenses/geometry-polyfill-MIT.txt",
+      "bytes": 1068,
+      "sha256": "28165d2eefa987ce1b5ffec1e518def2ff6a1e495cdd3af1a2504aa10075bf0d"
+    },
+    {
+      "path": "vendor/pdfjs/LICENSE",
+      "bytes": 10174,
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+    },
+    {
+      "path": "vendor/pdfjs/pdf.mjs",
+      "bytes": 853537,
+      "sha256": "487bde1bcf89e041f791173d0509a1dc18d0feb6655d78395e1611f9da0de17d"
+    },
+    {
+      "path": "vendor/pdfjs/pdf.worker-native-guarded.mjs",
+      "bytes": 2385094,
+      "sha256": "f27dfa7da7086dbe5be54b08542d09c93033b40403a466ce30053944995804a2"
+    }
+  ]
+}

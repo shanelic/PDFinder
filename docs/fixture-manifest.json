@@ -1,0 +1,86 @@
+[
+  {
+    "fixture_id": "plain.pdf",
+    "sha256": "2c0944a2577510cf049fdce6ea851957db17825bb19d606cb21172245c75854d",
+    "bytes": 1430,
+    "encrypted": false,
+    "expectedPages": [
+      {
+        "page": 1,
+        "text": "Synthetic cloud PDF transport proof.\nNo real email, account data, or credential."
+      }
+    ]
+  },
+  {
+    "fixture_id": "RC4-128.pdf",
+    "sha256": "ec9fefbd2cc391f5f558d9e661a8200c0a5349dc18702091e00e649c98ee0e7a",
+    "bytes": 1401,
+    "encrypted": true,
+    "expectedPages": [
+      {
+        "page": 1,
+        "text": "Synthetic cloud PDF transport proof.\nNo real email, account data, or credential."
+      }
+    ]
+  },
+  {
+    "fixture_id": "AES-128.pdf",
+    "sha256": "48353391d5edee75d1a0dd6db3198bf7d4ca6d261bdcb5b3011fc8aa58f2894e",
+    "bytes": 1577,
+    "encrypted": true,
+    "expectedPages": [
+      {
+        "page": 1,
+        "text": "Synthetic cloud PDF transport proof.\nNo real email, account data, or credential."
+      }
+    ]
+  },
+  {
+    "fixture_id": "AES-256.pdf",
+    "sha256": "88bcd7d2be5ff65e024d6b3a5964da2a0d10b1f36cbb2616abfc60556a8fe47c",
+    "bytes": 1825,
+    "encrypted": true,
+    "expectedPages": [
+      {
+        "page": 1,
+        "text": "Synthetic cloud PDF transport proof.\nNo real email, account data, or credential."
+      }
+    ]
+  },
+  {
+    "fixture_id": "chinese-embedded-v2.pdf",
+    "sha256": "c4e2a3c486a4cdb16768250b94aa71b09f5679a43d83e161eb20d3a0e33c90c4",
+    "bytes": 7386,
+    "encrypted": false,
+    "expectedPages": [
+      {
+        "page": 1,
+        "text": "這是合成的雲端 PDF 測試。"
+      }
+    ]
+  },
+  {
+    "fixture_id": "chinese-AES-256-v2.pdf",
+    "sha256": "ac21573fa447136fd57cc3b2e05775dab2fb656b7f2f93aaa2067738e6fb3761",
+    "bytes": 8516,
+    "encrypted": true,
+    "expectedPages": [
+      {
+        "page": 1,
+        "text": "這是合成的雲端 PDF 測試。"
+      }
+    ]
+  },
+  {
+    "fixture_id": "fixture-baseline.pdf",
+    "bytes": 2331,
+    "sha256": "95f20c1cb425e58f8c4809d5ef244579c65c80f643099c906a988c8f9daf4c9e",
+    "encrypted": false,
+    "expectedPages": [
+      {
+        "page": 1,
+        "text": "Synthetic Latin stays visible. \n中文合成測試"
+      }
+    ]
+  }
+]
