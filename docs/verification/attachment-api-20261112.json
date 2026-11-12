@@ -1,0 +1,61 @@
+{
+  "schema": "pdfinder-local-attachment-api-v1",
+  "recordedBy": "Jarvis",
+  "observedAt": "2026-11-12T17:06:22.363348+00:00",
+  "baseRemoteCommit": "1bec9cbd35802ecf14d626487e9010901fd70008",
+  "runtime": "v24.22.1",
+  "scope": "Local synthetic normalized Request API only; no live provider, deployment, credentials, or cloud invocation",
+  "suites": {
+    "existingInterface": {
+      "passed": 302,
+      "failed": 0
+    },
+    "existingSourceParser": {
+      "passed": 32,
+      "failed": 0
+    },
+    "attachmentApi": {
+      "passed": 46,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "realParserNormalizedProviderPaths": 14
+    }
+  },
+  "demo": {
+    "fixture": "AES-256.pdf",
+    "status": 200,
+    "query": "PDF",
+    "page": 1,
+    "codepointRange": {
+      "start": 16,
+      "end": 19
+    }
+  },
+  "build": {
+    "status": "passed",
+    "bytes": 3740357,
+    "sha256": "6842618014df5b10d24bb618acbfb3b2556066e2074cf076be621f664797bf79",
+    "existingBenchmarkUnchanged": true
+  },
+  "review": {
+    "scope": "independent local correctness review",
+    "finding": "Pending body read cancellation could be classified as invalid input",
+    "fix": "Recheck abort after read settles, before EOF/JSON; regression added",
+    "limitations": "No immediate source interruption or hard termination guarantee",
+    "independentFixRegression": {
+      "passed": 1,
+      "failed": 0
+    }
+  },
+  "verifyLogSha256": "9761beb65bf14b90cdd7e1dce46ec05bfd263dd39c1444d15da7ce9aac09a8b2",
+  "limitations": [
+    "Provider labels are synthetic host normalization, not live Gmail/iCloud response schema",
+    "Trusted-host source assertion and content hash are not cryptographic origin proof",
+    "Profile resolver is injected in memory; no persistent secret storage or enrollment",
+    "No production authentication, hard resource isolation or slow-body deadline",
+    "Only seven pinned fixtures; oracle matching is not generic document completeness",
+    "Cleanup failure isolation and remote deployment acceptance remain outside this local slice"
+  ]
+}

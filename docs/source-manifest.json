@@ -18,8 +18,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 2463,
-      "sha256": "bb778ac20f9f0ca23bd840faa38ad6d83e1808cc6f4725f928d6c5179c8f7bb2"
+      "bytes": 2795,
+      "sha256": "db74062e84f0145d1a10693a480b230a9394534113553843d3a3fbea52bdd685"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -48,8 +48,18 @@
     },
     {
       "path": "docs/status.zh-TW.md",
-      "bytes": 4706,
-      "sha256": "35ec83ccf005d2e00feebdb9e8e3dd51892638fb8afe8da325128fa8791f3603"
+      "bytes": 5427,
+      "sha256": "11769295eba50d8c911dc419e256e4ce57ee943dda3b97eda9debf6d16edf3c5"
+    },
+    {
+      "path": "docs/synthetic-attachment-api.zh-TW.md",
+      "bytes": 4889,
+      "sha256": "558c79a5e6a0de0afb611780e137b23b6ec74d17c10e932ed0f81dd8b8e656dd"
+    },
+    {
+      "path": "docs/verification/attachment-api-20261112.json",
+      "bytes": 2090,
+      "sha256": "cfe6419cfe4a7e0184bf4d390b33f6e71c7211935d19921e9a69a61a8a7648d1"
     },
     {
       "path": "docs/verification/stage1-20261112.json",
@@ -63,13 +73,18 @@
     },
     {
       "path": "package.json",
-      "bytes": 487,
-      "sha256": "98014bcd9a11f063a8eebb92b7e129ff28e69d6f44f1724792ce9f01984d2bb1"
+      "bytes": 641,
+      "sha256": "0dcce374c8b3f8804da8913bb6963d0d89a9004019e83e4b1bbab3e21adf7d3a"
     },
     {
       "path": "scripts/build.mjs",
       "bytes": 940,
       "sha256": "7dcd3abd84f63d5b2fe83618ddf1dc37e7f9442d737f2fa6b231c94e3604b76e"
+    },
+    {
+      "path": "scripts/demo-synthetic.mjs",
+      "bytes": 1231,
+      "sha256": "0b5c8824f5f90163c763b722d884167431d91991c9afa4d71aaf82d8bf43c8fb"
     },
     {
       "path": "scripts/test-parser.mjs",
@@ -102,9 +117,24 @@
       "sha256": "69d2c70d9e6add48e6ed1a81d73642d659e9737a00cc8afc651ad8ed0577951c"
     },
     {
+      "path": "src/page-citations.mjs",
+      "bytes": 1057,
+      "sha256": "2849f096a1c820514c6fbbefa664fa737923af830a1f19621b4653460a2c981b"
+    },
+    {
+      "path": "src/synthetic-attachment-api.mjs",
+      "bytes": 8319,
+      "sha256": "712b7753cbb5bd37d2e3890466a74e0972d8f3c547a93869abfb30273536be3b"
+    },
+    {
       "path": "src/worker.mjs",
       "bytes": 541,
       "sha256": "60ed22048b327c8f0736c392a80b1204fea5f2341cb901232cb2ee292d9cc649"
+    },
+    {
+      "path": "tests/attachment-api.test.mjs",
+      "bytes": 13434,
+      "sha256": "c978da77035eeeabd458502ab6a86ec53ce173f05612b2ca6812497493e54523"
     },
     {
       "path": "tests/interface-suite.mjs",

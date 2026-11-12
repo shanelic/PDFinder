@@ -11,7 +11,9 @@
     "test": "node scripts/test.mjs",
     "build": "node scripts/build.mjs",
     "test:parser": "node scripts/test-parser.mjs",
-    "verify": "npm test && npm run test:parser && npm run build"
+    "test:attachments": "node --test tests/attachment-api.test.mjs",
+    "demo:synthetic": "node scripts/demo-synthetic.mjs",
+    "verify": "npm test && npm run test:parser && npm run test:attachments && npm run build"
   },
   "devDependencies": {
     "esbuild": "0.28.0"

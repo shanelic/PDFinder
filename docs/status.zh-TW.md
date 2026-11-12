@@ -29,6 +29,14 @@ node --input-type=module -e 'import worker from "./dist/worker.mjs"; import {run
 
 ## 階段 2：未開始新雲端試跑
 
+### 獨立推進：本機附件輸入與引用
+
+已新增 [合成附件 API](synthetic-attachment-api.zh-TW.md)：實際 Request 傳入原始 PDF bytes，再由真正 PDF.js 解密、查詢並產生頁碼／來源引用。7 個 fixture × 2 個 provider 標記共 14 條正規化假信箱路徑通過；另驗證錯誤／移除／恢復 profile、篡改、來源核對、Unicode 範圍與取消。這不是 Gmail／iCloud 真實回傳 schema 或正式帳號授權，未讀取真實郵件。
+
+這項工作不依賴被擋的雲端通道，也未改變既有 benchmark 部署入口。詳細本輪數量及產物見 [本機 API 驗證紀錄](verification/attachment-api-20261112.json)。
+
+### 正式雲端呼叫仍待確認
+
 已知阻礙是呼叫通道，不是已證明的 PDF 缺陷或 CPU 超限。先前 MCP 主機拒絕直接呼叫測試 Worker，沒有取得可採用的解析回應或每請求 CPU。缺少量測不能寫成 CPU 為 0。
 
 Cloudflare MCP 官方契約限制 execute 的外連目標為 Cloudflare API；可管理 Worker 不代表可透過同一工具任意呼叫 Worker 網址。切換工具模式不會授予新的目的地權限。不可用代理、換域名或另一執行器規避拒絕。
