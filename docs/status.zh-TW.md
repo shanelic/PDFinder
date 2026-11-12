@@ -43,6 +43,8 @@ node --input-type=module -e 'import worker from "./dist/worker.mjs"; import {run
 
 已另補[同一合成附件的雙信箱驗收入口](synthetic-mail-verifier.zh-TW.md)，保留 host 實際 opaque ID 並統一核對解密、頁碼與引用。雙路徑真 PDF.js 本機解析成功，仍未寄送新信；只有合成 envelope，尚非 live 端到端。
 
+另已提供[本機單份文件搜尋候選](document-processing-contract.zh-TW.md)，以新生成合成 PDF 驗證大小／頁數／文字限制及失敗分類。一般文件不使用固定 fixture oracle，因此仍明示擷取完整性未知；未發布或處理真實附件。
+
 ### 正式雲端呼叫仍待確認
 
 已知阻礙是呼叫通道，不是已證明的 PDF 缺陷或 CPU 超限。先前 MCP 主機拒絕直接呼叫測試 Worker，沒有取得可採用的解析回應或每請求 CPU。缺少量測不能寫成 CPU 為 0。

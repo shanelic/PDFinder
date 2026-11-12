@@ -17,9 +17,11 @@
     "test:mail-fixture": "node --test tests/synthetic-mail-fixture.test.mjs",
     "prepare:synthetic-mail": "node scripts/prepare-synthetic-mail.mjs",
     "demo:synthetic": "node scripts/demo-synthetic.mjs",
-    "verify": "npm test && npm run test:parser && npm run test:attachments && npm run test:providers && npm run test:mime && npm run test:mail-fixture && npm run test:mail-verifier && npm run verify:synthetic-mail && npm run build",
+    "verify": "npm test && npm run test:parser && npm run test:attachments && npm run test:providers && npm run test:mime && npm run test:mail-fixture && npm run test:mail-verifier && npm run verify:synthetic-mail && npm run test:documents && npm run demo:documents && npm run build",
     "test:mail-verifier": "node --test tests/synthetic-mail-verifier.test.mjs",
-    "verify:synthetic-mail": "node scripts/verify-synthetic-mail.mjs"
+    "verify:synthetic-mail": "node scripts/verify-synthetic-mail.mjs",
+    "test:documents": "node --test tests/bounded-document-search.test.mjs",
+    "demo:documents": "node scripts/demo-document-search.mjs"
   },
   "devDependencies": {
     "esbuild": "0.28.0"

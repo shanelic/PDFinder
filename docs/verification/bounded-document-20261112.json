@@ -1,0 +1,67 @@
+{
+  "schema": "pdfinder-bounded-document-candidate-v1",
+  "recordedBy": "Jarvis",
+  "observedAt": "2026-11-12T18:38:07.304635+00:00",
+  "baseRemoteCommit": "284a29ca5aa970ae440b2e443d36d77ef999f898",
+  "scope": "Unpublished host-only document search, all execution inputs synthetic; no live mail, deployment, credentials or fees",
+  "defaults": {
+    "max_bytes": 2097152,
+    "max_pages": 20,
+    "max_text_utf16": 50000,
+    "max_query_codepoints": 80,
+    "max_stream_chunks": 4096,
+    "active_requests_per_instance": 1,
+    "max_returned_matches": 20
+  },
+  "limitsClassification": "Candidate product choices, not user requirements, security policy or Cloudflare capacity acceptance",
+  "actualParserCases": [
+    "generated 3-page citations",
+    "blank PDF",
+    "text with no match",
+    "20 pages accepted",
+    "21 pages rejected",
+    "lower page/text budget failures",
+    "public-fake-password AES-256 correct/missing/wrong",
+    "malformed PDF",
+    "match truncation flag"
+  ],
+  "mockOnlyBoundaryClaims": [
+    "Exact 2MiB boundary used fake parser, not full 2MiB parsing",
+    "UTF16/codepoint distinction used injected parser output",
+    "Resource failure classification used injected exception; existing guarded-parser regressions separate"
+  ],
+  "suites": {
+    "existingInterface": 302,
+    "sourceParser": 32,
+    "attachmentApi": 46,
+    "providerEnvelope": 72,
+    "mimeHandoff": 77,
+    "mailFixture": 10,
+    "mailVerifier": 28,
+    "boundedDocuments": 35,
+    "demoCases": 4,
+    "failed": 0,
+    "skipped": 0
+  },
+  "independentReview": {
+    "suitePassed": 35,
+    "demoCases": 4,
+    "additionalCounterexamplesPassed": 5,
+    "failed": 0,
+    "externalCalls": 0
+  },
+  "build": {
+    "bytes": 3740357,
+    "sha256": "6842618014df5b10d24bb618acbfb3b2556066e2074cf076be621f664797bf79",
+    "unchanged": true
+  },
+  "verifyLogSha256": "4bf312b5d229bd156fc223849f02f981d2fb9f66111537783a70e4544c2d63f6",
+  "remaining": [
+    "No new synthetic mail sent; authorization pending",
+    "No generic hosted upload route or real document processing",
+    "No Free CPU/memory/cold-start acceptance",
+    "Host authentication, secret storage/revocation, egress and isolation not proved",
+    "General document completeness cannot be guaranteed",
+    "Cancellation/cleanup limits are not hard termination or secure-erasure guarantees"
+  ]
+}

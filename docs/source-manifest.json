@@ -18,8 +18,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 3857,
-      "sha256": "97b38fee6e9170a83979fc752e4d620cfe57539d6f7fa099a8edf0005fcaced8"
+      "bytes": 4131,
+      "sha256": "fc31c8fe9f4a6213c96253e9a959800a6dba947ffd9ead42b93cb7e2592f6eff"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -30,6 +30,11 @@
       "path": "docs/architecture.md",
       "bytes": 985,
       "sha256": "801de0a7e0fa35a389f42089b7c098455da5b2a831b51381ade1aad784c0ffef"
+    },
+    {
+      "path": "docs/document-processing-contract.zh-TW.md",
+      "bytes": 6064,
+      "sha256": "6df895165d5485ca3d7610729c7e4edd6adbe62cbdef62eca798b7dbae3be708"
     },
     {
       "path": "docs/fixture-manifest.json",
@@ -63,8 +68,8 @@
     },
     {
       "path": "docs/status.zh-TW.md",
-      "bytes": 6842,
-      "sha256": "a73a96af4155ab8421044dd28bdac20a04554d4fd1c149ae8f3c11de0db1e9be"
+      "bytes": 7124,
+      "sha256": "752e2ff30a127b67b45261e8b4256e56329df3ae0e8a03f5222aeeb7f92356e2"
     },
     {
       "path": "docs/synthetic-attachment-api.zh-TW.md",
@@ -80,6 +85,11 @@
       "path": "docs/verification/attachment-api-20261112.json",
       "bytes": 2090,
       "sha256": "cfe6419cfe4a7e0184bf4d390b33f6e71c7211935d19921e9a69a61a8a7648d1"
+    },
+    {
+      "path": "docs/verification/bounded-document-20261112.json",
+      "bytes": 2359,
+      "sha256": "ac829289291b8e7488801300cbec8271a1c6557c0c7042aaa50f0fa724850b87"
     },
     {
       "path": "docs/verification/icloud-observation-20261112.json",
@@ -113,13 +123,18 @@
     },
     {
       "path": "package.json",
-      "bytes": 1324,
-      "sha256": "ffb60470c24e5beaade80d4dc0f747a37250cfbfb9cdd1d973136184d6033a20"
+      "bytes": 1515,
+      "sha256": "d3f683a8ea7e87421b9fd8a3a76ef24f801e5ce0a5d8f55cbcc055bdc4b8bbb6"
     },
     {
       "path": "scripts/build.mjs",
       "bytes": 940,
       "sha256": "7dcd3abd84f63d5b2fe83618ddf1dc37e7f9442d737f2fa6b231c94e3604b76e"
+    },
+    {
+      "path": "scripts/demo-document-search.mjs",
+      "bytes": 1587,
+      "sha256": "a9a7d5b01487ce7b34bf3969e6c716d4e6d6796066ca1ee3e54a72dedeaa0d39"
     },
     {
       "path": "scripts/demo-synthetic.mjs",
@@ -145,6 +160,11 @@
       "path": "scripts/verify-synthetic-mail.mjs",
       "bytes": 2025,
       "sha256": "d2ba009f23736d657e1ec9da199801d4fe5af681f467ff23de4c409f7fef9f18"
+    },
+    {
+      "path": "src/bounded-document-search.mjs",
+      "bytes": 7438,
+      "sha256": "ffdc1f7af2f3a87a78f7cd368185d5d7316a374a5d2364d945aef99b82e4d119"
     },
     {
       "path": "src/candidate-factory.mjs",
@@ -222,6 +242,11 @@
       "sha256": "c978da77035eeeabd458502ab6a86ec53ce173f05612b2ca6812497493e54523"
     },
     {
+      "path": "tests/bounded-document-search.test.mjs",
+      "bytes": 11162,
+      "sha256": "bb77329a4ee0edbf2d8ca32354ba75e5564f6aa61317ac3f4b12a92591f5dd4f"
+    },
+    {
       "path": "tests/gmail-mime.test.mjs",
       "bytes": 13241,
       "sha256": "2e4d5ddecac9183803ae570cceacdfc15accc3294732b988cf476db598cbc1cb"
@@ -230,6 +255,11 @@
       "path": "tests/gmail-raw-envelope.test.mjs",
       "bytes": 1600,
       "sha256": "12e93a1313ed24ece9eea54cdf6b069836b5fa679e0f2bb8ea41c2c69172b938"
+    },
+    {
+      "path": "tests/helpers/synthetic-text-pdf.mjs",
+      "bytes": 1462,
+      "sha256": "22b58a6c3ace9488387c8f63bea54792686e9711c05f83532ccb4f0c91e3791c"
     },
     {
       "path": "tests/icloud-attachment-envelope.test.mjs",

@@ -38,3 +38,5 @@ npm run verify
 專案程式採 Apache-2.0，沿用擁有者建立 repository 時的授權。納入的依賴及字型資料保留各自授權；再散布前請閱讀 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)，建置產物也須附上必要聲明。
 
 可重跑的[雙信箱合成驗收入口](docs/synthetic-mail-verifier.zh-TW.md)：`npm run verify:synthetic-mail`，本機比較 Gmail raw／iCloud 原檔到 AES-256 解密與來源引用；不寄信，輸出不冒充 live 驗證。
+
+[單份文件搜尋候選](docs/document-processing-contract.zh-TW.md)提供 bytes／頁數／文字預算與明確失敗分類；`npm run demo:documents` 只使用本機生成的合成 PDF。未公開一般文件入口，未驗收真實文件或 Cloudflare Free 容量。
