@@ -1,0 +1,19 @@
+{
+  "name": "pdfinder",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Experimental synthetic encrypted PDF extraction for Cloudflare Workers",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node scripts/test.mjs",
+    "build": "node scripts/build.mjs",
+    "test:parser": "node scripts/test-parser.mjs",
+    "verify": "npm test && npm run test:parser && npm run build"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.0"
+  }
+}
