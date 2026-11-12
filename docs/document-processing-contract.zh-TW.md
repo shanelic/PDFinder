@@ -28,7 +28,7 @@ Demo 不讀取檔案或信箱、不接受網址／密碼，而是生成四份合
 
 ## Host API
 
-`createBoundedDocumentSearch({loadParser, resolvePassword, limits})` 回傳 `search(input, {signal})`。`input` 只有：
+`createBoundedDocumentSearch({loadParser, resolvePassword, limits})` 回傳 `search(input, {signal})`；另有不讀 bytes 的 `prepareSelection`，供橋接在外部讀取之前共用驗證並快照選取。`input` 只有：
 
 ```js
 {
@@ -42,7 +42,7 @@ Demo 不讀取檔案或信箱、不接受網址／密碼，而是生成四份合
 
 來源 ID 保留原樣；Gmail 未知附件 ID 可為 null，iCloud 要求已選取的完整非空 ID。每個 ID／檔名最多 512 字元，檔名必須 `.pdf`（大小寫不拘），不得含路徑；原檔從 `%PDF-` 開頭。前置垃圾或不符合此窄子集合的合法 PDF 也可能拒絕，不能稱為全部 PDF 相容。
 
-`source.sha256` 由可信 host 的原檔交接提供，helper 會重新計算比對。雜湊只證明 bytes 一致，不證明信件歸屬；連線身份、選取授權與實際 provider 回應綁定仍是 host 的責任。本 helper 本身不讀信或下載。
+`source.sha256` 若由可信 host 提供既有值，helper 會重新計算比對；首次取件可明確設為 null，但不能省略。首次計算會標示 `computed_without_prior_hash`，而非已比對既有 hash；計算後的 SHA 會帶入 resolver 及引用。雜湊不證明信件歸屬；連線身份、選取授權與實際 provider 回應綁定仍是 host 的責任。本 helper 本身不讀信或下載。
 
 密碼只由 `resolvePassword(profile, frozenSource)` 在需要時傳回，沒有 request 的明文密碼欄位、持久儲存或快取。未指定 profile 不猜測密碼；已加密文件回 `password_required`。本輪 resolver 只用了公開假密碼，尚無正式秘密存取控制。呼叫者不得在未授權前接入真實密碼或文件。
 

@@ -30,6 +30,12 @@ for(const f of fixedFixtures)test(`Gmail raw MIME -> real PDF parser -> citation
 test('single-part PDF attachment is also selected',async()=>{
   assert.deepEqual((await selectUniquePdfAttachment(enc.encode(part()),selection())).mime_path,[]);
 });
+test('only explicit null selects an unpinned first-seen attachment',async()=>{
+  const raw=enc.encode(part()),s={...selection(),sha256:null};
+  const r=await selectUniquePdfAttachment(raw,s);assert.equal(r.sha256,fixture.sha256);assert.equal(r.matched_by,'unique_filename_size');
+  delete s.sha256;await assert.rejects(selectUniquePdfAttachment(raw,s),rejected('invalid_selection'));
+  s.sha256=undefined;await assert.rejects(selectUniquePdfAttachment(raw,s),rejected('invalid_selection'));
+});
 test('multiple attachments select only exact unique filename',async()=>{
   const result=await selectUniquePdfAttachment(enc.encode(multipart([part(fixedFixtures[0]),part(),part(fixedFixtures[2])])),selection());
   assert.deepEqual(result.mime_path,[2]);assert.equal(result.sha256,fixture.sha256);

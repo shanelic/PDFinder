@@ -103,7 +103,7 @@ export async function selectUniquePdfAttachment(messageBytes,selection) {
   if(!(messageBytes instanceof Uint8Array)||!messageBytes.length||messageBytes.length>MAX_MESSAGE)fail('mime_limit');
   if(!selection||typeof selection.filename!=='string'||!selection.filename||selection.filename.length>512||
     /[\x00-\x1f\x7f/\\]/.test(selection.filename)||!Number.isSafeInteger(selection.size_bytes)||selection.size_bytes<5||selection.size_bytes>MAX_MESSAGE||
-    typeof selection.sha256!=='string'||!/^[0-9a-f]{64}$/.test(selection.sha256))fail('invalid_selection');
+    !(selection.sha256===null||typeof selection.sha256==='string'&&/^[0-9a-f]{64}$/.test(selection.sha256)))fail('invalid_selection');
   selection={filename:selection.filename,size_bytes:selection.size_bytes,sha256:selection.sha256};
   // MIME syntax may use CRLF or LF (the observed synthetic message uses both).
   // Only base64 attachment bodies are decoded, so binary PDF bytes are untouched.
@@ -137,8 +137,8 @@ export async function selectUniquePdfAttachment(messageBytes,selection) {
   if(!decoded.startsWith('%PDF-'))fail('unsupported_attachment');
   const bytes=Uint8Array.from(decoded,c=>c.charCodeAt(0));
   const sha256=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),b=>b.toString(16).padStart(2,'0')).join('');
-  if(sha256!==selection.sha256){bytes.fill(0);fail('attachment_integrity_failed');}
-  return {filename:selection.filename,bytes,sha256,mime_path:[...part.path],matched_by:'unique_filename_size_sha256'};
+  if(selection.sha256!==null&&sha256!==selection.sha256){bytes.fill(0);fail('attachment_integrity_failed');}
+  return {filename:selection.filename,bytes,sha256,mime_path:[...part.path],matched_by:selection.sha256===null?'unique_filename_size':'unique_filename_size_sha256'};
 }
 
 export async function selectGmailRawAttachment(payload,selection) {

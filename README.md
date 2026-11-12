@@ -40,3 +40,5 @@ npm run verify
 可重跑的[雙信箱合成驗收入口](docs/synthetic-mail-verifier.zh-TW.md)：`npm run verify:synthetic-mail`，本機比較 Gmail raw／iCloud 原檔到 AES-256 解密與來源引用；不寄信，輸出不冒充 live 驗證。
 
 [單份文件搜尋候選](docs/document-processing-contract.zh-TW.md)提供 bytes／頁數／文字預算與明確失敗分類；`npm run demo:documents` 只使用本機生成的合成 PDF。未公開一般文件入口，未驗收真實文件或 Cloudflare Free 容量。
+
+[已選附件搜尋橋接](docs/selected-mail-search.zh-TW.md)接合 provider 原檔與單文件搜尋，並區分已知 hash 比對和首次計算。`npm run demo:selected-mail` 僅注入合成工具回應，未讀取真實信箱。

@@ -4,15 +4,15 @@
 
 ## Gmail：已補唯一 PDF 選取
 
-`selectGmailRawAttachment(payload, selection)` 接受先前已核對的 Gmail raw envelope，先比對訊息 ID，再由 `selectUniquePdfAttachment` 選取 MIME 附件。`selection` 包含已選訊息 ID、精確檔名、預期 bytes 與 SHA-256；在非同步處理前複製，避免稍後修改改變來源敘述。
+`selectGmailRawAttachment(payload, selection)` 接受先前已核對的 Gmail raw envelope，先比對訊息 ID，再由 `selectUniquePdfAttachment` 選取 MIME 附件。`selection` 包含已選訊息 ID、精確檔名、預期 bytes 與 SHA-256（首次取件可明確 null，不能省略）；在非同步處理前複製，避免稍後修改改變來源敘述。
 
 選取須同時符合：
 
 1. 在本訊息支援的 MIME 結構中，精確檔名只出現一次。即使同名另一份不是 PDF，也拒絕猜測。
 2. 選中的 leaf 是 `Content-Type: application/pdf`、`Content-Disposition: attachment`、base64 傳輸。
-3. base64 canonical encoding、解碼長度、`%PDF-` 開頭及 SHA-256 全數符合。
+3. base64 canonical encoding、解碼長度與 `%PDF-` 開頭符合；若有預期 SHA-256，必須匹配。明確 null 則只計算，不宣稱與既有 hash 比對。
 
-回傳原始 bytes、檔名、SHA、MIME part path 及 `matched_by: unique_filename_size_sha256`。Gmail 的 opaque attachment ID 無法從 raw MIME 推得，因此 `attachment_id` 固定為 `null`，不拿 part path、Content-ID 或檔名冒充 ID。
+回傳原始 bytes、檔名、計算後 SHA、MIME part path。有預期 hash 的 `matched_by` 是 `unique_filename_size_sha256`；明確 null 時是 `unique_filename_size`。Gmail 的 opaque attachment ID 無法從 raw MIME 推得，因此 `attachment_id` 固定為 `null`，不拿 part path、Content-ID 或檔名冒充 ID。
 
 ### 支援與有意保留的限制
 
@@ -25,7 +25,7 @@
 - 尚不支援 RFC 2047 encoded-word 檔名、RFC 2231 continuation、多字元集、非 base64 PDF、附加郵件內再搜尋、signed/encrypted multipart 等格式，會明確拒絕，不默默降級。遇到 `message/*` 容器即拒絕，避免忽略其中附件後誤稱檔名唯一。
 - 不載入 HTML 圖片／外部資源、不開檔案路徑、不自動讀其他信、不在 `read_attachment` 失敗後自行擴大為 raw 取件。
 
-這是保守子集合，不是完整 RFC 郵件解析器。雜湊證明內容相符，郵件歸屬仍須依靠已驗證的 Gmail 訊息 ID 與主機帳號連線；它不是額外的身份授權系統。
+這是保守子集合，不是完整 RFC 郵件解析器。已有 pin 時雜湊比對證明內容相符，首次計算僅是內容關聯；郵件歸屬仍須依靠已驗證的 Gmail 訊息 ID 與主機帳號連線；它不是額外的身份授權系統。
 
 ### 驗證證據
 

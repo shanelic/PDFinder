@@ -18,8 +18,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 4131,
-      "sha256": "fc31c8fe9f4a6213c96253e9a959800a6dba947ffd9ead42b93cb7e2592f6eff"
+      "bytes": 4366,
+      "sha256": "4769c9634c89cb2b327865882d05763855ad7c22c32fabec97ead1c8539f11fd"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -33,8 +33,8 @@
     },
     {
       "path": "docs/document-processing-contract.zh-TW.md",
-      "bytes": 6064,
-      "sha256": "6df895165d5485ca3d7610729c7e4edd6adbe62cbdef62eca798b7dbae3be708"
+      "bytes": 6324,
+      "sha256": "da9589cf913c612bd952a049307bf8b4259c1f76908c4782fec94aca251bbc35"
     },
     {
       "path": "docs/fixture-manifest.json",
@@ -58,8 +58,8 @@
     },
     {
       "path": "docs/mime-and-icloud-handoff.zh-TW.md",
-      "bytes": 5644,
-      "sha256": "8f2661f30422f00ddad512db0419de45f6552f5204d272e9ef8849cc91986365"
+      "bytes": 5901,
+      "sha256": "d80e16a161d2652f941f46266343707db53296ecee6a118442639de74e6798f5"
     },
     {
       "path": "docs/provider-adapters.zh-TW.md",
@@ -67,9 +67,14 @@
       "sha256": "05fda072dc0e27e47ec71ec7cfd4f0dd38cb3270c1ffa96bdf7da9e795a85b0f"
     },
     {
+      "path": "docs/selected-mail-search.zh-TW.md",
+      "bytes": 4868,
+      "sha256": "0130daa00533c33057f1eda3a5421726da9444187653c9725021305efe18ae27"
+    },
+    {
       "path": "docs/status.zh-TW.md",
-      "bytes": 7124,
-      "sha256": "752e2ff30a127b67b45261e8b4256e56329df3ae0e8a03f5222aeeb7f92356e2"
+      "bytes": 7410,
+      "sha256": "8f7a25c0aa75272718f3f409813e0961e3695fef1009928fcf23a9c3bc009818"
     },
     {
       "path": "docs/synthetic-attachment-api.zh-TW.md",
@@ -107,6 +112,11 @@
       "sha256": "eaec62a63b58127b9a8f903721ba6c6b8b514fc9249526762635e36879311eb3"
     },
     {
+      "path": "docs/verification/selected-mail-search-20261112.json",
+      "bytes": 2542,
+      "sha256": "c9bf5062c85bf6d12001be37b6cf439e64189f08156961e6edd4cdf3a295cc8b"
+    },
+    {
       "path": "docs/verification/stage1-20261112.json",
       "bytes": 2032,
       "sha256": "e9fb2717b63d713c2e2e7a5f31e5f6e09c520ccca4a7dd1681a1c911dfab708d"
@@ -123,8 +133,8 @@
     },
     {
       "path": "package.json",
-      "bytes": 1515,
-      "sha256": "d3f683a8ea7e87421b9fd8a3a76ef24f801e5ce0a5d8f55cbcc055bdc4b8bbb6"
+      "bytes": 1713,
+      "sha256": "63b28ce0f22e3da083340a106a7a36abd7f8500213a0aa85b8cd0c7dd46858b1"
     },
     {
       "path": "scripts/build.mjs",
@@ -135,6 +145,11 @@
       "path": "scripts/demo-document-search.mjs",
       "bytes": 1587,
       "sha256": "a9a7d5b01487ce7b34bf3969e6c716d4e6d6796066ca1ee3e54a72dedeaa0d39"
+    },
+    {
+      "path": "scripts/demo-selected-mail.mjs",
+      "bytes": 1688,
+      "sha256": "c14bcb316cb1cba96f54e83d86725d64fc699d1d5b91aa346e02c016fa2892f9"
     },
     {
       "path": "scripts/demo-synthetic.mjs",
@@ -163,8 +178,8 @@
     },
     {
       "path": "src/bounded-document-search.mjs",
-      "bytes": 7438,
-      "sha256": "ffdc1f7af2f3a87a78f7cd368185d5d7316a374a5d2364d945aef99b82e4d119"
+      "bytes": 8151,
+      "sha256": "feba18097b2f4d229183adf07c72f966622ea4350def81fc9de9265ff2ca404b"
     },
     {
       "path": "src/candidate-factory.mjs",
@@ -178,8 +193,8 @@
     },
     {
       "path": "src/gmail-mime-attachment.mjs",
-      "bytes": 9384,
-      "sha256": "c64d0304049c91e44c27989740c61bcccca6f76ea564b40bcd15d21b8af80155"
+      "bytes": 9483,
+      "sha256": "54db6d47f74106e380200cf90509aca6ff828d08945969e680737020be7bc01c"
     },
     {
       "path": "src/gmail-raw-envelope.mjs",
@@ -217,6 +232,11 @@
       "sha256": "d4b72515c493d4660f16520706bdab1ef4b9661873a33b12acf3d5d40a20dbe4"
     },
     {
+      "path": "src/selected-mail-search.mjs",
+      "bytes": 5154,
+      "sha256": "2ca420ee000699217420eed09f6208ac5b660c429b8aa371586888f7e86d7cc4"
+    },
+    {
       "path": "src/synthetic-attachment-api.mjs",
       "bytes": 8369,
       "sha256": "58148272ed4645db02a7ae961e98a94466802c82a7cd67dee104e79b88aafe7a"
@@ -243,18 +263,23 @@
     },
     {
       "path": "tests/bounded-document-search.test.mjs",
-      "bytes": 11162,
-      "sha256": "bb77329a4ee0edbf2d8ca32354ba75e5564f6aa61317ac3f4b12a92591f5dd4f"
+      "bytes": 11946,
+      "sha256": "ff2a8afc897d935e336c6a609d1750be45eff0cf7e2d6fed8831a912786a97ac"
     },
     {
       "path": "tests/gmail-mime.test.mjs",
-      "bytes": 13241,
-      "sha256": "2e4d5ddecac9183803ae570cceacdfc15accc3294732b988cf476db598cbc1cb"
+      "bytes": 13736,
+      "sha256": "c5de7685b6cf8d089276c3ca8406ec375d2bc721c6f29c4d89d204ebca327633"
     },
     {
       "path": "tests/gmail-raw-envelope.test.mjs",
       "bytes": 1600,
       "sha256": "12e93a1313ed24ece9eea54cdf6b069836b5fa679e0f2bb8ea41c2c69172b938"
+    },
+    {
+      "path": "tests/helpers/synthetic-provider-response.mjs",
+      "bytes": 1993,
+      "sha256": "bdd0c477623aa42020f078692bc5e667ffb9a7c43c89040274199798bc093aab"
     },
     {
       "path": "tests/helpers/synthetic-text-pdf.mjs",
@@ -280,6 +305,11 @@
       "path": "tests/provider-attachments.test.mjs",
       "bytes": 14005,
       "sha256": "820951c2aadddcb3905c6e6c42daf5061c76709b13388a2d4d99d3ab8c445fa7"
+    },
+    {
+      "path": "tests/selected-mail-search.test.mjs",
+      "bytes": 10383,
+      "sha256": "02c6f5d8cc80f0347fc50f451e091456c90764c52b24653137af9b9e813007f3"
     },
     {
       "path": "tests/synthetic-mail-fixture.test.mjs",

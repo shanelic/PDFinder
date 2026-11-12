@@ -24,18 +24,24 @@ export function createBoundedDocumentSearch({loadParser,resolvePassword,limits={
   if(!limits||typeof limits!=='object'||Array.isArray(limits)||Object.keys(limits).some(k=>!Object.hasOwn(HARD,k)))fail('invalid_limits');
   const policy=Object.freeze({...DOCUMENT_LIMITS,...limits});
   for(const key of Object.keys(HARD))if(!Number.isSafeInteger(policy[key])||policy[key]<(key==='max_bytes'?5:1)||policy[key]>HARD[key])fail('invalid_limits');
-  let busy=false;
-  return Object.freeze({limits:policy,async search(input,{signal}={}) {
-    if(busy)fail('busy');
-    if(!exact(input,['source','size_bytes','stream','query','password_profile'])||!exact(input.source,sourceKeys))fail('invalid_selection');
+  const prepareSelection=input=>{
+    if(!exact(input,['source','size_bytes','query','password_profile'])||!exact(input.source,sourceKeys))fail('invalid_selection');
     const s=input.source;
-    if(!sourceKeys.filter(k=>k!=='attachment_id').every(k=>id(s[k]))||!['gmail','icloud'].includes(s.provider)||
+    if(!sourceKeys.filter(k=>k!=='attachment_id'&&k!=='sha256').every(k=>id(s[k]))||!['gmail','icloud'].includes(s.provider)||
       !(s.attachment_id===null&&s.provider==='gmail'||id(s.attachment_id))||!s.filename.toLowerCase().endsWith('.pdf')||/[\\/]/.test(s.filename)||
-      !/^[0-9a-f]{64}$/.test(s.sha256)||!Number.isSafeInteger(input.size_bytes)||input.size_bytes<5)fail('invalid_selection');
+      !(s.sha256===null||typeof s.sha256==='string'&&/^[0-9a-f]{64}$/.test(s.sha256))||!Number.isSafeInteger(input.size_bytes)||input.size_bytes<5)fail('invalid_selection');
     if(input.size_bytes>policy.max_bytes)fail('input_too_large');
     if(!validQuery(input.query))fail('invalid_query');
     if(input.password_profile!==null&&!(typeof input.password_profile==='string'&&/^[A-Za-z0-9][A-Za-z0-9._-]{0,95}$/.test(input.password_profile)))fail('invalid_profile');
-    const source=Object.freeze({...s}),expected=input.size_bytes,query=input.query,profile=input.password_profile,stream=input.stream;
+    return Object.freeze({source:Object.freeze({...s}),size_bytes:input.size_bytes,query:input.query,password_profile:input.password_profile});
+  };
+  let busy=false;
+  return Object.freeze({limits:policy,prepareSelection,async search(input,{signal}={}) {
+    if(busy)fail('busy');
+    if(!exact(input,['source','size_bytes','stream','query','password_profile']))fail('invalid_selection');
+    const selection=prepareSelection({source:input.source,size_bytes:input.size_bytes,query:input.query,password_profile:input.password_profile});
+    let source=selection.source;
+    const hadExpectedHash=source.sha256!==null,expected=selection.size_bytes,query=selection.query,profile=selection.password_profile,stream=input.stream;
     const check=()=>{if(signal?.aborted)fail('request_cancelled');};
     busy=true;let bytes,password,stage='invalid_stream';
     try {
@@ -47,7 +53,8 @@ export function createBoundedDocumentSearch({loadParser,resolvePassword,limits={
         if(offset+chunk.length>expected)fail('size_mismatch');bytes.set(chunk,offset);offset+=chunk.length;
       }
       check();if(offset!==expected)fail('size_mismatch');
-      stage='integrity_failed';const sha256=await hash(bytes);check();if(sha256!==source.sha256)fail('integrity_failed');
+      stage='integrity_failed';const sha256=await hash(bytes);check();if(hadExpectedHash&&sha256!==source.sha256)fail('integrity_failed');
+      source=Object.freeze({...source,sha256});
       if(bytes[0]!==37||bytes[1]!==80||bytes[2]!==68||bytes[3]!==70||bytes[4]!==45)fail('not_pdf');
       // A missing profile is not silently guessed or cached. Plain documents
       // should use null; encrypted documents without one report password_required.
@@ -66,7 +73,7 @@ export function createBoundedDocumentSearch({loadParser,resolvePassword,limits={
         result.pages.some(p=>p.text.length>0)!==(result.text_status==='text_found'))fail('invalid_parser_result');
       const found=findLiteralMatches(result.pages,query,source,sha256);
       return {schema:'bounded_document_search_candidate_v1',status:result.text_status==='no_extractable_text'?'no_extractable_text':found.matches.length?'matches_found':'no_match',
-        source:{...source},sha256,page_count:result.pages.length,limits:{...policy},
+        source:{...source},sha256,integrity:{comparison:hadExpectedHash?'matched_expected':'computed_without_prior_hash'},page_count:result.pages.length,limits:{...policy},
         search:{mode:'literal_case_sensitive',range_unit:'unicode_codepoint',truncated:found.truncated},
         coverage:{assessment:'not_a_completeness_proof',status:result.coverage.status==='standard_font_fallback_used'?'standard_font_fallback_used':'no_detected_resource_failure'},matches:found.matches};
     } catch(error) {

@@ -1,0 +1,64 @@
+{
+  "schema": "pdfinder-selected-mail-search-v1",
+  "recordedBy": "Jarvis",
+  "observedAt": "2026-11-12T18:48:35.768342+00:00",
+  "baseRemoteCommit": "0cb3452bb13ac1e3aa719fd7dab5242197b89630",
+  "scope": "Unpublished local host bridge with injected fake connector responses; real PDF parser, no live reads, email, deployment or fees",
+  "toolSchemaEvidence": {
+    "method": "Current available tool descriptions only; no live invocation",
+    "gmail": "read_email(message_id, format=raw)",
+    "icloud": "get_message(message_id, attachment_ids=[selected_id])"
+  },
+  "behavior": {
+    "preflightBeforeTool": true,
+    "oneExplicitReadPlan": true,
+    "automaticFallback": false,
+    "automaticRetry": false,
+    "preservedOpaqueSourceIds": true,
+    "knownShaMustMatch": true,
+    "explicitNullShaComputesWithoutPriorPin": true,
+    "computedShaPassedToResolverAndCitations": true,
+    "sourceAuthenticationProvidedBy": "trusted host, not proven by helper or content hash"
+  },
+  "limits": {
+    "documentAndIcloudBytes": 2097152,
+    "gmailWholeDecodedMessageBytes": 1048576,
+    "gmailNecessaryAttachmentPreflightBytes": 786432,
+    "gmailLimitCaveat": "Base64 and MIME headers further reduce PDF capacity; below preflight cap is not guaranteed",
+    "priorMimeLimitsUnchanged": true
+  },
+  "suites": {
+    "existingInterface": 302,
+    "sourceParser": 32,
+    "attachmentApi": 46,
+    "providerEnvelope": 72,
+    "mimeHandoff": 78,
+    "mailFixture": 10,
+    "mailVerifier": 28,
+    "boundedDocuments": 36,
+    "selectedMailSearch": 28,
+    "selectedMailDemoCases": 4,
+    "failed": 0,
+    "skipped": 0
+  },
+  "independentReview": {
+    "combinedSuiteBeforeFinalDirectMimeTest": 116,
+    "additionalCounterexamplesPassed": 6,
+    "failed": 0,
+    "externalCalls": 0,
+    "finalChangeAfterReview": "One direct MIME explicit-null/omitted-hash regression added; no production code change"
+  },
+  "build": {
+    "bytes": 3740357,
+    "sha256": "6842618014df5b10d24bb618acbfb3b2556066e2074cf076be621f664797bf79",
+    "unchanged": true
+  },
+  "verifyLogSha256": "f019fa60dfa921fcdf12307b27ea1d21489d25c282b0180028f8826c623e3b3c",
+  "remaining": [
+    "New known-password test-mail authorization pending; zero sends",
+    "Live same-attachment fetch/decrypt/citation not yet accepted",
+    "Supported cloud invocation and Free CPU acceptance unresolved",
+    "No generic hosted endpoint, real document approval, profile security or production isolation",
+    "No further repeated local test rounds substitute for these external decisions"
+  ]
+}

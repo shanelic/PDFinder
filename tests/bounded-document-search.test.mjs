@@ -18,7 +18,15 @@ test('real three-page PDF search keeps page numbers and source citations',async(
   const input=inputOf(createTextPdf(['First PDF','No keyword here','Last PDF']));
   const r=await host().search(input);assert.equal(r.status,'matches_found');assert.equal(r.page_count,3);
   assert.deepEqual(r.matches.map(x=>x.page),[1,3]);assert.deepEqual(r.matches[0].source,input.source);
-  assert.equal(r.sha256,input.source.sha256);assert.equal(r.coverage.assessment,'not_a_completeness_proof');
+  assert.equal(r.sha256,input.source.sha256);assert.equal(r.integrity.comparison,'matched_expected');assert.equal(r.coverage.assessment,'not_a_completeness_proof');
+});
+test('preflight is read-free and snapshots a first-seen selection without prior hash',async()=>{
+  let loads=0;const processor=host({loadParser:async()=>{loads++;return fakeParser();}});
+  const input=inputOf(createTextPdf(['PDF']));input.source.sha256=null;
+  const {stream,...selection}=input,prepared=processor.prepareSelection(selection);assert.equal(loads,0);
+  assert.equal(Object.isFrozen(prepared),true);assert.equal(Object.isFrozen(prepared.source),true);
+  const r=await processor.search({...prepared,stream});assert.equal(r.sha256,hash(createTextPdf(['PDF'])));
+  assert.equal(r.source.sha256,r.sha256);assert.equal(prepared.source.sha256,null);assert.equal(r.integrity.comparison,'computed_without_prior_hash');
 });
 test('real blank PDF is no_extractable_text, not a successful no_match',async()=>{
   const r=await host().search(inputOf(createTextPdf([''])));assert.equal(r.status,'no_extractable_text');assert.equal(r.page_count,1);assert.deepEqual(r.matches,[]);
