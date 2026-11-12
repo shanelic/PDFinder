@@ -1,0 +1,107 @@
+{
+  "schema": "pdfinder-local-provider-adapters-v1",
+  "recordedBy": "Jarvis",
+  "observedAt": "2026-11-12T17:22:02.878230+00:00",
+  "baseRemoteCommit": "0fef368006a4e2169e7efbc2ee3e3da45b7bbf03",
+  "runtime": "v24.22.1",
+  "scope": "Tool schema discovery, local synthetic adapters and read-only recheck of one previously authorized synthetic email; no real documents/passwords, writes or deployment",
+  "verifiedToolContracts": [
+    "gmail.read_attachment input parameters and original file_uri description",
+    "gmail.read_email formats description; raw path not implemented",
+    "icloud_mail.get_message selected attachment IDs input parameters"
+  ],
+  "suites": {
+    "existingInterface": {
+      "passed": 302,
+      "failed": 0
+    },
+    "existingSourceParser": {
+      "passed": 32,
+      "failed": 0
+    },
+    "attachmentApi": {
+      "passed": 46,
+      "failed": 0,
+      "skipped": 0
+    },
+    "providerAdapters": {
+      "passed": 50,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "realParserMockTransportPaths": 14,
+      "includesGmailRawEnvelopeTests": 5
+    }
+  },
+  "build": {
+    "status": "passed",
+    "bytes": 3740357,
+    "sha256": "6842618014df5b10d24bb618acbfb3b2556066e2074cf076be621f664797bf79",
+    "existingBenchmarkUnchanged": true
+  },
+  "review": {
+    "scope": "independent local provider boundary correctness",
+    "findings": [
+      "An injected exported error could disclose arbitrary code",
+      "A new ID echo during filename fallback was not supported"
+    ],
+    "fixes": [
+      "Allowlist and rebuild boundary errors, including modified instances/accessors",
+      "Keep fail-closed mismatch and explicitly document/test it"
+    ],
+    "independentFixRegression": {
+      "passed": 3,
+      "failed": 0
+    },
+    "rawEnvelopeReview": {
+      "suitePassed": 5,
+      "additionalByteBoundaryChecksPassed": 27,
+      "failed": 0
+    }
+  },
+  "verifyLogSha256": "62fac3f303aa47cb90aeed2483948daf75f1abf4329d39663e7afa9809ac5e22",
+  "limitations": [
+    "File-returning response envelopes and file redemption not tested; no production file decoder",
+    "Gmail raw envelope verified; JS MIME attachment selection still missing, no automatic fallback",
+    "Internal normalized payload is not official provider JSON",
+    "Missing identity echoes remain missing; connection/source assertion requires trusted host",
+    "Unknown attachment ID stays null; newly echoed nonempty ID is rejected pending verified selection",
+    "Only seven pinned fixtures in extraction API; observed historical attachment is not added",
+    "Cancellation and cleanup rely on cooperative upstream; no platform isolation proof",
+    "iCloud exact-marker search stopped with cursor remaining; no current iCloud envelope observation"
+  ],
+  "observedConnectorEvidence": {
+    "gmailAttachmentRead": {
+      "selectedSyntheticAttachmentSupportedFlag": true,
+      "attempts": 1,
+      "result": "INVALID_ARGUMENT"
+    },
+    "gmailRawRead": {
+      "selectedExistingSyntheticMessage": "Gmail sent copy of the earlier iCloud test email",
+      "messageIdMatched": true,
+      "observedFields": [
+        "id",
+        "raw"
+      ],
+      "encoding": "canonical base64url",
+      "rfc2822Bytes": 4703,
+      "jsEnvelopeDecoderPassed": true,
+      "pythonStdlibMimeCheck": {
+        "attachments": 1,
+        "pdfBytes": 2476,
+        "sha256": "b35a86b6e77b509874766a0f1e0a4a10f956d015b9a53ff52a7b9cf79572de98",
+        "pdfHeaderMatched": true
+      },
+      "decryptRetested": false,
+      "rawOrIdentifiersCommitted": false
+    },
+    "icloudLookup": {
+      "scope": "inbox exact prior synthetic test marker only",
+      "pagesRead": 21,
+      "matches": 0,
+      "cursorRemaining": true,
+      "conclusion": "Not located within this bounded search; not proof of absence"
+    }
+  }
+}

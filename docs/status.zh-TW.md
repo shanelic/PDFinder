@@ -35,6 +35,8 @@ node --input-type=module -e 'import worker from "./dist/worker.mjs"; import {run
 
 這項工作不依賴被擋的雲端通道，也未改變既有 benchmark 部署入口。詳細本輪數量及產物見 [本機 API 驗證紀錄](verification/attachment-api-20261112.json)。
 
+接續新增 [provider adapter](provider-adapters.zh-TW.md)：依現行工具契約產生 Gmail／iCloud 精確取件參數，注入 fake invoker、decoder 與原始檔串流，接回真實解析及引用。可拒絕錯誤 echo、預覽檔、大小及雜湊不符；未知附件 ID 保留 null。另唯讀核對一封既有合成測試信的 Gmail raw envelope 與唯一 PDF bytes，並新增 envelope decoder；尚未完成 JS MIME 附件選取、iCloud 回應或 live 端到端流程。驗證摘要見 [provider 紀錄](verification/provider-adapters-20261112.json)。
+
 ### 正式雲端呼叫仍待確認
 
 已知阻礙是呼叫通道，不是已證明的 PDF 缺陷或 CPU 超限。先前 MCP 主機拒絕直接呼叫測試 Worker，沒有取得可採用的解析回應或每請求 CPU。缺少量測不能寫成 CPU 為 0。

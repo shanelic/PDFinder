@@ -12,8 +12,9 @@
     "build": "node scripts/build.mjs",
     "test:parser": "node scripts/test-parser.mjs",
     "test:attachments": "node --test tests/attachment-api.test.mjs",
+    "test:providers": "node --test tests/provider-attachments.test.mjs tests/gmail-raw-envelope.test.mjs",
     "demo:synthetic": "node scripts/demo-synthetic.mjs",
-    "verify": "npm test && npm run test:parser && npm run test:attachments && npm run build"
+    "verify": "npm test && npm run test:parser && npm run test:attachments && npm run test:providers && npm run build"
   },
   "devDependencies": {
     "esbuild": "0.28.0"

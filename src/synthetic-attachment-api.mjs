@@ -61,7 +61,8 @@ export function createSyntheticAttachmentApi({sources,resolvePassword,loadParser
   const selected=new Map();
   for(const s of sources) {
     if(!exact(s,sourceFields) || !['gmail','icloud'].includes(s.provider) ||
-      !['source_ref','account_ref','message_id','attachment_id'].every(k=>identifier(s[k])) ||
+      !['source_ref','account_ref','message_id'].every(k=>identifier(s[k])) ||
+      !(s.attachment_id===null || identifier(s.attachment_id)) ||
       !fixedFixtures.some(f=>f.fixture_id===s.filename && f.sha256===s.sha256) || selected.has(s.source_ref)) throw new Error('Invalid synthetic source');
     selected.set(s.source_ref,Object.freeze({...s}));
   }
