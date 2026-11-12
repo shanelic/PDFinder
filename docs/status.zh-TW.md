@@ -35,4 +35,40 @@ node --input-type=module -e 'import worker from "./dist/worker.mjs"; import {run
 
 這項工作不依賴被擋的雲端通道，也未改變既有 benchmark 部署入口。詳細本輪數量及產物見 [本機 API 驗證紀錄](verification/attachment-api-20261112.json)。
 
-接續新增 [provider adapter](provider-adapters.zh-TW.md)：依現行工具契約產生 Gmail／iCloud 精確取件參數，注入 fake invoker、decoder 與原…1447 tokens truncated…u9650制的說明，不代表目前帳號／執行環境已取得額外權限。
+接續新增 [provider adapter](provider-adapters.zh-TW.md)：依現行工具契約產生 Gmail／iCloud 精確取件參數，注入 fake invoker、decoder 與原始檔串流，接回真實解析及引用。可拒絕錯誤 echo、預覽檔、大小及雜湊不符；未知附件 ID 保留 null。另唯讀核對一封既有合成測試信的 Gmail raw envelope 與唯一 PDF bytes，驗證摘要見 [provider 紀錄](verification/provider-adapters-20261112.json)。
+
+已補 [JS MIME 唯一附件選取及 iCloud host 交接契約](mime-and-icloud-handoff.zh-TW.md)。Gmail 7 份合成 MIME 路徑接真實解析與引用；重用官方 raw 回應也選出同一份 2,476 bytes PDF。
+
+最新 [iCloud 原檔觀察](icloud-observation-and-mail-fixture.zh-TW.md) 已透過精確 Message-ID header 找回原合成測試信，取得原始 PDF，與 Gmail bytes／SHA 一致；新增的窄 envelope decoder 也用該回應核對。舊附件的當次隨機假密碼紀錄無法恢復，因此 live 解密／引用仍未完成。已另備可重現 EML 與公開假密碼 manifest，本機端到端通過但未寄送，不能替代舊附件驗收。
+
+### 正式雲端呼叫仍待確認
+
+已知阻礙是呼叫通道，不是已證明的 PDF 缺陷或 CPU 超限。先前 MCP 主機拒絕直接呼叫測試 Worker，沒有取得可採用的解析回應或每請求 CPU。缺少量測不能寫成 CPU 為 0。
+
+Cloudflare MCP 官方契約限制 execute 的外連目標為 Cloudflare API；可管理 Worker 不代表可透過同一工具任意呼叫 Worker 網址。切換工具模式不會授予新的目的地權限。不可用代理、換域名或另一執行器規避拒絕。
+
+正式可行路徑仍待確認：
+
+1. 平台提供並明確授權可呼叫該測試 Worker 的正式通道；或
+2. 經使用者同意，由使用者自己的裝置執行一次手動合成測試，保留可驗證回應，再以管理 API 讀取平台彙總。
+
+官方雲端環境文件支援擁有者設定指定允許網域，但尚未證明該設定介面適用於目前受管理的執行環境。這不是多索取一個 Cloudflare token 就能解決的問題。也尚未驗證手機可用的完整手動流程，因此不能把它寫成現成產品功能。
+
+通道確認後，先只測 1 份固定 AES-256 合成 PDF；成功才選 3–4 個代表案例。保留短效入口保護、免費邊界、前後狀態核對與清理；不增加通用控制框架。本輪沒有雲端上傳、部署、入口啟用或 PDF HTTP 請求。
+
+## 尚未驗收
+
+- 真正 Cloudflare Free 環境的冷啟動、每請求 CPU、記憶體與錯誤結果。
+- 任意真實附件、郵件來源授權、密碼安全首次輸入／重用與撤銷、完整引用鏈。
+- 正式部署的網路／解析隔離；本機 fetch 攔截與 PDF.js 設定不是防火牆。
+- 文件完整性只能偵測已知缺失資源與部分錯誤，不能保證所有文件擷取完整。
+- 發布、合併到 `develop`／`main`、正式服務可用性。此輪只在 feature 分支記錄進度。
+
+## 官方參考
+
+- [Cloudflare MCP 安全邊界](https://github.com/cloudflare/mcp/blob/main/AGENTS.md#security-considerations)
+- [Cloudflare MCP 官方伺服器](https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/)
+- [雲端環境的服務連線設定](https://learn.chatgpt.com/docs/environments/cloud-environments#connect-to-services)
+- [ChatGPT 執行權限](https://learn.chatgpt.com/docs/permissions)
+
+以上文件支持產品能力及限制的說明，不代表目前帳號／執行環境已取得額外權限。
