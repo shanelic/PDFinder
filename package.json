@@ -12,10 +12,12 @@
     "build": "node scripts/build.mjs",
     "test:parser": "node scripts/test-parser.mjs",
     "test:attachments": "node --test tests/attachment-api.test.mjs",
-    "test:providers": "node --test tests/provider-attachments.test.mjs tests/gmail-raw-envelope.test.mjs",
+    "test:providers": "node --test tests/provider-attachments.test.mjs tests/gmail-raw-envelope.test.mjs tests/icloud-attachment-envelope.test.mjs",
     "test:mime": "node --test tests/gmail-mime.test.mjs tests/icloud-host-handoff.test.mjs",
+    "test:mail-fixture": "node --test tests/synthetic-mail-fixture.test.mjs",
+    "prepare:synthetic-mail": "node scripts/prepare-synthetic-mail.mjs",
     "demo:synthetic": "node scripts/demo-synthetic.mjs",
-    "verify": "npm test && npm run test:parser && npm run test:attachments && npm run test:providers && npm run test:mime && npm run build"
+    "verify": "npm test && npm run test:parser && npm run test:attachments && npm run test:providers && npm run test:mime && npm run test:mail-fixture && npm run build"
   },
   "devDependencies": {
     "esbuild": "0.28.0"

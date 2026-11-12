@@ -1,0 +1,105 @@
+{
+  "schema": "pdfinder-icloud-observation-v1",
+  "recordedBy": "Jarvis",
+  "observedAt": "2026-11-12T17:53:28.349506+00:00",
+  "baseRemoteCommit": "9c20cc369335824088f193d3f9f983e3c8461fe6",
+  "runtime": "v24.22.1",
+  "scope": "Read-only recheck of prior authorized synthetic email and local deterministic fixture preparation; no new mail, real documents/passwords or deployment",
+  "discovery": {
+    "datedSubjectSearch": {
+      "folders": 23,
+      "pages": 180,
+      "allCursorsExhausted": true,
+      "matches": 0
+    },
+    "undatedSubjectSearch": {
+      "folders": 23,
+      "pagesIncludingPriorResumedInbox": 180,
+      "allCursorsExhausted": true,
+      "matches": 0
+    },
+    "exactMessageIdHeaderSearch": {
+      "matchFound": true,
+      "matchInFirstInboxPage": true,
+      "allFoldersExhausted": false,
+      "reasonToStop": "Exact previously authorized synthetic target located"
+    },
+    "inconsistentSearchCause": "Unknown; subject zero results did not establish absence"
+  },
+  "originalTransport": {
+    "selectedOriginalFiles": 1,
+    "bytes": 2476,
+    "sha256": "b35a86b6e77b509874766a0f1e0a4a10f956d015b9a53ff52a7b9cf79572de98",
+    "matchesGmailRawBytes": true,
+    "pdfHeaderMatched": true,
+    "redirectsFollowed": 0,
+    "observedDecoderApplied": true,
+    "messageAttachmentAndFileIdentityMatched": true,
+    "metadataOrSignedUrlCommitted": false,
+    "decryptAttempted": false
+  },
+  "historicalPassword": {
+    "state": "No recoverable public fake password record bound to this exact attachment hash",
+    "guessedOrCracked": false,
+    "consequence": "Live fetch-to-decrypt/citation remains unverified"
+  },
+  "suites": {
+    "existingInterface": {
+      "passed": 302,
+      "failed": 0
+    },
+    "existingSourceParser": {
+      "passed": 32,
+      "failed": 0
+    },
+    "attachmentApi": {
+      "passed": 46,
+      "failed": 0
+    },
+    "providerEnvelope": {
+      "passed": 72,
+      "failed": 0,
+      "newObservedIcloudTests": 22
+    },
+    "mimeAndHandoff": {
+      "passed": 77,
+      "failed": 0
+    },
+    "reproducibleMailFixture": {
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "review": {
+    "newIcloudSuitePassed": 22,
+    "additionalBoundaryChecksPassed": 5,
+    "failed": 0,
+    "scope": "Synthetic tests, not independent live-mail rerun"
+  },
+  "reproducibleFixture": {
+    "delivery": "not_sent",
+    "pdfBytes": 1825,
+    "pdfSha256": "88bcd7d2be5ff65e024d6b3a5964da2a0d10b1f36cbb2616abfc60556a8fe47c",
+    "emlBytes": 3311,
+    "emlSha256": "76a0155d9a49c06dc0aca243ab9adccc75a032f1c9637b3ef36eaf99ecae6581",
+    "generatedTwiceIdentically": true,
+    "passwordClassification": "Public synthetic value, not user credential",
+    "distinctFromHistoricalAttachment": true,
+    "futureSendRequiresSeparateAuthorization": true
+  },
+  "build": {
+    "passed": true,
+    "bytes": 3740357,
+    "sha256": "6842618014df5b10d24bb618acbfb3b2556066e2074cf076be621f664797bf79",
+    "benchmarkUnchanged": true
+  },
+  "verifyLogSha256": "a6189fd74e2315e1785113138025fab175c8c46d9b7c8a939202846d05facccb",
+  "remaining": [
+    "Historical fake password unavailable",
+    "No successful live fetch-to-decrypt/citation for this historical attachment",
+    "Reusable prepared fixture has not been sent",
+    "No production host identity/secret storage/retention/egress guarantees",
+    "Hosted invocation and Workers Free CPU acceptance remain unresolved"
+  ]
+}

@@ -35,7 +35,7 @@
 
 ## iCloud：明確的同次主機交接契約
 
-`decodeIcloudHostHandoff(receipt, context)` 是**內部主機 receipt**，不是觀察到的 iCloud 工具 JSON。真實 `get_message` 回應解包與檔案交接仍未驗證；主機不得把下面的結構說成官方輸出。
+`decodeIcloudHostHandoff(receipt, context)` 是**內部主機 receipt**，不是觀察到的 iCloud 工具 JSON。後續另新增[實際觀察的 envelope decoder](icloud-observation-and-mail-fixture.zh-TW.md)；主機仍不得把下面的 receipt 結構說成官方輸出。
 
 ```js
 {
@@ -66,4 +66,4 @@ npm run verify
 
 機器可讀紀錄：[mime-handoff-20261112.json](verification/mime-handoff-20261112.json)。
 
-仍未完成：iCloud 真實原始檔回應及取件交接、可接受更多合法 MIME 變體的相容性、真正手機到雲端的完整流程、正式密碼持久保管，以及受支援通道上的 Cloudflare Free CPU／隔離驗收。本輪沒有部署、費用、真實文件或密碼。
+後續已核對 iCloud 真實原始檔交接，但舊合成附件的假密碼紀錄未恢復。仍未完成：live 取件到解密／引用、更多合法 MIME 變體的相容性、真正手機到雲端的完整流程、正式密碼持久保管，以及受支援通道上的 Cloudflare Free CPU／隔離驗收。沒有部署、費用、真實文件或密碼。

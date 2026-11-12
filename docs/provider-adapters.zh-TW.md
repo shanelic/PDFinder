@@ -12,6 +12,8 @@
 
 以上表格記錄**現行工具參數／敘述**。歷史研究曾記錄 Gmail raw 與 iCloud 合成取件成功，但目前可恢復的舊 prototype 副本沒有足以重建那些 observed-envelope decoders 的證據，因此另外做下列有限度唯讀核對，而不直接套用歷史成功。
 
+後續更新：[iCloud 原檔及 observed-envelope 已重新核對](icloud-observation-and-mail-fixture.zh-TW.md)。以下搜尋及缺口段落保留原輪紀錄；最新狀態以該頁及 status 為準。
+
 ## 本輪實際連接器觀察
 
 - 重新定位兩封先前建立的合成測試信，只選其中一封的唯一合成 PDF。所讀的是 iCloud 測試信在 Gmail 的寄件副本，不是新的測試信。
@@ -27,7 +29,7 @@
 
 1. `connection`：已核對的 provider、account_ref、connection_ref。
 2. `invoke(plan, context)`：在該連線執行已規劃的單次讀取；本輪是 fake invoker。
-3. `decodeOriginal(raw, context)`：解包原始檔回應的主機函式；**目前沒有可用的 production 實作**。上述獨立 Gmail raw envelope helper 不會冒充 file_uri／iCloud decoder。
+3. `decodeOriginal(raw, context)`：解包原始檔回應的主機函式。已有實際回應驗證的窄 `decodeIcloudAttachmentEnvelope`，但不是完整 production 接線；獨立 Gmail raw envelope helper 也不冒充 file_uri decoder。
 4. `readOriginal(reference, context)`：經受支援檔案交接讀取原始 bytes，提供 `AsyncIterable<Uint8Array>`；本輪只用記憶體串流。
 
 adapter 自己不呼叫 `fetch`、不解讀下載 URL、不跟隨重導、不搜尋其他信、不建立檔案或寫入信箱。沒有 decoder／原始檔讀取函式時，建立 adapter 直接失敗，不自行猜測或降級。

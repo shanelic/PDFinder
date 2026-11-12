@@ -18,8 +18,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 3258,
-      "sha256": "902ce9a02781d15fae3de257eda6f4a240f99dbb13a4ff8dab01bce6fef10735"
+      "bytes": 3622,
+      "sha256": "a906417a5dcd6f740d9cc08c855d825ea14383437355a27f8db093bd536b22d9"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -42,34 +42,44 @@
       "sha256": "3eb7b7bcb46528922828290ddcd4e88db540c737d3d2607e6251ff9aa7faa7ef"
     },
     {
+      "path": "docs/icloud-observation-and-mail-fixture.zh-TW.md",
+      "bytes": 4470,
+      "sha256": "12912cdc8472fed1f0e2c31be8750bdf693af13dbc765f110e1beece491da3da"
+    },
+    {
       "path": "docs/migration.md",
       "bytes": 2438,
       "sha256": "b90fb7b11de1793a83849826d6047522cb6bf2eae9214d03b04008aaa11a18b9"
     },
     {
       "path": "docs/mime-and-icloud-handoff.zh-TW.md",
-      "bytes": 5531,
-      "sha256": "8fab77287d21c19ce3c0043fca29e4ab2b036614c9c7110d032327bf558f262d"
+      "bytes": 5644,
+      "sha256": "8f2661f30422f00ddad512db0419de45f6552f5204d272e9ef8849cc91986365"
     },
     {
       "path": "docs/provider-adapters.zh-TW.md",
-      "bytes": 6641,
-      "sha256": "4fe68adc52411e48baf45af2ff596ca4ba072474718f06fb631d372cc47f9910"
+      "bytes": 6889,
+      "sha256": "05fda072dc0e27e47ec71ec7cfd4f0dd38cb3270c1ffa96bdf7da9e795a85b0f"
     },
     {
       "path": "docs/status.zh-TW.md",
-      "bytes": 6279,
-      "sha256": "bc323ffcae5beef5ac4a42e1bcc60614fd48754171aa7f37dd85e4730769bc57"
+      "bytes": 6569,
+      "sha256": "f8e0ac3f3dec03475fc3e34bbd6b247e56c7cda3e46636fd8f676b8f33160076"
     },
     {
       "path": "docs/synthetic-attachment-api.zh-TW.md",
-      "bytes": 5321,
-      "sha256": "7da472688899abc5458878ab315da10b6b568fb6ada4455e417540eaee1778f7"
+      "bytes": 5389,
+      "sha256": "3f8f81f0f43253cda4d90d22759890d2e1f499121409dea7c2d022ef04b80f0f"
     },
     {
       "path": "docs/verification/attachment-api-20261112.json",
       "bytes": 2090,
       "sha256": "cfe6419cfe4a7e0184bf4d390b33f6e71c7211935d19921e9a69a61a8a7648d1"
+    },
+    {
+      "path": "docs/verification/icloud-observation-20261112.json",
+      "bytes": 3429,
+      "sha256": "a9c3232be8c433521fd9e6ff32eda5c4e042a81ee345bfcbe71c737ac37e1ff8"
     },
     {
       "path": "docs/verification/mime-handoff-20261112.json",
@@ -93,8 +103,8 @@
     },
     {
       "path": "package.json",
-      "bytes": 888,
-      "sha256": "f978bc536b54c82908e3c46f86e2f5c4ad5e13b6ac97bd5c0be43a502a6eddca"
+      "bytes": 1110,
+      "sha256": "c397fadbf4c7b52ff3ac768916768805b4af5ca2473ca2e7ed75b64fd5720a6e"
     },
     {
       "path": "scripts/build.mjs",
@@ -105,6 +115,11 @@
       "path": "scripts/demo-synthetic.mjs",
       "bytes": 1231,
       "sha256": "0b5c8824f5f90163c763b722d884167431d91991c9afa4d71aaf82d8bf43c8fb"
+    },
+    {
+      "path": "scripts/prepare-synthetic-mail.mjs",
+      "bytes": 1454,
+      "sha256": "d21fdcbaf0e521b2299bca4b3533baec89b78a53b7eba8018fe1123e10c19289"
     },
     {
       "path": "scripts/test-parser.mjs",
@@ -142,6 +157,11 @@
       "sha256": "c62d705fd58df324ff58c85a8b6eab22f3f9c17527dbc4a1f5b0d0e516df3feb"
     },
     {
+      "path": "src/icloud-attachment-envelope.mjs",
+      "bytes": 3134,
+      "sha256": "5ec2180532adeb1d1475e9e21564896988b102a638a3c7056fb9fd22b4dccebd"
+    },
+    {
       "path": "src/icloud-host-handoff.mjs",
       "bytes": 2541,
       "sha256": "7d6b8cb6f99df513e63332fbc6643bce4f8c3e933da5ce44340cc2ac5c28c340"
@@ -167,6 +187,11 @@
       "sha256": "58148272ed4645db02a7ae961e98a94466802c82a7cd67dee104e79b88aafe7a"
     },
     {
+      "path": "src/synthetic-mail-fixture.mjs",
+      "bytes": 2915,
+      "sha256": "861683045fc7b8f0c4f06f85a07fcd215a4e2808978f03be58bf1413febee774"
+    },
+    {
       "path": "src/worker.mjs",
       "bytes": 541,
       "sha256": "60ed22048b327c8f0736c392a80b1204fea5f2341cb901232cb2ee292d9cc649"
@@ -187,6 +212,11 @@
       "sha256": "12e93a1313ed24ece9eea54cdf6b069836b5fa679e0f2bb8ea41c2c69172b938"
     },
     {
+      "path": "tests/icloud-attachment-envelope.test.mjs",
+      "bytes": 5426,
+      "sha256": "352620c948f5f543f8ef4dc0f38aa3e173d9a8c874629660b1b896930b1be9ef"
+    },
+    {
       "path": "tests/icloud-host-handoff.test.mjs",
       "bytes": 5843,
       "sha256": "dfe3d1cce5ba7e233b3e4d628db14c636d980c7e09bcfa944122df5c8a616cca"
@@ -200,6 +230,11 @@
       "path": "tests/provider-attachments.test.mjs",
       "bytes": 14005,
       "sha256": "820951c2aadddcb3905c6e6c42daf5061c76709b13388a2d4d99d3ab8c445fa7"
+    },
+    {
+      "path": "tests/synthetic-mail-fixture.test.mjs",
+      "bytes": 7249,
+      "sha256": "f99e8d3245e1cbbc0bc542fdbbebf2e51f19a08bfe94a4e6e447428c685074e2"
     },
     {
       "path": "vendor/canvas/LICENSE",
