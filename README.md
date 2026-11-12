@@ -36,3 +36,5 @@ npm run verify
 ## 授權
 
 專案程式採 Apache-2.0，沿用擁有者建立 repository 時的授權。納入的依賴及字型資料保留各自授權；再散布前請閱讀 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)，建置產物也須附上必要聲明。
+
+可重跑的[雙信箱合成驗收入口](docs/synthetic-mail-verifier.zh-TW.md)：`npm run verify:synthetic-mail`，本機比較 Gmail raw／iCloud 原檔到 AES-256 解密與來源引用；不寄信，輸出不冒充 live 驗證。

@@ -1,0 +1,62 @@
+{
+  "schema": "pdfinder-synthetic-mail-verifier-v1",
+  "recordedBy": "Jarvis",
+  "observedAt": "2026-11-12T18:28:21.822783+00:00",
+  "baseRemoteCommit": "26523f8d050b8a57bbb315bd0e4a921151753446",
+  "scope": "Local synthetic provider responses and real AES-256 parser only; no new email, live mailbox reads, deployment or fees",
+  "fixture": {
+    "filename": "AES-256.pdf",
+    "bytes": 1825,
+    "sha256": "88bcd7d2be5ff65e024d6b3a5964da2a0d10b1f36cbb2616abfc60556a8fe47c",
+    "passwordClass": "public_synthetic_not_a_user_secret"
+  },
+  "localAcceptance": {
+    "providers": [
+      "gmail_raw",
+      "icloud_original_file"
+    ],
+    "actualParser": true,
+    "matchingHashPageQuoteAndUnicodeRange": true,
+    "opaqueSourceIdsPreserved": true,
+    "summaryExcludesSourceIds": true,
+    "liveProviderVerification": false,
+    "mailSent": false
+  },
+  "suites": {
+    "existingInterface": 302,
+    "sourceParser": 32,
+    "attachmentApi": 46,
+    "providerEnvelope": 72,
+    "mimeHandoff": 77,
+    "mailFixture": 10,
+    "mailVerifier": 28,
+    "failed": 0,
+    "skipped": 0
+  },
+  "reviewFix": {
+    "finding": "Parser-detached buffer or modified fill method could let raw cleanup errors replace sanitized outcomes",
+    "resolution": "Captured TypedArray fill primitive and fixed buffer_cleanup_failed error; no success when cleanup fails",
+    "regressionTests": 2,
+    "noSecureErasureClaim": true
+  },
+  "build": {
+    "bytes": 3740357,
+    "sha256": "6842618014df5b10d24bb618acbfb3b2556066e2074cf076be621f664797bf79",
+    "unchanged": true
+  },
+  "verifyLogSha256": "d19c1a8bc031818127409416b6d178f5893fa8f520db6f6d899381e178813ee0",
+  "remaining": [
+    "New test-mail authorization pending; no send attempted",
+    "Historical 2476-byte attachment fake password still unrecovered",
+    "Trusted host must authenticate/bind actual connection and responses",
+    "Live fetch-to-decrypt/citation and Workers Free CPU not yet accepted",
+    "Cancellation is not hard interruption; buffer clear is not full secure erasure"
+  ],
+  "independentReview": {
+    "finalSuitePassed": 28,
+    "additionalCounterexamplesPassed": 3,
+    "failed": 0,
+    "skipped": 0,
+    "externalCalls": 0
+  }
+}

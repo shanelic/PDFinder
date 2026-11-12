@@ -18,8 +18,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 3622,
-      "sha256": "a906417a5dcd6f740d9cc08c855d825ea14383437355a27f8db093bd536b22d9"
+      "bytes": 3857,
+      "sha256": "97b38fee6e9170a83979fc752e4d620cfe57539d6f7fa099a8edf0005fcaced8"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -63,13 +63,18 @@
     },
     {
       "path": "docs/status.zh-TW.md",
-      "bytes": 6569,
-      "sha256": "f8e0ac3f3dec03475fc3e34bbd6b247e56c7cda3e46636fd8f676b8f33160076"
+      "bytes": 6842,
+      "sha256": "a73a96af4155ab8421044dd28bdac20a04554d4fd1c149ae8f3c11de0db1e9be"
     },
     {
       "path": "docs/synthetic-attachment-api.zh-TW.md",
       "bytes": 5389,
       "sha256": "3f8f81f0f43253cda4d90d22759890d2e1f499121409dea7c2d022ef04b80f0f"
+    },
+    {
+      "path": "docs/synthetic-mail-verifier.zh-TW.md",
+      "bytes": 3176,
+      "sha256": "63a5690af78256cb78dded595ed8f5257d00cb5d75f79cd829e01598337850d8"
     },
     {
       "path": "docs/verification/attachment-api-20261112.json",
@@ -97,14 +102,19 @@
       "sha256": "e9fb2717b63d713c2e2e7a5f31e5f6e09c520ccca4a7dd1681a1c911dfab708d"
     },
     {
+      "path": "docs/verification/synthetic-mail-verifier-20261112.json",
+      "bytes": 2194,
+      "sha256": "79037a80dde7ad475503e7b376431b19dee5f3fbbdce01583edf7f152337381d"
+    },
+    {
       "path": "package-lock.json",
       "bytes": 14543,
       "sha256": "a886f42bb560a388b1d3fba6d21a1872ccdd0986711cc6ad3084d82ef3f0bf33"
     },
     {
       "path": "package.json",
-      "bytes": 1110,
-      "sha256": "c397fadbf4c7b52ff3ac768916768805b4af5ca2473ca2e7ed75b64fd5720a6e"
+      "bytes": 1324,
+      "sha256": "ffb60470c24e5beaade80d4dc0f747a37250cfbfb9cdd1d973136184d6033a20"
     },
     {
       "path": "scripts/build.mjs",
@@ -130,6 +140,11 @@
       "path": "scripts/test.mjs",
       "bytes": 127,
       "sha256": "181a8322f758280b44001e427666a5d2360a248735d81ae289dade506bf0b387"
+    },
+    {
+      "path": "scripts/verify-synthetic-mail.mjs",
+      "bytes": 2025,
+      "sha256": "d2ba009f23736d657e1ec9da199801d4fe5af681f467ff23de4c409f7fef9f18"
     },
     {
       "path": "src/candidate-factory.mjs",
@@ -192,6 +207,11 @@
       "sha256": "861683045fc7b8f0c4f06f85a07fcd215a4e2808978f03be58bf1413febee774"
     },
     {
+      "path": "src/synthetic-mail-verifier.mjs",
+      "bytes": 6036,
+      "sha256": "1b0d82d93f5aee64d944ecc5843f10bebeb36e8167598d65e08b980cd9dd9cff"
+    },
+    {
       "path": "src/worker.mjs",
       "bytes": 541,
       "sha256": "60ed22048b327c8f0736c392a80b1204fea5f2341cb901232cb2ee292d9cc649"
@@ -235,6 +255,11 @@
       "path": "tests/synthetic-mail-fixture.test.mjs",
       "bytes": 7249,
       "sha256": "f99e8d3245e1cbbc0bc542fdbbebf2e51f19a08bfe94a4e6e447428c685074e2"
+    },
+    {
+      "path": "tests/synthetic-mail-verifier.test.mjs",
+      "bytes": 8951,
+      "sha256": "d0ea64af7669d9db4c86103177bbe0111c6e4b695a655f32a22ce45731f37c12"
     },
     {
       "path": "vendor/canvas/LICENSE",

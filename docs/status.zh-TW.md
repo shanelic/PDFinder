@@ -41,6 +41,8 @@ node --input-type=module -e 'import worker from "./dist/worker.mjs"; import {run
 
 最新 [iCloud 原檔觀察](icloud-observation-and-mail-fixture.zh-TW.md) 已透過精確 Message-ID header 找回原合成測試信，取得原始 PDF，與 Gmail bytes／SHA 一致；新增的窄 envelope decoder 也用該回應核對。舊附件的當次隨機假密碼紀錄無法恢復，因此 live 解密／引用仍未完成。已另備可重現 EML 與公開假密碼 manifest，本機端到端通過但未寄送，不能替代舊附件驗收。
 
+已另補[同一合成附件的雙信箱驗收入口](synthetic-mail-verifier.zh-TW.md)，保留 host 實際 opaque ID 並統一核對解密、頁碼與引用。雙路徑真 PDF.js 本機解析成功，仍未寄送新信；只有合成 envelope，尚非 live 端到端。
+
 ### 正式雲端呼叫仍待確認
 
 已知阻礙是呼叫通道，不是已證明的 PDF 缺陷或 CPU 超限。先前 MCP 主機拒絕直接呼叫測試 Worker，沒有取得可採用的解析回應或每請求 CPU。缺少量測不能寫成 CPU 為 0。
