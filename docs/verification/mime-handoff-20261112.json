@@ -1,0 +1,88 @@
+{
+  "schema": "pdfinder-mime-icloud-handoff-v1",
+  "recordedBy": "Jarvis",
+  "observedAt": "2026-11-12T17:35:26.436982+00:00",
+  "baseRemoteCommit": "c24db516ddecba42d5cb902976ca47915686a1c1",
+  "runtime": "v24.22.1",
+  "scope": "Local conservative Gmail MIME selection and internal iCloud host handoff; reuse of previously authorized synthetic Gmail raw response, no new mail calls",
+  "suites": {
+    "existingInterface": {
+      "passed": 302,
+      "failed": 0
+    },
+    "existingSourceParser": {
+      "passed": 32,
+      "failed": 0
+    },
+    "attachmentApi": {
+      "passed": 46,
+      "failed": 0
+    },
+    "providerEnvelope": {
+      "passed": 50,
+      "failed": 0
+    },
+    "mimeAndHandoff": {
+      "passed": 77,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "todo": 0,
+      "gmailMimeTests": 52,
+      "icloudHostTests": 25,
+      "realParserPaths": 8
+    }
+  },
+  "observedRawReuse": {
+    "newMailboxCalls": 0,
+    "pdfBytes": 2476,
+    "sha256": "b35a86b6e77b509874766a0f1e0a4a10f956d015b9a53ff52a7b9cf79572de98",
+    "mimePath": [
+      2
+    ],
+    "attachmentId": null,
+    "matchedBy": "unique_filename_size_sha256",
+    "matchesPriorPythonStdlib": true,
+    "decryptRetested": false,
+    "rawAndPrivateIdentifiersCommitted": false
+  },
+  "build": {
+    "passed": true,
+    "bytes": 3740357,
+    "sha256": "6842618014df5b10d24bb618acbfb3b2556066e2074cf076be621f664797bf79",
+    "benchmarkUnchanged": true
+  },
+  "review": {
+    "findings": [
+      "Unsupported nested message container could hide duplicate filename",
+      "Normalized header length did not guarantee wire-header cap"
+    ],
+    "fixes": [
+      "Reject all unsupported message/* containers",
+      "Conservative CRLF-equivalent header byte counting with separator"
+    ],
+    "regressionsAdded": 2,
+    "independentFixRegression": {
+      "passed": 2,
+      "failed": 0
+    }
+  },
+  "verifyLogSha256": "e5cf85c58c5f02af6d8a8521cd647bfed15d83950afdb9bbda9e962501f36b47",
+  "limits": {
+    "messageBytes": 1048576,
+    "mimeEntitiesIncludingRoot": 32,
+    "nestedDepth": 4,
+    "headerCRLFEquivalentBytes": 16384,
+    "unfoldedHeaderFields": 100,
+    "physicalHeaderLineCharacters": 998
+  },
+  "remaining": [
+    "Conservative MIME subset, not general RFC compatibility",
+    "No inferred Gmail opaque attachment ID; raw path uses null",
+    "iCloud handoff is internal same-process context binding, not observed tool schema or user authentication",
+    "Real iCloud original-file decoder/redemption unverified",
+    "No complete live mailbox-to-decrypt-to-citation flow in this repo",
+    "Cloud invocation permission and Free request CPU remain unresolved",
+    "No deployment, real document/password or cost changes"
+  ]
+}

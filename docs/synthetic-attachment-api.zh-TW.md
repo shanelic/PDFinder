@@ -32,7 +32,7 @@ npm run test:attachments
 
 主機建立 handler 時提供 `sources`：包含 `source_ref`、`provider`、`account_ref`、`message_id`、`attachment_id`、`filename`、`sha256`。provider 為 `gmail` 或 `icloud`；識別字必須是 `synthetic-` 前綴。主機設定會複製，後續修改原物件不會改寫引用。
 
-若經唯一檔名取件但沒有完整附件 ID，`attachment_id` 可為 `null`，引用也保留 `null`，不捏造 ID。對應的 [provider adapter](provider-adapters.zh-TW.md) 負責已選附件的計畫與原始 bytes 邊界；原始檔讀取的 live decoder 尚待完成。另有實測的 Gmail raw envelope helper，但未接好 MIME 附件選取，不等於此 API 已完成 live 端到端流程。
+若經唯一檔名取件但沒有完整附件 ID，`attachment_id` 可為 `null`，引用也保留 `null`，不捏造 ID。對應的 [provider adapter](provider-adapters.zh-TW.md) 負責已選附件的計畫與原始 bytes 邊界。另有實測的 Gmail raw envelope 與保守 [MIME 附件選取](mime-and-icloud-handoff.zh-TW.md)，但 iCloud 真實原始檔交接仍待完成，不等於此 API 已完成 live 端到端流程。
 
 此來源表是**受信任主機的選取宣告**，不是使用者登入驗證。知道一個已選 `source_ref` 並不等於正式產品應授權該使用者。來源雜湊能證明 bytes 一致，**不能單獨證明附件來自某一封信**。真正 provider 回應、檔案運送及帳號身份仍需另外驗證。
 

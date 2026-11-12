@@ -7,7 +7,7 @@
 | Provider | 取件規則 |
 | --- | --- |
 | Gmail `read_attachment` | 必須先由父郵件選定附件，且 `read_attachment_supported` 為 true。優先傳完整 `attachment_id` 與父 `message_id`；ID 缺失／截斷才使用原樣、在該信內唯一的 `filename`。不得同時傳兩種選擇器或猜 ID。工具描述說原始附件位於 `file_uri`。 |
-| Gmail `read_email` | `full` 可能回文字、非文字的 `base64_url_content` 或需另取的 `attachment_id`；`raw` 回 base64url 的 RFC 2822 訊息。本輪補實測及 envelope 解碼，尚未實作 JS MIME 附件選取，也不在 adapter 取件失敗後自動讀整封信。 |
+| Gmail `read_email` | `full` 可能回文字、非文字的 `base64_url_content` 或需另取的 `attachment_id`；`raw` 回 base64url 的 RFC 2822 訊息。envelope 與後續保守 JS MIME 選取已有合成證據，但不在 adapter 取件失敗後自動讀整封信。 |
 | iCloud `get_message` | 用父 `message_id` 及該信實際回傳的 `attachment_ids` 取選定檔案。本 adapter 一次傳一個完整 ID；工具描述說讀取不標記已讀，也不載入 HTML 的外部資源。 |
 
 以上表格記錄**現行工具參數／敘述**。歷史研究曾記錄 Gmail raw 與 iCloud 合成取件成功，但目前可恢復的舊 prototype 副本沒有足以重建那些 observed-envelope decoders 的證據，因此另外做下列有限度唯讀核對，而不直接套用歷史成功。
@@ -64,11 +64,11 @@ npm run verify
 
 測試涵蓋工具計畫、帳號／來源隔離、7 份 × 2 provider 的 fake transport → 真解析 → 引用、唯一檔名及 null ID、缺失／錯誤 echo、超量／不足／篡改 bytes、錯誤去敏、取消與不得自動 fallback。這是 synthetic normalized transport，不是連接器驗收。
 
-正式接線仍需：
+後續已補 [Gmail MIME 唯一附件選取與 iCloud host 契約](mime-and-icloud-handoff.zh-TW.md)。以下仍是正式接線差距：
 
 - 完成可取得原始檔的回應 envelope 及受支援檔案交接驗證；iCloud 尚未重新定位測試信，Gmail read_attachment 在本次所選附件失敗。
 - 確認工具實際的帳號／連線綁定；檔案雜湊不能證明郵件歸屬。
-- 接續已驗證 Gmail raw envelope，匯入或重建嚴格的 MIME 附件選取；不為此自動擴大郵件讀取範圍。
+- Gmail MIME 子集合的更廣相容性及 live 取件到解析整合；不為此自動擴大郵件讀取範圍。
 - 實作部署所需的身份、取消期限、cleanup 隔離與資源控制。當上游 pending 時，這個本機 adapter 仍依賴上游合作；它不是平台沙箱。
 
 本輪沒有新增權限、部署、服務或費用，也未讀取真實文件或密碼。

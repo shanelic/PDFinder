@@ -18,8 +18,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 3113,
-      "sha256": "b554da26eded124128c2d5010cc613070eb6907769a5816db2e015baeb1b8e19"
+      "bytes": 3258,
+      "sha256": "902ce9a02781d15fae3de257eda6f4a240f99dbb13a4ff8dab01bce6fef10735"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -47,24 +47,34 @@
       "sha256": "b90fb7b11de1793a83849826d6047522cb6bf2eae9214d03b04008aaa11a18b9"
     },
     {
+      "path": "docs/mime-and-icloud-handoff.zh-TW.md",
+      "bytes": 5531,
+      "sha256": "8fab77287d21c19ce3c0043fca29e4ab2b036614c9c7110d032327bf558f262d"
+    },
+    {
       "path": "docs/provider-adapters.zh-TW.md",
-      "bytes": 6550,
-      "sha256": "96e50153823d01d108e93fd7cc8967c18f1ef0c298811a76e1ab285aa0c3f932"
+      "bytes": 6641,
+      "sha256": "4fe68adc52411e48baf45af2ff596ca4ba072474718f06fb631d372cc47f9910"
     },
     {
       "path": "docs/status.zh-TW.md",
-      "bytes": 5999,
-      "sha256": "b9de564efdc77e0b79d1b68580eeb86ef7035eef7774af1e4e0bc84d6ec9ebcb"
+      "bytes": 6279,
+      "sha256": "bc323ffcae5beef5ac4a42e1bcc60614fd48754171aa7f37dd85e4730769bc57"
     },
     {
       "path": "docs/synthetic-attachment-api.zh-TW.md",
-      "bytes": 5297,
-      "sha256": "c75470e138e85dc195531b6748c58ebab909edddd53db5a8de5a458ed9063f3d"
+      "bytes": 5321,
+      "sha256": "7da472688899abc5458878ab315da10b6b568fb6ada4455e417540eaee1778f7"
     },
     {
       "path": "docs/verification/attachment-api-20261112.json",
       "bytes": 2090,
       "sha256": "cfe6419cfe4a7e0184bf4d390b33f6e71c7211935d19921e9a69a61a8a7648d1"
+    },
+    {
+      "path": "docs/verification/mime-handoff-20261112.json",
+      "bytes": 2739,
+      "sha256": "3a9024c237fc372ff2a0b0217408bd985c55d5881559c9ac416c3e802073ff63"
     },
     {
       "path": "docs/verification/provider-adapters-20261112.json",
@@ -83,8 +93,8 @@
     },
     {
       "path": "package.json",
-      "bytes": 774,
-      "sha256": "f7526d0ccc1a4a27e7895081ca20c10a3e71d5776f170176fa17dab42f207fd9"
+      "bytes": 888,
+      "sha256": "f978bc536b54c82908e3c46f86e2f5c4ad5e13b6ac97bd5c0be43a502a6eddca"
     },
     {
       "path": "scripts/build.mjs",
@@ -117,6 +127,11 @@
       "sha256": "41cbee67b93bed8f754d9c97d5c159c94dfdaf78bb576c60ef39f55a9ed730bb"
     },
     {
+      "path": "src/gmail-mime-attachment.mjs",
+      "bytes": 9384,
+      "sha256": "c64d0304049c91e44c27989740c61bcccca6f76ea564b40bcd15d21b8af80155"
+    },
+    {
       "path": "src/gmail-raw-envelope.mjs",
       "bytes": 1440,
       "sha256": "bc8e7fc21a7bd1ee9a2f33ef20c874d144d7c789859ed7134d77fc72f92dcb2f"
@@ -125,6 +140,11 @@
       "path": "src/guarded-extractor.mjs",
       "bytes": 8241,
       "sha256": "c62d705fd58df324ff58c85a8b6eab22f3f9c17527dbc4a1f5b0d0e516df3feb"
+    },
+    {
+      "path": "src/icloud-host-handoff.mjs",
+      "bytes": 2541,
+      "sha256": "7d6b8cb6f99df513e63332fbc6643bce4f8c3e933da5ce44340cc2ac5c28c340"
     },
     {
       "path": "src/lazy-loader.mjs",
@@ -157,9 +177,19 @@
       "sha256": "c978da77035eeeabd458502ab6a86ec53ce173f05612b2ca6812497493e54523"
     },
     {
+      "path": "tests/gmail-mime.test.mjs",
+      "bytes": 13241,
+      "sha256": "2e4d5ddecac9183803ae570cceacdfc15accc3294732b988cf476db598cbc1cb"
+    },
+    {
       "path": "tests/gmail-raw-envelope.test.mjs",
       "bytes": 1600,
       "sha256": "12e93a1313ed24ece9eea54cdf6b069836b5fa679e0f2bb8ea41c2c69172b938"
+    },
+    {
+      "path": "tests/icloud-host-handoff.test.mjs",
+      "bytes": 5843,
+      "sha256": "dfe3d1cce5ba7e233b3e4d628db14c636d980c7e09bcfa944122df5c8a616cca"
     },
     {
       "path": "tests/interface-suite.mjs",

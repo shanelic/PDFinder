@@ -17,7 +17,7 @@ npm run verify
 
 `npm run demo:synthetic` 示範附件 bytes → 假密碼 profile → AES-256 解密 → 頁碼與來源引用；`npm run test:attachments` 驗證這個本機流程，已納入 `npm run verify`。[輸入契約與限制](docs/synthetic-attachment-api.zh-TW.md)說明哪些部分仍是 mock，不能直接當成正式 HTTP 服務。
 
-`npm run test:providers` 驗證 [Gmail／iCloud 選定附件 adapter](docs/provider-adapters.zh-TW.md) 的工具計畫、fake 原始檔運送與引用銜接；也納入完整驗證。Gmail raw envelope 已以既有合成測試信讀回核對，但 MIME 選取、原始檔交接及 live 端到端驗收仍未完成。
+`npm run test:providers` 驗證 [Gmail／iCloud 選定附件 adapter](docs/provider-adapters.zh-TW.md) 的工具計畫、fake 原始檔運送與引用銜接。`npm run test:mime` 驗證 [Gmail 唯一 MIME 附件選取與 iCloud host 契約](docs/mime-and-icloud-handoff.zh-TW.md)；兩者都納入完整驗證。Gmail raw envelope 及保守 MIME 子集合已用既有合成回應核對；iCloud 真實原始檔交接及整個 live 端到端流程仍未完成。
 
 固定合成資料涵蓋未加密、RC4-128、AES-128、AES-256 與內嵌字型的中文 PDF。資料中的密碼是公開假值，不是秘密。Worker 只接受固定 fixture ID，回傳有限度的測試中繼資料，不接受任意文件上傳。現有介面要求驗證與到期設定，本庫不提供可用憑證。
 

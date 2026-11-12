@@ -13,8 +13,9 @@
     "test:parser": "node scripts/test-parser.mjs",
     "test:attachments": "node --test tests/attachment-api.test.mjs",
     "test:providers": "node --test tests/provider-attachments.test.mjs tests/gmail-raw-envelope.test.mjs",
+    "test:mime": "node --test tests/gmail-mime.test.mjs tests/icloud-host-handoff.test.mjs",
     "demo:synthetic": "node scripts/demo-synthetic.mjs",
-    "verify": "npm test && npm run test:parser && npm run test:attachments && npm run test:providers && npm run build"
+    "verify": "npm test && npm run test:parser && npm run test:attachments && npm run test:providers && npm run test:mime && npm run build"
   },
   "devDependencies": {
     "esbuild": "0.28.0"
