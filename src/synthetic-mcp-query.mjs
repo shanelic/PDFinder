@@ -45,7 +45,7 @@ export function createSyntheticMcpQuery({http,trustedOrigin}={}){
    if(m['io.modelcontextprotocol/protocolVersion']!==VERSION)return protocol(id,-32022,'Unsupported protocol version',{supported:[VERSION],requested:m['io.modelcontextprotocol/protocolVersion']});
    if(input.method==='tools/list'){
     if(Object.keys(p).some(k=>k!=='_meta'))return protocol(id,-32602,'Invalid params');
-    return {jsonrpc:'2.0',id,result:{resultType:'complete',tools:[{name:NAME,description:'Search one host-authorized synthetic AES-256 PDF. No real documents or passwords.',inputSchema:{type:'object',properties:{selection_ref:{type:'string',pattern:'^(?:opaque-)?synthetic-[A-Za-z0-9._-]{1,80}$'},query:{type:'string',minLength:1,maxLength:80}},required:['selection_ref','query'],additionalProperties:false}}]}};
+    return {jsonrpc:'2.0',id,result:{resultType:'complete',tools:[{name:NAME,description:'Search one host-authorized synthetic AES-256 PDF. No real documents or passwords.',annotations:{readOnlyHint:true,destructiveHint:false,idempotentHint:true,openWorldHint:false},inputSchema:{type:'object',properties:{selection_ref:{type:'string',pattern:'^(?:opaque-)?synthetic-[A-Za-z0-9._-]{1,80}$'},query:{type:'string',minLength:1,maxLength:80}},required:['selection_ref','query'],additionalProperties:false}}]}};
    }
    if(input.method!=='tools/call')return protocol(id,-32601,'Method not found');
    if(Object.keys(p).some(k=>!['_meta','name','arguments'].includes(k))||p.name!==NAME)return protocol(id,-32602,'Invalid params');

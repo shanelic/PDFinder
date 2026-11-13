@@ -56,3 +56,5 @@ npm run verify
 [MCP 工具訊息整合候選](docs/synthetic-mcp-query.zh-TW.md)把已解碼的 `tools/list`／`tools/call` 接到 HTTP／可信 host 與雙信箱搜尋；`npm run demo:mcp-query` 驗證序列化引用與去敏失敗。僅固定合成本機資料，還不是完整 MCP server、已註冊工具或 ChatGPT 手機 live 驗收。
 
 [本機官方 MCP stdio server／client](docs/synthetic-mcp-stdio.zh-TW.md)可透過真正子程序協商、發現工具及呼叫合成搜尋；`npm run demo:mcp-stdio` 可重跑兩個 provider 的命中／無命中。官方 SDK 已鎖版，沒有外部工具註冊、網路 listener、真實身份或手機 live 驗收。
+
+[本機 Streamable HTTP MCP 接線](docs/synthetic-mcp-http.zh-TW.md)讓官方 client 經注入的 fetch 驗證 modern JSON／SSE 與 legacy stateless；`npm run demo:mcp-http` 可重跑 8 個合成雙 provider 案例。沒有 socket、遠端註冊或 OAuth，亦未驗證 ChatGPT／手機使用資格；手機交付門檻與 Cloudflare CPU 量測分開保留。
