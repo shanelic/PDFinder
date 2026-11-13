@@ -17,7 +17,7 @@
     "test:mail-fixture": "node --test tests/synthetic-mail-fixture.test.mjs",
     "prepare:synthetic-mail": "node scripts/prepare-synthetic-mail.mjs",
     "demo:synthetic": "node scripts/demo-synthetic.mjs",
-    "verify": "npm test && npm run test:parser && npm run test:attachments && npm run test:providers && npm run test:mime && npm run test:mail-fixture && npm run test:mail-verifier && npm run verify:synthetic-mail && npm run test:documents && npm run demo:documents && npm run test:mail-search && npm run demo:selected-mail && npm run test:profiles && npm run demo:profiles && npm run test:profile-storage && npm run demo:profile-restart && npm run test:host-query && npm run demo:host-query && npm run build",
+    "verify": "npm test && npm run test:parser && npm run test:attachments && npm run test:providers && npm run test:mime && npm run test:mail-fixture && npm run test:mail-verifier && npm run verify:synthetic-mail && npm run test:documents && npm run demo:documents && npm run test:mail-search && npm run demo:selected-mail && npm run test:profiles && npm run demo:profiles && npm run test:profile-storage && npm run demo:profile-restart && npm run test:host-query && npm run demo:host-query && npm run test:preview-evidence && npm run demo:preview-evidence && npm run build",
     "test:mail-verifier": "node --test tests/synthetic-mail-verifier.test.mjs",
     "verify:synthetic-mail": "node scripts/verify-synthetic-mail.mjs",
     "test:documents": "node --test tests/bounded-document-search.test.mjs",
@@ -29,7 +29,9 @@
     "test:profile-storage": "node --test tests/synthetic-file-profile-storage.test.mjs",
     "demo:profile-restart": "node scripts/demo-profile-restart.mjs",
     "test:host-query": "node --test tests/synthetic-host-query.test.mjs",
-    "demo:host-query": "node scripts/demo-host-query.mjs"
+    "demo:host-query": "node scripts/demo-host-query.mjs",
+    "test:preview-evidence": "node --test tests/preview-smoke-evidence.test.mjs",
+    "demo:preview-evidence": "node scripts/demo-preview-evidence.mjs"
   },
   "devDependencies": {
     "esbuild": "0.28.0"

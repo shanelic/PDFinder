@@ -80,6 +80,10 @@ Cloudflare MCP 官方契約限制 execute 的外連目標為 Cloudflare API；�
 
 通道確認後，先只測 1 份固定 AES-256 合成 PDF；成功才選 3–4 個代表案例。保留短效入口保護、免費邊界、前後狀態核對與清理；不增加通用控制框架。本輪沒有雲端上傳、部署、入口啟用或 PDF HTTP 請求。
 
+### Named Preview 驗收材料已備妥，尚未執行
+
+[最小 runbook](named-preview-smoke-runbook.zh-TW.md)已對照現有 benchmark，包含固定 JSON、一次手動 POST 收集範本、所需權限與清理。新增純離線 evidence validator，不新增部署／管理框架。54/54 新測試（含真實本機 candidate＋PDF.js AES-256 回應）、5 個離線 demo、6 個獨立覆核反例與完整回歸通過；Worker 產物 hash 不變。Ray ID 不保證唯一，Preview deployment ID 也不能當 Worker script version；功能結果與 CPU 證據分開，缺值或映射未知不報 0。官方支援及本機合成驗證不等於正式通道已打通，#1／#3 維持 open。
+
 ## 尚未驗收
 
 - 真正 Cloudflare Free 環境的冷啟動、每請求 CPU、記憶體與錯誤結果。

@@ -1,0 +1,85 @@
+{
+  "schema": "pdfinder-named-preview-evidence-v1",
+  "recordedBy": "Jarvis",
+  "observedAt": "2026-11-13T11:50:36.813776+00:00",
+  "baseRemoteCommit": "6bdb55abe0e64d3d5ea8ffdf6f08496cad034959",
+  "scope": "Official documentation/OpenAPI inspection and local synthetic evidence correlation only",
+  "actualCloudflarePostCalls": 0,
+  "cloudflareResourceReadsThisRound": 0,
+  "cloudflareChanges": 0,
+  "newMailCalls": 0,
+  "newCredentials": 0,
+  "newDependencies": 0,
+  "liveCpuMeasured": false,
+  "namedPreviewCreated": false,
+  "scriptVersionMappingVerified": false,
+  "requestBodyBytes": 55,
+  "syntheticFixtureSha256": "88bcd7d2be5ff65e024d6b3a5964da2a0d10b1f36cbb2616abfc60556a8fe47c",
+  "suites": {
+    "existingInterface": 302,
+    "sourceParser": 32,
+    "attachmentApi": 46,
+    "providerEnvelope": 72,
+    "mimeHandoff": 78,
+    "mailFixture": 10,
+    "mailVerifier": 28,
+    "boundedDocuments": 36,
+    "selectedMailSearch": 28,
+    "syntheticProfiles": 51,
+    "syntheticFileProfiles": 23,
+    "syntheticHostQuery": 44,
+    "previewEvidence": 54,
+    "failed": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "previewDemoCases": 5,
+  "actualLocalCandidateAes256IncludedIn54": true,
+  "manualTemplateSyntaxOnly": true,
+  "manualTemplateExecuted": false,
+  "build": {
+    "bytes": 3740357,
+    "sha256": "6842618014df5b10d24bb618acbfb3b2556066e2074cf076be621f664797bf79",
+    "unchanged": true,
+    "evidenceValidatorImportedByWorker": false
+  },
+  "verifyLogSha256": "b0a13f9af34212f341fab629ad3a4d308f2ca1e85d87bc26d82ed8576495c2a4",
+  "sourceSha256": {
+    "src/preview-smoke-evidence.mjs": "1f62737dd11faa3dbb4dc944514705de0491c09b3814b79aa05941b60eaf9886",
+    "tests/preview-smoke-evidence.test.mjs": "3f52d47f35f3799c6d9e7552d16f3b4f124457a77e3a3febe3d59d8dcbe58899",
+    "scripts/demo-preview-evidence.mjs": "828fee532d8e47e70a175beed65c4f97d383c3809c5856116a5356da9fa28d47"
+  },
+  "officialSchemaFindings": {
+    "telemetryEventPath": "result.events.events[]",
+    "cpuField": "$workers.cpuTimeMs",
+    "wallField": "$workers.wallTimeMs",
+    "queryStatusRequired": "COMPLETED",
+    "eventTimestampUnit": "epoch milliseconds",
+    "previewDeploymentIdIsNotAssumedScriptVersionId": true,
+    "previewDeploymentGetHasExplicitScriptVersionField": false,
+    "rayIdUniquenessNotGuaranteed": true,
+    "dryQueryDoesNotDeleteLogs": true,
+    "queryScopeListed": "Workers Observability Write",
+    "scopeLiveTested": false
+  },
+  "remaining": [
+    "No officially enabled automated Worker POST route in this environment",
+    "Manual owner-side client is documented, not live accepted or a verified phone workflow",
+    "Named Preview configuration, actual telemetry shape and version mapping still untested on account",
+    "Free CPU feasibility, production safety and cleanup execution not established",
+    "Issue #1 and #3 remain open"
+  ],
+  "independentReview": {
+    "focusedPassed": 54,
+    "demoPassed": 5,
+    "counterexamplesPassed": 6,
+    "manualBashSyntaxPassed": true,
+    "manualBashExecuted": false,
+    "sourceUnchangedDuringReview": true,
+    "resolved": [
+      "Success body missing/invalid coverage was falsely accepted",
+      "Contradictory error alongside success body was falsely accepted",
+      "Malformed unrelated event was discarded from a supposedly complete result"
+    ]
+  }
+}

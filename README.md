@@ -48,3 +48,5 @@ npm run verify
 [可重啟的本機 profile adapter](docs/synthetic-profile-persistence.zh-TW.md)用臨時 JSON 保存公開假值 ID，`npm run demo:profile-restart` 在六個全新程序驗證重用、替換與撤銷。不是正式 vault 或雲端持久化；[正式保管選擇](docs/profile-storage-options.zh-TW.md)另列官方支援與未驗收邊界。
 
 [可信 host 單文件查詢入口](docs/synthetic-host-query.zh-TW.md)讓前端只提供選項與查詢字串；身分、精確來源與 profile 由 host 注入。`npm run demo:host-query` 可重跑合成流程，尚非手機可用的已部署服務或真正登入驗收。
+
+[Named Preview 單份 smoke runbook](docs/named-preview-smoke-runbook.zh-TW.md)固定材料、一次手動 POST 與清理步驟；`npm run demo:preview-evidence` 只示範離線 CPU／請求／版本對應，未建立 Preview 或量得雲端 CPU。正式 POST 通道仍待確認。
