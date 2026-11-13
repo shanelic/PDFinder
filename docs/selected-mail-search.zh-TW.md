@@ -55,3 +55,5 @@ const result = await bridge.search({
 已有本機完整功能路徑；2026-11-13 另以已授權的一封已知假密碼合成信，完成[真正 Gmail／iCloud 取件→解密→引用](live-synthetic-mail-acceptance.zh-TW.md)，也把新取得回應接入本橋接成功。這仍由可信 host 注入回應／原檔，不是已部署的自動化 connector。正式雲端功能／CPU仍待可用通道，不擅自擴張公開入口、接受真實資料、建立秘密或產生費用。
 
 驗證：28/28 橋接測試、36/36 文件測試、78/78 MIME／handoff 與全部既有回歸通過，4 個橋接 demo 成功。獨立覆核當時 116 項合併回歸及 6 個反例通過；之後只新增一個直接 MIME null-hash 測試，完整回歸已重跑。[機器可讀紀錄](verification/selected-mail-search-20261112.json)。
+
+後續另補[合成 trusted host query](synthetic-host-query.zh-TW.md)：前端只有 selection_ref/query，先以注入的 host 身分與精確 grant 核對再進入本橋接，並於各階段重核。這填補本機整合的讀取前授權位置，仍需要正式 session／connector 實作，不能因 callback 回傳身分就當作已驗證登入。

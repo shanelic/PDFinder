@@ -1,0 +1,158 @@
+{
+  "schema": "pdfinder-synthetic-host-query-v1",
+  "recordedBy": "Jarvis",
+  "observedAt": "2026-11-13T11:30:46.446081+00:00",
+  "baseRemoteCommit": "c93023b058efc26d61274c194b9ff2e6fcb61d1b",
+  "scope": "Unpublished local synthetic host query over existing selected-mail bridge",
+  "clientFields": [
+    "selection_ref",
+    "query"
+  ],
+  "hostIdentitySource": "Explicit trusted authenticate callback, simulated in this round",
+  "actualAuthenticationVerified": false,
+  "mobileDeviceVerified": false,
+  "liveProviderCalls": 0,
+  "grantFields": [
+    "principal_id",
+    "selection_ref",
+    "revision",
+    "active",
+    "connection.provider",
+    "connection.account_ref",
+    "connection.connection_ref",
+    "route",
+    "selection.size_bytes",
+    "selection.password_profile",
+    "selection.source.source_ref",
+    "selection.source.provider",
+    "selection.source.account_ref",
+    "selection.source.message_id",
+    "selection.source.attachment_id",
+    "selection.source.filename",
+    "selection.source.sha256"
+  ],
+  "snapshotBeforeValidation": true,
+  "nestedGrantFreeze": true,
+  "comparisonIndependentOfObjectKeyOrder": true,
+  "fixtureSha256": "88bcd7d2be5ff65e024d6b3a5964da2a0d10b1f36cbb2616abfc60556a8fe47c",
+  "profileUnavailableRejectedBeforeMail": true,
+  "recheckAt": [
+    "mail invoke",
+    "iCloud original reader",
+    "iCloud stream chunks",
+    "password resolution",
+    "result return"
+  ],
+  "revocationCannotUnreadFetchedBytesOrStopSyncCpu": true,
+  "arbitraryPasswordsAccepted": false,
+  "suites": {
+    "existingInterface": 302,
+    "sourceParser": 32,
+    "attachmentApi": 46,
+    "providerEnvelope": 72,
+    "mimeHandoff": 78,
+    "mailFixture": 10,
+    "mailVerifier": 28,
+    "boundedDocuments": 36,
+    "selectedMailSearch": 28,
+    "syntheticProfiles": 51,
+    "syntheticFileProfiles": 23,
+    "syntheticHostQuery": 44,
+    "failed": 0,
+    "skipped": 0
+  },
+  "demo": {
+    "synthetic_only": true,
+    "cases": [
+      {
+        "provider": "gmail",
+        "stage": "success",
+        "status": "matches_found",
+        "fake_mail_reads": 1
+      },
+      {
+        "provider": "gmail",
+        "stage": "caller_identity",
+        "status": "invalid_request",
+        "fake_mail_reads": 0
+      },
+      {
+        "provider": "gmail",
+        "stage": "fake_context",
+        "status": "authentication_failed",
+        "fake_mail_reads": 0
+      },
+      {
+        "provider": "gmail",
+        "stage": "revoked",
+        "status": "selection_unavailable",
+        "fake_mail_reads": 0
+      },
+      {
+        "provider": "icloud",
+        "stage": "success",
+        "status": "matches_found",
+        "fake_mail_reads": 1
+      },
+      {
+        "provider": "icloud",
+        "stage": "caller_identity",
+        "status": "invalid_request",
+        "fake_mail_reads": 0
+      },
+      {
+        "provider": "icloud",
+        "stage": "fake_context",
+        "status": "authentication_failed",
+        "fake_mail_reads": 0
+      },
+      {
+        "provider": "icloud",
+        "stage": "revoked",
+        "status": "selection_unavailable",
+        "fake_mail_reads": 0
+      }
+    ],
+    "live_mail_reads": 0,
+    "limitations": [
+      "Callbacks simulate trusted host sessions; no real authentication or mobile test",
+      "Context must be injected by server, never from request body",
+      "Revocation rechecks discard results but cannot unread bytes or stop already-running parsing"
+    ]
+  },
+  "independentReview": {
+    "focusedPassed": 44,
+    "demoPassed": 8,
+    "extraSecurityCounterexamplesPassed": 6,
+    "keyOrderRegressionsPassed": 2,
+    "grantCanonicalFieldsReviewed": 17,
+    "testedSourceHashesUnchangedDuringReview": true,
+    "findingsResolved": [
+      "Callback could mutate a granted source before bridge use; nested snapshots now frozen",
+      "Equivalent identity or grant with changed property order was falsely rejected; comparison now uses explicit field values"
+    ]
+  },
+  "build": {
+    "bytes": 3740357,
+    "sha256": "6842618014df5b10d24bb618acbfb3b2556066e2074cf076be621f664797bf79",
+    "unchanged": true,
+    "hostQueryImportedByWorker": false
+  },
+  "verifyLogSha256": "a6aa1ec5acb6f016e85e2cc3133cee374ce339c0d2d52916f077544ab5ed8892",
+  "finalSourceSha256": {
+    "src/synthetic-host-query.mjs": "d1a4b45e2d19064b67fa7b706f6ff60f82b2ab5bdf0825325c6f14fa3175c3f1",
+    "tests/synthetic-host-query.test.mjs": "a23e0275e6d20feef1dd733b721c5c8ec378b9db1b818536c26bdaa411a29ec3",
+    "scripts/demo-host-query.mjs": "28dd4ea99d506c7fbaf489551cfcfe85f64b4eeebe758882a57bd481b12cb950"
+  },
+  "newMailSends": 0,
+  "newMailReads": 0,
+  "cloudflareChanges": 0,
+  "newDependencies": 0,
+  "remaining": [
+    "No deployed mobile, HTTP or MCP host query route",
+    "Real session authentication, connector-account binding and authorized selection listing not implemented",
+    "Only fixed synthetic IDs, PDF and public fake values allowed",
+    "No network isolation, global work budget or hard cancellation guarantee",
+    "Cloudflare POST/Free CPU and real-data production acceptance unresolved"
+  ]
+}

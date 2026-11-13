@@ -59,6 +59,12 @@ node --input-type=module -e 'import worker from "./dist/worker.mjs"; import {run
 
 [正式保管選擇](profile-storage-options.zh-TW.md)先以平台 runtime Secret 為少量秘密候選，metadata 另保留交易／revision 邊界；沒有先開新資料庫或自行造加密金鑰。
 
+### 前端只選附件與查詢，身分由可信 host 提供
+
+[新的合成 host 入口](synthetic-host-query.zh-TW.md)只接受 selection_ref/query，先用 host 的驗證 callback 與精確 grant／profile 核對，通過才取件；重要界線再核對，撤銷後丟棄結果。44/44 新測試、8 個雙 provider demo、完整回歸通過；獨立覆核 6 個安全反例及 2 個鍵序相容案例通過。來源快照凍結，不能由 callback 改讀另一封信。
+
+這是已完成的本機整合功能，不是真正登入、手機裝置或已部署工具驗收。仍須正式 host 實作 session 驗證、connector 歸屬與授權選項清單；Gmail raw 的許可範圍是整封精確指定信。沒有讀信、部署、新秘密或費用。
+
 ### 正式雲端呼叫仍待確認
 
 已知阻礙是呼叫通道，不是已證明的 PDF 缺陷或 CPU 超限。先前 MCP 主機拒絕直接呼叫測試 Worker，沒有取得可採用的解析回應或每請求 CPU。缺少量測不能寫成 CPU 為 0。
