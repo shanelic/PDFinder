@@ -45,7 +45,7 @@ node --input-type=module -e 'import worker from "./dist/worker.mjs"; import {run
 
 另已提供[本機單份文件搜尋候選](document-processing-contract.zh-TW.md)，以新生成合成 PDF 驗證大小／頁數／文字限制及失敗分類。一般文件不使用固定 fixture oracle，因此仍明示擷取完整性未知；未發布或處理真實附件。
 
-單文件功能已接上[精確取件到引用的 host 橋接](selected-mail-search.zh-TW.md)，包含首次取件未知 SHA 的明確語意。本機端到端可重跑；另已完成[新合成信 live 驗收](live-synthetic-mail-acceptance.zh-TW.md)：一封、單一 1,825-byte AES-256 附件，兩路原檔 SHA 一致，1 頁／1 筆命中，真實來源 ID 保留。兩路固定 oracle、橋接成功及錯／缺假密碼 profile 共 8 項通過，未改產品來源或重新計算既有回歸成績。正式雲端呼叫與 CPU 仍待完成，這不是無人值守產品。
+單文件功能已接上[精確取件到引用的 host 橋接](selected-mail-search.zh-TW.md)，包含首次取件未知 SHA 的明確語意。本機端到端可重跑；另已完成[新合成信 live 驗收](live-synthetic-mail-acceptance.zh-TW.md)：一封、單一 1,825-byte AES-256 附件，兩路原檔 SHA 一致，1 頁／1 筆命中，真實來源 ID 保留。兩路固定 oracle、橋接成功及錯／缺假密碼 profile 共 8 項通過，未改產品來源或重新計算既有回歸成績。當時雲端解析與 CPU 仍待驗收；後續已有下方記錄的私人雲端解析橋接成功，使用者 Cloudflare Free CPU 仍未驗收，也不是無人值守產品。
 
 ### 合成 profile 生命週期已接上搜尋
 
@@ -65,7 +65,7 @@ node --input-type=module -e 'import worker from "./dist/worker.mjs"; import {run
 
 這是已完成的本機整合功能，不是真正登入、手機裝置或已部署工具驗收。仍須正式 host 實作 session 驗證、connector 歸屬與授權選項清單；Gmail raw 的許可範圍是整封精確指定信。沒有讀信、部署、新秘密或費用。
 
-### 正式雲端呼叫仍待確認
+### 使用者 Cloudflare Free 的正式呼叫仍待確認
 
 已知阻礙是呼叫通道，不是已證明的 PDF 缺陷或 CPU 超限。先前 MCP 主機拒絕直接呼叫測試 Worker，沒有取得可採用的解析回應或每請求 CPU。缺少量測不能寫成 CPU 為 0。
 
@@ -105,6 +105,12 @@ Cloudflare MCP 官方契約限制 execute 的外連目標為 Cloudflare API；�
 [Streamable HTTP 候選](synthetic-mcp-http.zh-TW.md)沿用同一工具與 host 邊界，官方 SDK client 在無 socket 的注入 fetch 中通過 modern JSON／SSE 與 legacy stateless。12/12 新測試、8 個雙 provider demo 與完整回歸通過；獨立覆核同版 12/12、8/8 及 3 個反例。沒有新增依賴，Worker hash 不變。新版 wire 不會因錯誤 metadata 偷換為 legacy，HTTP headers／body 也不能冒充可信 host 身分。
 
 這不是遠端連線或 ChatGPT 相容性實測。當前官方 Help Center 的自建 MCP 連線 FAQ 為 web-only，未區分手機瀏覽器與原生 App；帳號資格、目標手機使用方式仍需另行核實。未建立 endpoint、tunnel、OAuth 或新憑證，#1／#3 維持 open；取消與 close 不保證已開始 parser 的硬停止。[本輪證據](verification/synthetic-mcp-http-20261113.json)。
+
+### 真正 Gmail 合成附件已交給私人雲端解析器
+
+[本輪 live 橋接](live-synthetic-cloud-bridge.zh-TW.md)精確讀取已授權測試信一次，唯一取出已驗證的 1,825-byte AES-256 fixture，僅將 allowlisted bytes、filename、hash 與假 profile 參照交給既有私人解析工具。一次呼叫成功回傳 1 頁，完整文字 oracle 與第 1 頁 `PDF` 引用 `[16,19)` 均通過；沒有將郵件 metadata 或秘密傳給解析服務。
+
+這是本次授權雲端工具測試的真正取件→雲端解析，不是 iOS／手機、無人值守或使用者 Cloudflare Free CPU 驗收。本輪沒有重新驗收 iCloud、寄信、改設定或部署，沒有更動功能程式。正式 host／保管／效能與發布缺口保留，#1／#3 不提前結案。[去識別紀錄](verification/live-synthetic-cloud-bridge-20261113.json)。
 
 ## 尚未驗收
 

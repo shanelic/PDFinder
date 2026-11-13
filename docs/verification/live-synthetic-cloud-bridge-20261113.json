@@ -1,0 +1,61 @@
+{
+  "schema": "pdfinder-live-mail-to-private-synthetic-extractor-v1",
+  "observedAt": "2026-11-13T22:22:21.609Z",
+  "provider": "gmail",
+  "providerFreshRead": true,
+  "providerReadCount": 1,
+  "selectedAttachmentCount": 1,
+  "fixture": {
+    "filename": "AES-256.pdf",
+    "bytes": 1825,
+    "sha256": "88bcd7d2be5ff65e024d6b3a5964da2a0d10b1f36cbb2616abfc60556a8fe47c",
+    "canonicalBase64Length": 2436
+  },
+  "providerBytesEqualAllowlistedFixture": true,
+  "extractor": "existing private extract_synthetic_pdf",
+  "extractorCalls": 1,
+  "profileReference": "synthetic-fixture",
+  "transmittedFieldNames": [
+    "filename",
+    "data_base64",
+    "sha256",
+    "password_profile"
+  ],
+  "mailMetadataTransmittedToExtractor": false,
+  "rawPasswordProvided": false,
+  "extractorResultMatchedFixtureOracle": true,
+  "citation": {
+    "oracleMatched": true,
+    "page": 1,
+    "quote": "PDF",
+    "range": {
+      "start": 16,
+      "end": 19,
+      "unit": "unicode_codepoint",
+      "end_exclusive": true
+    },
+    "context": "Synthetic cloud PDF transport proof."
+  },
+  "page_count": 1,
+  "newMailSent": 0,
+  "deployedChanges": 0,
+  "newCredentials": 0,
+  "scope": "Authorized cloud tool invocation; not iOS/native mobile, unattended provider service, or Cloudflare Free CPU measurement",
+  "extractorResponseReportedParserVersion": false,
+  "recordedBy": "Jarvis",
+  "verificationScope": "One fresh exact Gmail raw read, unique MIME attachment selection, original-byte pin and fixture equality, one existing private cloud extractor call, complete fixed-fixture text oracle and page citation comparison",
+  "publicationAudit": {
+    "rawMailIncluded": false,
+    "providerAccountIdentifiersIncluded": false,
+    "messageOrAttachmentIdsIncluded": false,
+    "secretValuesIncluded": false,
+    "base64PayloadIncluded": false
+  },
+  "notVerified": [
+    "Fresh iCloud extraction in this round",
+    "iOS or other native mobile invocation",
+    "Unattended mailbox integration",
+    "General documents or actual password vault",
+    "Cloudflare Workers Free per-request CPU, memory or platform isolation"
+  ]
+}

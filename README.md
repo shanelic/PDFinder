@@ -2,7 +2,7 @@
 
 文字型加密 PDF 解析研究工具，包含 Cloudflare Workers 與 MCP 整合的合成測試資料。
 
-**開發中的研究原型，不是正式郵件附件服務。** 已恢復開發並完成階段 1 的來源與建置產物驗證；階段 2 尚待確認受支援的雲端 HTTP 測試通道。本庫不含真實郵件、文件、密碼、雲端帳號設定或部署憑證。
+**開發中的研究原型，不是正式郵件附件服務。** 已恢復開發並完成階段 1 的來源與建置產物驗證；階段 2 尚待確認使用者 Cloudflare Free 的 HTTP 測試通道與 CPU；既有私人雲端解析器已有下方記錄的合成取件橋接成功。本庫不含真實郵件、文件、密碼、雲端帳號設定或部署憑證。
 
 ## 本機使用
 
@@ -58,3 +58,5 @@ npm run verify
 [本機官方 MCP stdio server／client](docs/synthetic-mcp-stdio.zh-TW.md)可透過真正子程序協商、發現工具及呼叫合成搜尋；`npm run demo:mcp-stdio` 可重跑兩個 provider 的命中／無命中。官方 SDK 已鎖版，沒有外部工具註冊、網路 listener、真實身份或手機 live 驗收。
 
 [本機 Streamable HTTP MCP 接線](docs/synthetic-mcp-http.zh-TW.md)讓官方 client 經注入的 fetch 驗證 modern JSON／SSE 與 legacy stateless；`npm run demo:mcp-http` 可重跑 8 個合成雙 provider 案例。沒有 socket、遠端註冊或 OAuth，亦未驗證 ChatGPT／手機使用資格；手機交付門檻與 Cloudflare CPU 量測分開保留。
+
+[真正 Gmail 合成附件到私人雲端解析器](docs/live-synthetic-cloud-bridge.zh-TW.md)已完成一次取件、嚴格原檔比對與既有工具呼叫，回傳 1 頁完整合成文字及引用。僅傳 allowlisted bytes 與假 profile，未傳郵件 metadata 或密碼；不等於手機／無人值守產品或 Cloudflare Free CPU 已驗收。
