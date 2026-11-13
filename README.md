@@ -50,3 +50,5 @@ npm run verify
 [可信 host 單文件查詢入口](docs/synthetic-host-query.zh-TW.md)讓前端只提供選項與查詢字串；身分、精確來源與 profile 由 host 注入。`npm run demo:host-query` 可重跑合成流程，尚非手機可用的已部署服務或真正登入驗收。
 
 [Named Preview 單份 smoke runbook](docs/named-preview-smoke-runbook.zh-TW.md)固定材料、一次手動 POST 與清理步驟；`npm run demo:preview-evidence` 只示範離線 CPU／請求／版本對應，未建立 Preview 或量得雲端 CPU。正式 POST 通道仍待確認。
+
+[合成 Request／Response 查詢入口](docs/synthetic-host-http.zh-TW.md)把前端兩欄 JSON 接到可信 host、雙信箱橋接與引用；`npm run demo:host-http` 只在本機直接呼叫，不開 server 或部署，也不把 Origin／headers 當身分。

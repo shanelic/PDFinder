@@ -84,6 +84,10 @@ Cloudflare MCP 官方契約限制 execute 的外連目標為 Cloudflare API；�
 
 [最小 runbook](named-preview-smoke-runbook.zh-TW.md)已對照現有 benchmark，包含固定 JSON、一次手動 POST 收集範本、所需權限與清理。新增純離線 evidence validator，不新增部署／管理框架。54/54 新測試（含真實本機 candidate＋PDF.js AES-256 回應）、5 個離線 demo、6 個獨立覆核反例與完整回歸通過；Worker 產物 hash 不變。Ray ID 不保證唯一，Preview deployment ID 也不能當 Worker script version；功能結果與 CPU 證據分開，缺值或映射未知不報 0。官方支援及本機合成驗證不等於正式通道已打通，#1／#3 維持 open。
 
+### 合成查詢已有 Request／Response 入口
+
+[新 adapter](synthetic-host-http.zh-TW.md)將固定同來源 POST 的兩欄 JSON 接到既有可信 host，保留真 PDF.js 搜尋與來源引用；提供串流大小限制、去敏錯誤及取消結果處理。32/32 新測試、10 個雙 provider demo、完整回歸通過；獨立 6 個反例與 4 個內部錯誤分類通過，Worker hash 不變。僅以本機 Request／Response 物件驗證，沒有 socket/server、登入或手機部署。Cloudflare POST／CPU 狀態沒有因此改變，正式授權與發布仍未完成。
+
 ## 尚未驗收
 
 - 真正 Cloudflare Free 環境的冷啟動、每請求 CPU、記憶體與錯誤結果。

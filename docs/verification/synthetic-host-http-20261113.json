@@ -1,0 +1,93 @@
+{
+  "schema": "pdfinder-synthetic-host-http-v1",
+  "recordedBy": "Jarvis",
+  "observedAt": "2026-11-13T17:33:40.516734+00:00",
+  "baseRemoteCommit": "8d1175f22b17e9e22b3182bd6dd507fa0f2af5e4",
+  "scope": "Local Request/Response adapter over existing trusted synthetic host; no listener or deployed endpoint",
+  "route": "POST /v1/selected-mail/search",
+  "inputFields": [
+    "selection_ref",
+    "query"
+  ],
+  "identitySource": "Separate server-injected trustedContext passed to existing host authentication callback",
+  "originIsNotAuthentication": true,
+  "bodyMaxBytes": 2048,
+  "bodyMaxChunks": 128,
+  "strictUtf8": true,
+  "duplicateKeysRejected": true,
+  "noCacheResponse": true,
+  "corsWildcard": false,
+  "actualAuthenticationVerified": false,
+  "mobileDeviceVerified": false,
+  "abortHardStopsHostWork": false,
+  "liveMailCalls": 0,
+  "cloudflareChanges": 0,
+  "workerPostCalls": 0,
+  "newCredentials": 0,
+  "newDependencies": 0,
+  "suites": {
+    "existingInterface": 302,
+    "sourceParser": 32,
+    "attachmentApi": 46,
+    "providerEnvelope": 72,
+    "mimeHandoff": 78,
+    "mailFixture": 10,
+    "mailVerifier": 28,
+    "boundedDocuments": 36,
+    "selectedMailSearch": 28,
+    "syntheticProfiles": 51,
+    "syntheticFileProfiles": 23,
+    "syntheticHostQuery": 44,
+    "previewEvidence": 54,
+    "syntheticHostHttp": 32,
+    "failed": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "demo": {
+    "cases": 10,
+    "providers": [
+      "gmail",
+      "icloud"
+    ],
+    "stages": [
+      "success",
+      "no_match",
+      "caller_identity",
+      "fake_context",
+      "revoked"
+    ],
+    "fixture": "AES-256.pdf",
+    "actualLocalPdfJs": true,
+    "fakeProviderResponsesOnly": true
+  },
+  "independentReview": {
+    "focusedPassed": 32,
+    "demoPassed": 10,
+    "extraCounterexamplesPassed": 6,
+    "internalErrorStatusChecksPassed": 4,
+    "filesUnchangedDuringReview": true,
+    "resolved": "Internal parser/cleanup/config/result failures now return HTTP500 rather than HTTP422 without exposing error details"
+  },
+  "build": {
+    "bytes": 3740357,
+    "sha256": "6842618014df5b10d24bb618acbfb3b2556066e2074cf076be621f664797bf79",
+    "unchanged": true,
+    "httpAdapterImportedByWorker": false
+  },
+  "verifyLogSha256": "074fd6e134e310c57268d29234a7d4e0cc92a598e98c01453e244f03a2147b13",
+  "sourceSha256": {
+    "src/synthetic-host-http.mjs": "cd896efb64d7510d67847c933c1a609eb554419e072920d8dbc0368f391be2a7",
+    "tests/synthetic-host-http.test.mjs": "1066c99f7a73da59eb17276781df622a3815b1dfd7fc1972cf680881b39c8e5e",
+    "scripts/demo-host-http.mjs": "2b0fe80d645ebb6bc885ecbc283c7eaffd0853314db6ccb58893e644e1a12bb1"
+  },
+  "remaining": [
+    "No HTTP listener/server, actual login or mobile end-to-end",
+    "Synthetic selection/profile scope only; no arbitrary real PDF/passwords",
+    "Origin header is not identity; production host must verify sessions and connector ownership",
+    "Body read timeout and cross-request work management belong to future actual server",
+    "Cancellation discards response but does not hard-stop mail reads or parser",
+    "Cloudflare POST/Free CPU and named Preview execution remain unverified",
+    "Issues #1 and #3 remain open"
+  ]
+}
