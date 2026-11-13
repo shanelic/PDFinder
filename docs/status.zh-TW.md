@@ -51,7 +51,13 @@ node --input-type=module -e 'import worker from "./dist/worker.mjs"; import {run
 
 [新候選](synthetic-profile-lifecycle.zh-TW.md)已提供可重用 profile、精確來源／連線範圍、revision 控制的替換及撤銷，僅支持固定公開合成值與 fixture。51 項新測試、雙 provider 10 個 demo 通過；重用本輪已取得的真正合成信回應／原檔，保留 opaque 來源，10 個生命週期情境亦通過，沒有新讀信或寄信。完整回歸及建置通過，Worker 產物不變。
 
-storage 只有記憶體實作，重啟失去狀態，不是正式秘密持久保管；已取得密碼的在途解析仍可能完成。來源授權檢查在原檔 hash 後，不替代讀信前的帳號／附件授權。詳見該契約與[驗證紀錄](verification/synthetic-profile-lifecycle-20261113.json)。
+原始 Map 實作重啟失去狀態；後續已新增[本機臨時 JSON adapter](synthetic-profile-persistence.zh-TW.md)，透過新程序重開驗證公開假值的重用／替換／撤銷，沒有把它當正式秘密持久保管。已取得密碼的在途解析仍可能完成。來源授權檢查在原檔 hash 後，不替代讀信前的帳號／附件授權。詳見該契約與[驗證紀錄](verification/synthetic-profile-lifecycle-20261113.json)。
+
+### 合成 profile 已可跨程序重開
+
+[本機持久化 adapter](synthetic-profile-persistence.zh-TW.md)沿用 read/CAS 契約，只保存公開 value ID 與假 metadata。23/23 新測試、6 個新程序的 12 個雙 provider 情境與完整回歸通過；獨立覆核確認寫入已生效但回報失敗時不重試，以及 32 KiB 門檻不破壞原檔。撤銷 tombstone 重開後仍有效。沒有新增讀信或部署，Worker hash 不變。這是臨時本機狀態保留，不是正式秘密庫、雲端永久儲存或全域撤銷。
+
+[正式保管選擇](profile-storage-options.zh-TW.md)先以平台 runtime Secret 為少量秘密候選，metadata 另保留交易／revision 邊界；沒有先開新資料庫或自行造加密金鑰。
 
 ### 正式雲端呼叫仍待確認
 

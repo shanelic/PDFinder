@@ -44,3 +44,5 @@ npm run verify
 [已選附件搜尋橋接](docs/selected-mail-search.zh-TW.md)接合 provider 原檔與單文件搜尋，並區分已知 hash 比對和首次計算。`npm run demo:selected-mail` 僅注入合成工具回應，未讀取真實信箱。
 
 [合成 profile 生命週期](docs/synthetic-profile-lifecycle.zh-TW.md)提供固定假值的重用、精確來源範圍、替換及撤銷，接上既有搜尋；`npm run demo:profiles` 只用 fake 信箱與記憶體 storage，不保存真實密碼或提供正式 vault。
+
+[可重啟的本機 profile adapter](docs/synthetic-profile-persistence.zh-TW.md)用臨時 JSON 保存公開假值 ID，`npm run demo:profile-restart` 在六個全新程序驗證重用、替換與撤銷。不是正式 vault 或雲端持久化；[正式保管選擇](docs/profile-storage-options.zh-TW.md)另列官方支援與未驗收邊界。

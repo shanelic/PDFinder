@@ -1,0 +1,216 @@
+{
+  "schema": "pdfinder-synthetic-profile-persistence-v1",
+  "recordedBy": "Jarvis",
+  "observedAt": "2026-11-13T11:19:06.536954+00:00",
+  "baseRemoteCommit": "7b30f28d2e087029d6f0695473b6c39213d9aea0",
+  "scope": "Local temporary-file adapter, public synthetic value IDs and fake mail metadata only",
+  "node": "24.22.1",
+  "storage": {
+    "contract": [
+      "read(id)",
+      "compareAndSwap(id, expectedRevision, nextRecord)"
+    ],
+    "format": 1,
+    "maxBytes": 32768,
+    "maxProfiles": 16,
+    "explicitInitialization": true,
+    "missingFileIsNotEmptyStore": true,
+    "lock": "exclusive cooperating process lock, fail on contention, no automatic stale-lock recovery",
+    "write": "temporary file then rename",
+    "read": "bounded until EOF or limit + 1; validate all records",
+    "persistentAcrossProcessRestart": true,
+    "permanentStorage": false,
+    "secretVault": false,
+    "acceptsRealMailMetadata": false,
+    "acceptsArbitraryPasswords": false,
+    "uncertainWriteAutoRetry": false
+  },
+  "suites": {
+    "existingInterface": 302,
+    "sourceParser": 32,
+    "attachmentApi": 46,
+    "providerEnvelope": 72,
+    "mimeHandoff": 78,
+    "mailFixture": 10,
+    "mailVerifier": 28,
+    "boundedDocuments": 36,
+    "selectedMailSearch": 28,
+    "syntheticProfiles": 51,
+    "syntheticFileProfiles": 23,
+    "failed": 0,
+    "skipped": 0
+  },
+  "restartDemo": {
+    "synthetic_only": true,
+    "fresh_processes": 6,
+    "cases": 12,
+    "results": [
+      {
+        "phase": "create",
+        "results": [
+          {
+            "provider": "gmail",
+            "status": "matches_found"
+          },
+          {
+            "provider": "icloud",
+            "status": "matches_found"
+          }
+        ],
+        "metadata": {
+          "profile_id": "synthetic-restart-profile",
+          "revision": 1,
+          "state": "active",
+          "scope_count": 2
+        }
+      },
+      {
+        "phase": "reopen",
+        "results": [
+          {
+            "provider": "gmail",
+            "status": "matches_found"
+          },
+          {
+            "provider": "icloud",
+            "status": "matches_found"
+          }
+        ],
+        "metadata": {
+          "profile_id": "synthetic-restart-profile",
+          "revision": 1,
+          "state": "active",
+          "scope_count": 2
+        }
+      },
+      {
+        "phase": "wrong",
+        "results": [
+          {
+            "provider": "gmail",
+            "status": "incorrect_password"
+          },
+          {
+            "provider": "icloud",
+            "status": "incorrect_password"
+          }
+        ],
+        "metadata": {
+          "profile_id": "synthetic-restart-profile",
+          "revision": 2,
+          "state": "active",
+          "scope_count": 2
+        }
+      },
+      {
+        "phase": "restore",
+        "results": [
+          {
+            "provider": "gmail",
+            "status": "matches_found"
+          },
+          {
+            "provider": "icloud",
+            "status": "matches_found"
+          }
+        ],
+        "metadata": {
+          "profile_id": "synthetic-restart-profile",
+          "revision": 3,
+          "state": "active",
+          "scope_count": 2
+        }
+      },
+      {
+        "phase": "revoke",
+        "results": [
+          {
+            "provider": "gmail",
+            "status": "profile_unavailable"
+          },
+          {
+            "provider": "icloud",
+            "status": "profile_unavailable"
+          }
+        ],
+        "metadata": {
+          "profile_id": "synthetic-restart-profile",
+          "revision": 4,
+          "state": "revoked",
+          "scope_count": 2
+        }
+      },
+      {
+        "phase": "reopen-revoked",
+        "results": [
+          {
+            "provider": "gmail",
+            "status": "profile_unavailable"
+          },
+          {
+            "provider": "icloud",
+            "status": "profile_unavailable"
+          }
+        ],
+        "metadata": {
+          "profile_id": "synthetic-restart-profile",
+          "revision": 4,
+          "state": "revoked",
+          "scope_count": 2
+        }
+      }
+    ],
+    "limitations": [
+      "Not a vault; public IDs stored as plaintext JSON",
+      "Cooperating lock only; no hostile local process, rollback, power-loss or secure-erasure protection",
+      "In-flight parsing may finish after revoke"
+    ],
+    "live_provider_calls": 0
+  },
+  "independentReview": {
+    "focusedPassed": 23,
+    "demoCasesPassed": 12,
+    "freshDemoProcesses": 6,
+    "extraCounterexamplesPassed": 2,
+    "afterCommitFailure": {
+      "observedCode": "storage_unavailable",
+      "diskRevision": 2,
+      "lockRetained": true,
+      "readBlockedUntilTrustedReconciliation": true,
+      "automaticRetryObserved": false
+    },
+    "writeByteLimit": {
+      "recordsBeforeRejection": 7,
+      "bytesBeforeRejection": 29375,
+      "eighthRecordRejected": true,
+      "priorBytesUnchanged": true
+    },
+    "publicFilesPrivacyScanPassed": true,
+    "productDefectsFound": 0,
+    "demoCounterClarification": "Final output calls this live_provider_calls, not a network measurement; re-run passed"
+  },
+  "build": {
+    "bytes": 3740357,
+    "sha256": "6842618014df5b10d24bb618acbfb3b2556066e2074cf076be621f664797bf79",
+    "unchanged": true,
+    "storageImportedByWorker": false
+  },
+  "verifyLogSha256": "ff2cd4c030e23405a5a9146a7dfa76504d0073cf73c7a795ad7d0fb92a4539b5",
+  "finalSourceSha256": {
+    "src/synthetic-file-profile-storage.mjs": "9fe8d95f79ba82bff67d534aa8a38cb95997637f4eab91767efea05f70dc04c9",
+    "tests/synthetic-file-profile-storage.test.mjs": "c3e641cea249960b8a890884fcaef1459e4b5a70f6442c8a7bad3d91fabec1ab",
+    "scripts/demo-profile-restart.mjs": "71e593f1c10c12e3778848b9d70d3087c3e2583e784b10551392eb3f511159b9"
+  },
+  "newMailSends": 0,
+  "newMailReads": 0,
+  "cloudflareChanges": 0,
+  "newDependencies": 0,
+  "remaining": [
+    "No true password input or production secret storage",
+    "Temporary local files may be removed; not a cloud persistent volume",
+    "No fsync/power-loss guarantee, hostile local process defense, rollback protection or secure erasure",
+    "Trusted host must authorize mailbox and attachment before read",
+    "Already-resolved parsing may finish after revoke",
+    "Cloudflare invocation/Free CPU, production isolation and release acceptance unresolved"
+  ]
+}

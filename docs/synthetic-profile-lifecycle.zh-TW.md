@@ -1,6 +1,6 @@
 # 合成密碼 profile：重用、限定來源、替換與撤銷
 
-由 Jarvis 建立。這是未發布的 host 功能候選，**不是密碼庫或正式密碼保管服務**。只接受兩個硬編碼公開測試值的 ID、固定 AES-256 合成附件及精確來源；沒有明文密碼輸入欄位，不接受使用者密碼，也沒有網路、磁碟或雲端資料庫。
+由 Jarvis 建立。這是未發布的 host 功能候選，**不是密碼庫或正式密碼保管服務**。只接受兩個硬編碼公開測試值的 ID、固定 AES-256 合成附件及精確來源；沒有明文密碼輸入欄位，不接受使用者密碼，本模組也沒有網路、磁碟或雲端資料庫。另有[獨立本機檔案 adapter](synthetic-profile-persistence.zh-TW.md)驗證跨程序保留，只接受假 metadata，仍不是正式秘密保管。
 
 ```sh
 npm run test:profiles
@@ -11,7 +11,7 @@ Demo 透過既有單文件搜尋橋接、fake Gmail／iCloud 回應及真 PDF.js
 
 ## 最小 API
 
-`createSyntheticPasswordProfiles({storage})` 只依賴注入的 `read(id)` 與 `compareAndSwap(id, expectedRevision, nextRecord)`。本庫唯一實作 `createInMemorySyntheticProfileStorage()`，只在一個 Map 實例內原子修改、回傳資料副本；**重啟就失去全部狀態**。寫入的是公開 value ID，不是經加密保管的秘密。
+`createSyntheticPasswordProfiles({storage})` 只依賴注入的 `read(id)` 與 `compareAndSwap(id, expectedRevision, nextRecord)`。原始記憶體實作 `createInMemorySyntheticProfileStorage()`，只在一個 Map 實例內原子修改、回傳資料副本；**重啟就失去全部狀態**。寫入的是公開 value ID，不是經加密保管的秘密。
 
 | 操作 | 行為 |
 | --- | --- |
@@ -38,6 +38,6 @@ Demo 透過既有單文件搜尋橋接、fake Gmail／iCloud 回應及真 PDF.js
 - 寫入回應不確定時不自動重試，也不宣稱沒有生效。可信 host 可唯讀 `describe` 核對；若無法核對，就保持未知。
 - 既有搜尋會把無法取得／不允許的 profile 統一表達為 `profile_unavailable`，不將撤銷誤報成 PDF 沒有命中。
 - 撤銷只保證在這個受信任 storage 上的**後續 resolution** 拒絕。先前已交給 parser 的字串或已開始的請求仍可能完成，不能稱即時全域撤銷、安全抹除或強制停止工作。
-- 不防惡意或回滾的 storage adapter、不提供跨程序一致性、使用者登入、加密保管、權限管理、審計或正式資料保存政策。若日後接入真實儲存／密碼，需要另外設計、授權及驗收，不能因本機測試通過就替換成正式 vault。
+- 本原始 Map 不防惡意或回滾的 storage adapter、不提供跨程序一致性、使用者登入、加密保管、權限管理、審計或正式資料保存政策。若日後接入真實儲存／密碼，需要另外設計、授權及驗收，不能因本機測試通過就替換成正式 vault。
 
 本輪 51 項新增測試與 10 個雙 provider demo 通過；另重用已取得的真正合成信回應／原檔做 10 個生命週期情境，沒有新增郵件外呼。全部既有回歸與建置通過，Worker hash 不變。最終獨立覆核另重跑 51/51 與 10 個 demo，並核對 accessor 與 3 個 opaque 來源錯配反例。[本輪機器紀錄](verification/synthetic-profile-lifecycle-20261113.json)。獨立覆核發現的 storage accessor 改變值問題，已改為先 clone 再驗證同一快照，避免驗證與使用不同紀錄。Cloudflare CPU／正式呼叫仍在 [#1](https://github.com/shanelic/PDFinder/issues/1)，正式 profile 權限、文件與發布驗收仍在 [#3](https://github.com/shanelic/PDFinder/issues/3)。
