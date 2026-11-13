@@ -1,0 +1,175 @@
+{
+  "schema": "pdfinder-synthetic-profile-lifecycle-v1",
+  "recordedBy": "Jarvis",
+  "observedAt": "2026-11-13T11:05:25.381892+00:00",
+  "baseRemoteCommit": "893a68888d7cf5361f553a1edd84e4debb968845",
+  "scope": "Unpublished host-only synthetic profile lifecycle, real parser with fake provider responses and replay of earlier authorized synthetic mail",
+  "allowedValues": [
+    "fixture-aes256",
+    "wrong-test-value"
+  ],
+  "arbitraryPasswordsAccepted": false,
+  "fixtureSha256": "88bcd7d2be5ff65e024d6b3a5964da2a0d10b1f36cbb2616abfc60556a8fe47c",
+  "binding": [
+    "provider",
+    "account_ref",
+    "connection_ref",
+    "message_id",
+    "attachment_id",
+    "filename",
+    "sha256"
+  ],
+  "sourceRefIsAuthority": false,
+  "storage": {
+    "implementation": "in_memory_Map_only",
+    "persistence": false,
+    "atomicity": "single_store_instance_only",
+    "adapterTrust": "trusted_host_dependency",
+    "revokedIdReuse": false,
+    "readOnEachResolution": true,
+    "uncertainWriteRetry": false,
+    "cloneBeforeRecordValidation": true
+  },
+  "suites": {
+    "existingInterface": 302,
+    "sourceParser": 32,
+    "attachmentApi": 46,
+    "providerEnvelope": 72,
+    "mimeHandoff": 78,
+    "mailFixture": 10,
+    "mailVerifier": 28,
+    "boundedDocuments": 36,
+    "selectedMailSearch": 28,
+    "syntheticProfiles": 51,
+    "failed": 0,
+    "skipped": 0
+  },
+  "demoCases": {
+    "profileLifecycleFakeProviders": 10,
+    "existingSelectedMail": 4,
+    "existingDocuments": 4
+  },
+  "capturedSyntheticMailReplay": {
+    "schema": "pdfinder-known-mail-profile-replay-v1",
+    "recordedBy": "Jarvis",
+    "observedAt": "2026-11-13T11:03:47.774Z",
+    "scope": "Local lifecycle replay of already obtained actual synthetic mail responses/original; no new provider calls",
+    "newMailSends": 0,
+    "newMailReads": 0,
+    "externalCalls": 0,
+    "realSecretsAccepted": false,
+    "realDocumentsProcessed": false,
+    "opaqueSourceIdsPreserved": true,
+    "fixtureSha256": "88bcd7d2be5ff65e024d6b3a5964da2a0d10b1f36cbb2616abfc60556a8fe47c",
+    "storage": "in_memory_only",
+    "passed": 10,
+    "failed": 0,
+    "states": [
+      {
+        "profile_id": "synthetic-known-mail-profile",
+        "revision": 1,
+        "state": "active",
+        "scope_count": 2
+      },
+      {
+        "profile_id": "synthetic-known-mail-profile",
+        "revision": 2,
+        "state": "active",
+        "scope_count": 2
+      },
+      {
+        "profile_id": "synthetic-known-mail-profile",
+        "revision": 3,
+        "state": "active",
+        "scope_count": 2
+      },
+      {
+        "profile_id": "synthetic-known-mail-profile",
+        "revision": 4,
+        "state": "revoked",
+        "scope_count": 2
+      }
+    ],
+    "results": [
+      {
+        "provider": "gmail",
+        "stage": "first_use",
+        "outcome": "matches_found"
+      },
+      {
+        "provider": "icloud",
+        "stage": "first_use",
+        "outcome": "matches_found"
+      },
+      {
+        "provider": "gmail",
+        "stage": "reuse",
+        "outcome": "matches_found"
+      },
+      {
+        "provider": "icloud",
+        "stage": "reuse",
+        "outcome": "matches_found"
+      },
+      {
+        "provider": "gmail",
+        "stage": "wrong_replacement",
+        "outcome": "incorrect_password"
+      },
+      {
+        "provider": "icloud",
+        "stage": "wrong_replacement",
+        "outcome": "incorrect_password"
+      },
+      {
+        "provider": "gmail",
+        "stage": "restored",
+        "outcome": "matches_found"
+      },
+      {
+        "provider": "icloud",
+        "stage": "restored",
+        "outcome": "matches_found"
+      },
+      {
+        "provider": "gmail",
+        "stage": "revoked",
+        "outcome": "profile_unavailable"
+      },
+      {
+        "provider": "icloud",
+        "stage": "revoked",
+        "outcome": "profile_unavailable"
+      }
+    ]
+  },
+  "build": {
+    "bytes": 3740357,
+    "sha256": "6842618014df5b10d24bb618acbfb3b2556066e2074cf076be621f664797bf79",
+    "unchanged": true,
+    "profileImportedByWorker": false
+  },
+  "verifyLogSha256": "353b5f96c01a605c38917e604aab9826853a869c6d8dee145fbe3dc720b992bf",
+  "remaining": [
+    "No true password input or persistent vault",
+    "Trusted host still owns pre-read connection and attachment authorization",
+    "Already-resolved in-flight parsing may finish after revocation",
+    "No cross-process consistency, malicious-storage rollback defense or secure erasure proof",
+    "Cloudflare invocation/Free CPU, production isolation and release acceptance unresolved"
+  ],
+  "newMailSends": 0,
+  "newMailReads": 0,
+  "cloudflareChanges": 0,
+  "newDependencies": 0,
+  "independentReview": {
+    "focusedTestsPassed": 51,
+    "lifecycleDemoCasesPassed": 10,
+    "sourceHashStableAcrossTests": true,
+    "accessorFlipRejected": true,
+    "extraOpaqueScopeMismatchCasesPassed": 3,
+    "capturedMailReplayResultsReviewed": 10,
+    "publicReceiptPrivacyScanPassed": true,
+    "externalCalls": 0,
+    "fileEdits": 0
+  }
+}

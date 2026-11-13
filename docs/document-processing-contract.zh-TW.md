@@ -64,6 +64,6 @@ Demo 不讀取檔案或信箱、不接受網址／密碼，而是生成四份合
 
 本機 buffer 清零不是安全抹除保證，無法涵蓋 parser／轉移副本／字串。取消只在 async 邊界檢查，不能保證立即中斷同步 CPU 或卡住的 stream。單一 processor 的 busy 不是跨 instance／全帳號配額。cleanup timeout 後釋放 busy 不證明底層工作已停止；正式 host 遇 `cleanup_failed` 應丟棄該工作實例，不在同一實例自動重試。記憶體、CPU、網路外洩防護及多租戶隔離未驗證。
 
-尚無公開一般文件入口、真實信箱取件到解密驗收、正式 profile 權限／撤銷保管、真實文件授權或上線決定。只有固定已知 fixture 能使用精確文字 oracle；一般文件回傳 `not_a_completeness_proof`，絕不承諾全部文件擷取完整。後續仍依功能→雲端效能→必要安全→正式驗收的順序，不以新增通用框架取代可用功能。
+一封已授權合成信的[真實取件到解密／引用驗收](live-synthetic-mail-acceptance.zh-TW.md)已完成；本輪另有[僅公開假值的 profile 生命週期候選](synthetic-profile-lifecycle.zh-TW.md)。仍無公開一般文件入口、無人值守信箱整合、正式 profile 權限／撤銷保管、真實文件授權或上線決定。只有固定已知 fixture 能使用精確文字 oracle；一般文件回傳 `not_a_completeness_proof`，絕不承諾全部文件擷取完整。後續仍依功能→雲端效能→必要安全→正式驗收的順序，不以新增通用框架取代可用功能。
 
 驗證：35/35 新測試、4 個 demo 案例、完整既有回歸及建置通過；獨立覆核 35/35 與 5 個反例通過。[本輪紀錄](verification/bounded-document-20261112.json)。

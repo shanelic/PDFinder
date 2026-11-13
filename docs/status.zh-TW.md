@@ -27,7 +27,7 @@
 node --input-type=module -e 'import worker from "./dist/worker.mjs"; import {runActualWorkerSuite} from "./tests/interface-suite.mjs"; console.log(JSON.stringify(await runActualWorkerSuite(worker), null, 2));'
 ```
 
-## 階段 2：未開始新雲端試跑
+## 階段 2：尚未完成新的 Cloudflare 試跑
 
 ### 獨立推進：本機附件輸入與引用
 
@@ -46,6 +46,12 @@ node --input-type=module -e 'import worker from "./dist/worker.mjs"; import {run
 另已提供[本機單份文件搜尋候選](document-processing-contract.zh-TW.md)，以新生成合成 PDF 驗證大小／頁數／文字限制及失敗分類。一般文件不使用固定 fixture oracle，因此仍明示擷取完整性未知；未發布或處理真實附件。
 
 單文件功能已接上[精確取件到引用的 host 橋接](selected-mail-search.zh-TW.md)，包含首次取件未知 SHA 的明確語意。本機端到端可重跑；另已完成[新合成信 live 驗收](live-synthetic-mail-acceptance.zh-TW.md)：一封、單一 1,825-byte AES-256 附件，兩路原檔 SHA 一致，1 頁／1 筆命中，真實來源 ID 保留。兩路固定 oracle、橋接成功及錯／缺假密碼 profile 共 8 項通過，未改產品來源或重新計算既有回歸成績。正式雲端呼叫與 CPU 仍待完成，這不是無人值守產品。
+
+### 合成 profile 生命週期已接上搜尋
+
+[新候選](synthetic-profile-lifecycle.zh-TW.md)已提供可重用 profile、精確來源／連線範圍、revision 控制的替換及撤銷，僅支持固定公開合成值與 fixture。51 項新測試、雙 provider 10 個 demo 通過；重用本輪已取得的真正合成信回應／原檔，保留 opaque 來源，10 個生命週期情境亦通過，沒有新讀信或寄信。完整回歸及建置通過，Worker 產物不變。
+
+storage 只有記憶體實作，重啟失去狀態，不是正式秘密持久保管；已取得密碼的在途解析仍可能完成。來源授權檢查在原檔 hash 後，不替代讀信前的帳號／附件授權。詳見該契約與[驗證紀錄](verification/synthetic-profile-lifecycle-20261113.json)。
 
 ### 正式雲端呼叫仍待確認
 

@@ -42,3 +42,5 @@ npm run verify
 [單份文件搜尋候選](docs/document-processing-contract.zh-TW.md)提供 bytes／頁數／文字預算與明確失敗分類；`npm run demo:documents` 只使用本機生成的合成 PDF。未公開一般文件入口，未驗收真實文件或 Cloudflare Free 容量。
 
 [已選附件搜尋橋接](docs/selected-mail-search.zh-TW.md)接合 provider 原檔與單文件搜尋，並區分已知 hash 比對和首次計算。`npm run demo:selected-mail` 僅注入合成工具回應，未讀取真實信箱。
+
+[合成 profile 生命週期](docs/synthetic-profile-lifecycle.zh-TW.md)提供固定假值的重用、精確來源範圍、替換及撤銷，接上既有搜尋；`npm run demo:profiles` 只用 fake 信箱與記憶體 storage，不保存真實密碼或提供正式 vault。
