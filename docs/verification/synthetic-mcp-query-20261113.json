@@ -1,0 +1,99 @@
+{
+  "schema": "pdfinder-synthetic-mcp-query-v1",
+  "recordedBy": "Jarvis",
+  "observedAt": "2026-11-13T17:46:38Z",
+  "baseRemoteCommit": "487b46353e26aab975a9d90c097e74c4bdaf4745",
+  "scope": "Decoded serialized MCP tools messages through in-process HTTP Request/Response, trusted host, synthetic mail provider responses and genuine local PDF.js",
+  "protocolSubset": {
+    "version": "2026-07-28",
+    "methods": [
+      "tools/list",
+      "tools/call"
+    ],
+    "tool": "search_synthetic_selected_pdf",
+    "arguments": [
+      "selection_ref",
+      "query"
+    ],
+    "completeMcpServer": false,
+    "serverDiscover": false,
+    "legacyProtocolNegotiation": false
+  },
+  "identitySource": "Separate trusted host context, never arguments/client metadata/Origin",
+  "responseBoundary": "Exact fixed status/error pairs, or full fixed AES-256 expected-result equality; not a generic PDF validator or independent provenance proof",
+  "notificationsExecuteQueries": false,
+  "structuredAndTextContentEqual": true,
+  "actualMcpRegistrationVerified": false,
+  "actualMobileClientVerified": false,
+  "actualAuthenticationVerified": false,
+  "abortHardStopsHostWork": false,
+  "liveMailCalls": 0,
+  "cloudflareChanges": 0,
+  "workerPostCalls": 0,
+  "newCredentials": 0,
+  "newDependencies": 0,
+  "suites": {
+    "existingInterface": 302,
+    "sourceParser": 32,
+    "attachmentApi": 46,
+    "providerEnvelope": 72,
+    "mimeHandoff": 78,
+    "mailFixture": 10,
+    "mailVerifier": 28,
+    "boundedDocuments": 36,
+    "selectedMailSearch": 28,
+    "syntheticProfiles": 51,
+    "syntheticFileProfiles": 23,
+    "syntheticHostQuery": 44,
+    "previewEvidence": 54,
+    "syntheticHostHttp": 32,
+    "failed": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "syntheticMcpQuery": 42
+  },
+  "demo": {
+    "cases": 10,
+    "providers": [
+      "gmail",
+      "icloud"
+    ],
+    "stages": [
+      "success",
+      "no_match",
+      "caller_identity",
+      "fake_context",
+      "revoked"
+    ],
+    "fixture": "AES-256.pdf",
+    "actualLocalPdfJs": true,
+    "fakeProviderResponsesOnly": true
+  },
+  "independentReview": {
+    "focusedPassed": 42,
+    "demoPassed": 10,
+    "originalLeakCounterexamplesFixed": 3,
+    "finalCodeHashesMatched": true,
+    "resolved": "Unknown HTTP errors and malformed HTTP200 results no longer escape or claim success; all replaced by query_failed"
+  },
+  "build": {
+    "bytes": 3740357,
+    "sha256": "6842618014df5b10d24bb618acbfb3b2556066e2074cf076be621f664797bf79",
+    "unchanged": true,
+    "mcpAdapterImportedByWorker": false
+  },
+  "verifyLogSha256": "44cade4654b7b7ecc05a436bee4f1778360a076db72208fdfe0c6217776d416c",
+  "sourceSha256": {
+    "src/synthetic-mcp-query.mjs": "4c5dc2c51dfd6155067dfd4cbfb10cc2053107cfca67333c1814cfdc8add2c3f",
+    "tests/synthetic-mcp-query.test.mjs": "4e68712a3cf6f1861e44196f1be424fcba05ead920bf9b75e1c8151768ad4518",
+    "scripts/demo-mcp-query.mjs": "aef4b8a27a2393815cd9049eb27d088d7ee6b1ff83410e5449b081dda747907c"
+  },
+  "remaining": [
+    "No full MCP server, transport, registration or real mobile/ChatGPT call",
+    "Actual host sessions, connector ownership and source grants still need platform integration",
+    "Fixed synthetic fixture and public fake profile only; not real documents/password storage",
+    "Node host adapter not a verified Workers deployment module",
+    "Cloudflare supported POST route and Free per-request CPU remain unverified",
+    "Issues #1 and #3 remain open"
+  ]
+}

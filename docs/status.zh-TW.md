@@ -88,6 +88,12 @@ Cloudflare MCP 官方契約限制 execute 的外連目標為 Cloudflare API；�
 
 [新 adapter](synthetic-host-http.zh-TW.md)將固定同來源 POST 的兩欄 JSON 接到既有可信 host，保留真 PDF.js 搜尋與來源引用；提供串流大小限制、去敏錯誤及取消結果處理。32/32 新測試、10 個雙 provider demo、完整回歸通過；獨立 6 個反例與 4 個內部錯誤分類通過，Worker hash 不變。僅以本機 Request／Response 物件驗證，沒有 socket/server、登入或手機部署。Cloudflare POST／CPU 狀態沒有因此改變，正式授權與發布仍未完成。
 
+### 已補原始工具使用方向的 MCP 訊息接線
+
+[新的 MCP 候選](synthetic-mcp-query.zh-TW.md)讓序列化 tools 訊息穿過現有 HTTP／可信 host／合成 Gmail、iCloud／真正 PDF.js，再回到序列化工具引用。42/42 新測試、10 個雙 provider demo 與完整回歸通過，獨立覆核同版結果並修復 3 個異常 HTTP 輸出反例；Worker hash 不變。來源、頁碼及範圍保留，無命中屬成功，假身分、撤銷與失敗不外洩原始例外。
+
+這是已解碼訊息子集合，並非完整 MCP server 或實際 ChatGPT／手機註冊。成功輸出僅對固定 AES-256 oracle 核對，不能推廣成任意 PDF 的來源授權或完整性證明。未增加服務、依賴、真憑證或雲端操作；#1／#3 的平台與正式驗收仍未完成。詳見[本輪驗證紀錄](verification/synthetic-mcp-query-20261113.json)。
+
 ## 尚未驗收
 
 - 真正 Cloudflare Free 環境的冷啟動、每請求 CPU、記憶體與錯誤結果。

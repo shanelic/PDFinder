@@ -52,3 +52,5 @@ npm run verify
 [Named Preview 單份 smoke runbook](docs/named-preview-smoke-runbook.zh-TW.md)固定材料、一次手動 POST 與清理步驟；`npm run demo:preview-evidence` 只示範離線 CPU／請求／版本對應，未建立 Preview 或量得雲端 CPU。正式 POST 通道仍待確認。
 
 [合成 Request／Response 查詢入口](docs/synthetic-host-http.zh-TW.md)把前端兩欄 JSON 接到可信 host、雙信箱橋接與引用；`npm run demo:host-http` 只在本機直接呼叫，不開 server 或部署，也不把 Origin／headers 當身分。
+
+[MCP 工具訊息整合候選](docs/synthetic-mcp-query.zh-TW.md)把已解碼的 `tools/list`／`tools/call` 接到 HTTP／可信 host 與雙信箱搜尋；`npm run demo:mcp-query` 驗證序列化引用與去敏失敗。僅固定合成本機資料，還不是完整 MCP server、已註冊工具或 ChatGPT 手機 live 驗收。
