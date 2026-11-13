@@ -24,12 +24,12 @@ npm run verify:synthetic-mail
 
 ## 證據界線
 
-本輪兩路徑是合成回應，不是新寄信／新下載的 live E2E。先前歷史 2,476-byte 附件的原檔交接證據仍成立，但其假密碼無可恢復紀錄，未用本 fixture 的成功冒充舊附件解密。
+原始本機測試的兩路徑是合成回應，不是 live E2E。2026-11-13 已另經授權完成[新一封合成信的 live 驗收](live-synthetic-mail-acceptance.zh-TW.md)，重用同一 helper；本頁命令仍只做本機測試。先前歷史 2,476-byte 附件的原檔交接證據仍成立，但其假密碼無可恢復紀錄，未用本 fixture 的成功冒充舊附件解密。
 
 `connection` 與原始回應綁定仍由可信 host 負責，這個 helper 不是登入、郵件權限或帳號歸屬證明。注入 parser 是可信程式依賴；`expected_parser_version` 只是預期版本標籤，不是遠端版本查驗。測試使用 repo 的真正 parser。
 
 取消會在 await 邊界複核並丟棄已取消結果，不保證中止卡住的 reader 或 parser。自有 PDF buffer 在結束時使用預先取得的 TypedArray fill 原語清零；若 parser detach buffer 導致清理無法完成，回傳固定清理失敗，不放行成功結果。這不保證 JavaScript 字串、parser、外部 reader 副本或執行環境安全抹除。錯誤訊息使用固定允許代碼，不轉發工具／下載器的原始錯誤。
 
-待使用者另行同意寄送可重現合成信後，才能以同一驗收邏輯核對真正 Gmail／iCloud 取件、解密與引用。目前沒有寄送。Cloudflare Free CPU、正式雲端呼叫與產品級安全仍未完成。
+2026-11-13 已取得本次明確寄信授權並僅寄出一封；真正 Gmail／iCloud 取件、解密與引用均通過，詳見上述獨立 live 紀錄。這不是未來寄信的自動授權，repo helper 仍沒有寄信能力。Cloudflare Free CPU、正式雲端呼叫與產品級安全仍未完成。
 
 本輪 28/28 新回歸及完整既有回歸通過；獨立覆核 28/28 與 3 個反例符合預期。[機器可讀紀錄](verification/synthetic-mail-verifier-20261112.json)。

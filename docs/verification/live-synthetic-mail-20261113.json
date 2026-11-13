@@ -1,0 +1,146 @@
+{
+  "schema": "pdfinder-live-known-synthetic-mail-v1",
+  "recordedBy": "Jarvis",
+  "observedAt": "2026-11-13T10:46:34.687Z",
+  "scope": "One authorized synthetic Gmail-to-iCloud message; fresh real provider responses and iCloud original bytes processed in the cloud host, not Cloudflare",
+  "send": {
+    "confirmedSent": 1,
+    "confirmedIcloudReceipt": 1,
+    "attachmentCount": 1,
+    "ccCount": 0,
+    "bccCount": 0,
+    "gmailSentSearchMatches": 1,
+    "gmailSentSearchComplete": true
+  },
+  "fixture": {
+    "filename": "AES-256.pdf",
+    "bytes": 1825,
+    "sha256": "88bcd7d2be5ff65e024d6b3a5964da2a0d10b1f36cbb2616abfc60556a8fe47c",
+    "encryption": "AES-256",
+    "passwordKind": "public_synthetic_value"
+  },
+  "parser": {
+    "observedVersion": "6.2.108",
+    "execution": "existing Node cloud workspace"
+  },
+  "verification": {
+    "sameRfcMessageId": true,
+    "originalBytesMatchPin": true,
+    "providerHashesAndCitationsMatch": true,
+    "providerSourceIdsPreserved": true,
+    "icloudReadFlagUnchangedAtRead": true,
+    "mailProviderReads": "Actual connected Gmail raw and iCloud get_message(attachment_ids)",
+    "hostHandoff": "Official file materialization, then injected original reader; not an unattended deployed integration"
+  },
+  "acceptance": [
+    {
+      "provider": "gmail",
+      "fixture": "AES-256.pdf",
+      "bytes": 1825,
+      "sha256": "88bcd7d2be5ff65e024d6b3a5964da2a0d10b1f36cbb2616abfc60556a8fe47c",
+      "page_count": 1,
+      "match_count": 1,
+      "query": "PDF",
+      "identity_scope": "trusted_host_selected_response_not_authentication",
+      "coverage": "known_fixture_oracle_not_general_completeness"
+    },
+    {
+      "provider": "icloud",
+      "fixture": "AES-256.pdf",
+      "bytes": 1825,
+      "sha256": "88bcd7d2be5ff65e024d6b3a5964da2a0d10b1f36cbb2616abfc60556a8fe47c",
+      "page_count": 1,
+      "match_count": 1,
+      "query": "PDF",
+      "identity_scope": "trusted_host_selected_response_not_authentication",
+      "coverage": "known_fixture_oracle_not_general_completeness"
+    }
+  ],
+  "selectedMailBridge": [
+    {
+      "provider": "gmail",
+      "route": "gmail_raw",
+      "status": "matches_found",
+      "page_count": 1,
+      "match_count": 1,
+      "integrity": "matched_expected"
+    },
+    {
+      "provider": "icloud",
+      "route": "icloud_original",
+      "status": "matches_found",
+      "page_count": 1,
+      "match_count": 1,
+      "integrity": "matched_expected"
+    }
+  ],
+  "citationExample": {
+    "sha256": "88bcd7d2be5ff65e024d6b3a5964da2a0d10b1f36cbb2616abfc60556a8fe47c",
+    "page": 1,
+    "range": {
+      "start": 16,
+      "end": 19,
+      "unit": "unicode_codepoint",
+      "end_exclusive": true
+    },
+    "quote": "PDF",
+    "context": {
+      "start": 0,
+      "end": 43,
+      "text": "Synthetic cloud PDF transport proof.\nNo rea"
+    }
+  },
+  "failureChecks": [
+    {
+      "provider": "gmail",
+      "scenario": "wrong_public_password",
+      "code": "incorrect_password"
+    },
+    {
+      "provider": "gmail",
+      "scenario": "missing_public_profile",
+      "code": "profile_unavailable"
+    },
+    {
+      "provider": "icloud",
+      "scenario": "wrong_public_password",
+      "code": "incorrect_password"
+    },
+    {
+      "provider": "icloud",
+      "scenario": "missing_public_profile",
+      "code": "profile_unavailable"
+    }
+  ],
+  "checks": {
+    "knownFixtureAcceptance": 2,
+    "selectedMailBridgeSuccess": 2,
+    "wrongPasswordRejections": 2,
+    "missingProfileRejections": 2,
+    "failed": 0
+  },
+  "remaining": [
+    "Cloudflare hosted invocation and Free CPU measurement",
+    "Unattended authenticated provider orchestration",
+    "Real documents/passwords and production permission/profile storage/revocation",
+    "Production parser/network isolation and release approval"
+  ],
+  "cloudflareChanges": 0,
+  "additionalMailSends": 0,
+  "baseRemoteCommit": "9b8781ffc78b23bf6fe0f8ee69b01def6af7fe1d",
+  "knownHarnessCorrection": "A separate evidence script initially imported PDF.js before geometry initialization; it was corrected to use the existing lazy loader. No product source changed.",
+  "build": {
+    "bytes": 3740357,
+    "sha256": "6842618014df5b10d24bb618acbfb3b2556066e2074cf076be621f664797bf79",
+    "rebuiltThisRound": false,
+    "unchangedFromPriorVerifiedBuild": true
+  },
+  "independentReview": {
+    "standardMimeParserBytesCompared": true,
+    "knownFixtureVerifierCasesPassed": 2,
+    "rawEnvelopeAndSourceAssertionsReviewed": true,
+    "publicReceiptPrivacyScanPassed": true,
+    "externalCalls": 0,
+    "fileEdits": 0
+  }
+}

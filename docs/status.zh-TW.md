@@ -1,6 +1,6 @@
 # PDFinder 目前進度
 
-更新：2026-11-12 UTC。由 Jarvis 記錄；本頁區分已驗證成果、歷史證據與待完成事項。
+更新：2026-11-13 UTC。由 Jarvis 記錄；本頁區分已驗證成果、歷史證據與待完成事項。
 
 ## 產品目標與順序
 
@@ -39,13 +39,13 @@ node --input-type=module -e 'import worker from "./dist/worker.mjs"; import {run
 
 已補 [JS MIME 唯一附件選取及 iCloud host 交接契約](mime-and-icloud-handoff.zh-TW.md)。Gmail 7 份合成 MIME 路徑接真實解析與引用；重用官方 raw 回應也選出同一份 2,476 bytes PDF。
 
-最新 [iCloud 原檔觀察](icloud-observation-and-mail-fixture.zh-TW.md) 已透過精確 Message-ID header 找回原合成測試信，取得原始 PDF，與 Gmail bytes／SHA 一致；新增的窄 envelope decoder 也用該回應核對。舊附件的當次隨機假密碼紀錄無法恢復，因此 live 解密／引用仍未完成。已另備可重現 EML 與公開假密碼 manifest，本機端到端通過但未寄送，不能替代舊附件驗收。
+最新 [iCloud 原檔觀察](icloud-observation-and-mail-fixture.zh-TW.md) 已透過精確 Message-ID header 找回原合成測試信，取得原始 PDF，與 Gmail bytes／SHA 一致；新增的窄 envelope decoder 也用該回應核對。舊附件的當次隨機假密碼紀錄無法恢復，該歷史附件仍未解密。另備的可重現公開假密碼 fixture 已在 2026-11-13 獲授權寄送並完成新一封信的 live 驗收，不替代或改寫舊附件結果。
 
-已另補[同一合成附件的雙信箱驗收入口](synthetic-mail-verifier.zh-TW.md)，保留 host 實際 opaque ID 並統一核對解密、頁碼與引用。雙路徑真 PDF.js 本機解析成功，仍未寄送新信；只有合成 envelope，尚非 live 端到端。
+已另補[同一合成附件的雙信箱驗收入口](synthetic-mail-verifier.zh-TW.md)，保留 host 實際 opaque ID 並統一核對解密、頁碼與引用。最初僅有本機合成 envelope；2026-11-13 同一驗收入口已套用真正 Gmail raw 與 iCloud 原附件，兩路解密與來源引用通過。
 
 另已提供[本機單份文件搜尋候選](document-processing-contract.zh-TW.md)，以新生成合成 PDF 驗證大小／頁數／文字限制及失敗分類。一般文件不使用固定 fixture oracle，因此仍明示擷取完整性未知；未發布或處理真實附件。
 
-單文件功能已接上[精確取件到引用的 host 橋接](selected-mail-search.zh-TW.md)，包含首次取件未知 SHA 的明確語意。本機端到端可重跑；目前下一個關鍵進度仍需寄信許可及正式雲端通道，不以更多重複測試代替 live 驗收。
+單文件功能已接上[精確取件到引用的 host 橋接](selected-mail-search.zh-TW.md)，包含首次取件未知 SHA 的明確語意。本機端到端可重跑；另已完成[新合成信 live 驗收](live-synthetic-mail-acceptance.zh-TW.md)：一封、單一 1,825-byte AES-256 附件，兩路原檔 SHA 一致，1 頁／1 筆命中，真實來源 ID 保留。兩路固定 oracle、橋接成功及錯／缺假密碼 profile 共 8 項通過，未改產品來源或重新計算既有回歸成績。正式雲端呼叫與 CPU 仍待完成，這不是無人值守產品。
 
 ### 正式雲端呼叫仍待確認
 

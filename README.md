@@ -17,9 +17,9 @@ npm run verify
 
 `npm run demo:synthetic` 示範附件 bytes → 假密碼 profile → AES-256 解密 → 頁碼與來源引用；`npm run test:attachments` 驗證這個本機流程，已納入 `npm run verify`。[輸入契約與限制](docs/synthetic-attachment-api.zh-TW.md)說明哪些部分仍是 mock，不能直接當成正式 HTTP 服務。
 
-`npm run test:providers` 驗證 [Gmail／iCloud 選定附件 adapter](docs/provider-adapters.zh-TW.md) 的工具計畫、fake 原始檔運送與引用銜接。`npm run test:mime` 驗證 [Gmail 唯一 MIME 附件選取與 iCloud host 契約](docs/mime-and-icloud-handoff.zh-TW.md)；兩者都納入完整驗證。Gmail raw envelope 及保守 MIME 子集合已用既有合成回應核對，整個 live 端到端流程仍未完成。
+`npm run test:providers` 驗證 [Gmail／iCloud 選定附件 adapter](docs/provider-adapters.zh-TW.md) 的工具計畫、fake 原始檔運送與引用銜接。`npm run test:mime` 驗證 [Gmail 唯一 MIME 附件選取與 iCloud host 契約](docs/mime-and-icloud-handoff.zh-TW.md)；兩者都納入完整驗證。Gmail raw envelope 及保守 MIME 子集合已用既有合成回應核對，本機測試仍不讀信；另已完成一封真正合成信的[雙信箱取件、解密與引用驗收](docs/live-synthetic-mail-acceptance.zh-TW.md)。
 
-最新已[取回 iCloud 原檔並核對與 Gmail 一致](docs/icloud-observation-and-mail-fixture.zh-TW.md)，也加入 observed-envelope decoder；舊附件假密碼紀錄未恢復，不能宣稱 live 解密成功。`npm run prepare:synthetic-mail` 只在本機產生可重現郵件與公開假密碼 manifest，**不會寄信**；`npm run test:mail-fixture` 驗證其本機解密與引用。
+先前已[取回歷史 iCloud 原檔並核對與 Gmail 一致](docs/icloud-observation-and-mail-fixture.zh-TW.md)，也加入 observed-envelope decoder；該舊附件假密碼仍未恢復。2026-11-13 另經授權寄出一封已知公開假密碼的合成附件，兩信箱的 live 取件→解密→引用已通過，未改寫歷史結果。`npm run prepare:synthetic-mail` 只在本機產生可重現郵件與公開假密碼 manifest，**不會寄信**；`npm run test:mail-fixture` 驗證其本機解密與引用。
 
 固定合成資料涵蓋未加密、RC4-128、AES-128、AES-256 與內嵌字型的中文 PDF。資料中的密碼是公開假值，不是秘密。Worker 只接受固定 fixture ID，回傳有限度的測試中繼資料，不接受任意文件上傳。現有介面要求驗證與到期設定，本庫不提供可用憑證。
 
@@ -28,7 +28,7 @@ npm run verify
 - 階段 1：**302 項介面檢查與 32 項實際解析器檢查全數通過**，建置成功；同一組 32 項另對建置產物驗證通過，不重複計為新的情境。
 - 最新歷史雲端嘗試遇到 **MCP 外連通道 HTTP 403**，沒有已驗證的解析回應或每請求 CPU 數據。本輪沒有再次部署或呼叫。
 - Cloudflare Workers Free 的每請求 CPU 可行性仍然**未知**。本機整個程序 CPU 不是線上每請求 CPU。
-- 正式信箱整合、真實文件驗收、密碼重用及手機到附件解析的完整流程**尚未完成**。
+- 一次可信 host 協調的真實合成信驗收已完成；無人值守正式信箱整合、真實文件、密碼重用及手機端完整產品流程**尚未完成**。
 - 目前測試不涵蓋全部 PDF、加密變體、字型與版面，也不提供 OCR。
 
 請參閱[目前進度與下一步](docs/status.zh-TW.md)、[階段 1 驗證紀錄](docs/verification/stage1-20261112.json)、[歷史交接](docs/historical-handoff.zh-TW.md)、[匯入紀錄](docs/migration.md)、[架構](docs/architecture.md)與 [Gitflow](CONTRIBUTING.md)。歷史交接中的「暫停」描述是當時狀態，不代表目前狀態。
