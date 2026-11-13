@@ -94,6 +94,12 @@ Cloudflare MCP 官方契約限制 execute 的外連目標為 Cloudflare API；�
 
 這是已解碼訊息子集合，並非完整 MCP server 或實際 ChatGPT／手機註冊。成功輸出僅對固定 AES-256 oracle 核對，不能推廣成任意 PDF 的來源授權或完整性證明。未增加服務、依賴、真憑證或雲端操作；#1／#3 的平台與正式驗收仍未完成。詳見[本輪驗證紀錄](verification/synthetic-mcp-query-20261113.json)。
 
+### 官方 MCP client 已可呼叫本機 stdio server
+
+[本輪候選](synthetic-mcp-stdio.zh-TW.md)沿用原工具 handler，透過官方 SDK 2.4.0 的 stdio server 與真正 client 子程序完成 discovery、modern 版本協商及查詢。11/11 新測試、4 個雙 provider demo、鎖版重新安裝後完整回歸與建置通過；獨立覆核11/11、4/4及3項raw-pipe檢查。舊版 initialize 安全拒絕，取消後原ID沒有回應且後續list正常，EOF及client.close能結束子程序。
+
+這次已超越程式內直接呼叫，但仍只在本機固定合成資料中互通，不是ChatGPT手機、遠端服務或真實身份驗收。只新增必要官方server／client依賴，沒有新工具權限、服務、憑證或雲端變更；Worker hash不變，#1／#3正式缺口保留。[本輪證據](verification/synthetic-mcp-stdio-20261113.json)。
+
 ## 尚未驗收
 
 - 真正 Cloudflare Free 環境的冷啟動、每請求 CPU、記憶體與錯誤結果。

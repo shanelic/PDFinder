@@ -70,3 +70,5 @@ HTTP 回應也不是無條件轉送：非 200 僅接受既有 status／固定錯
 ## 本輪驗證
 
 42/42 專用測試、10 個雙 provider demo、完整回歸及建置通過。獨立覆核重跑同版測試，並確認 3 個未知／畸形 HTTP 回應不再外洩或誤標成功。Worker 建置 bytes／SHA-256 不變。[機器可讀紀錄](verification/synthetic-mcp-query-20261113.json)包含本輪範圍、成績及未驗收項；這些結果都不是正式 MCP／手機／雲端 CPU 驗收。
+
+後續已另提供[官方 SDK 本機 stdio 接線](synthetic-mcp-stdio.zh-TW.md)，重用本文 adapter，並以真正子程序 client 驗收。本文所指「不是完整 server」仍適用於這個獨立 decoded-message adapter；新接線也未完成遠端或 ChatGPT 手機註冊。

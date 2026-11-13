@@ -1,0 +1,191 @@
+{
+  "schema": "pdfinder-synthetic-mcp-stdio-v1",
+  "recordedBy": "Jarvis",
+  "observedAt": "2026-11-13T17:58:40Z",
+  "baseRemoteCommit": "3a552fe196247db453427ec5db20648750800fae",
+  "scope": "Official MCP client and SDK server over real local subprocess stdio with fixed synthetic mail fixtures; no external registration or HTTP listener",
+  "protocol": {
+    "revision": "2026-07-28",
+    "observedEra": "modern",
+    "serverEntry": "serveStdio(factory, {legacy: reject})",
+    "clientMode": "pin 2026-07-28",
+    "serverIdentity": "pdfinder-synthetic-stdio",
+    "toolCount": 1,
+    "tool": "search_synthetic_selected_pdf",
+    "selections": [
+      "synthetic-gmail",
+      "synthetic-icloud"
+    ],
+    "sdkOwnsDiscoveryVersionAndFraming": true,
+    "legacyInitializeObservedError": -32022
+  },
+  "wireCancellation": {
+    "suppressesOriginalResponse": true,
+    "subsequentListSucceeded": true,
+    "eofExitedZero": true,
+    "provesParserStarted": false,
+    "provesHardCpuStop": false
+  },
+  "stdoutProtocolOnlyObserved": true,
+  "stderrUsesFixedDiagnostics": true,
+  "officialClientCloseReapedProcess": true,
+  "identitySource": "Fixed fake host context closed over by synthetic server, not actual user authentication or client metadata",
+  "actualMobileClientVerified": false,
+  "actualChatGptRegistrationVerified": false,
+  "actualRemoteAuthenticationVerified": false,
+  "cloudflareChanges": 0,
+  "workerPostCalls": 0,
+  "liveMailCalls": 0,
+  "newCredentials": 0,
+  "newDirectDependencies": {
+    "runtime": {
+      "@modelcontextprotocol/server": "2.4.0"
+    },
+    "development": {
+      "@modelcontextprotocol/client": "2.4.0"
+    }
+  },
+  "newLockedPackages": {
+    "@modelcontextprotocol/client": {
+      "version": "2.4.0",
+      "integrity": "sha512-LgrD2OphHuG12vfKFKz6SOnq7bKHQmhGJIAYdD+MZBn2npHEyry6uD8zvktodtl5CQM85MO0anUyD9JwmUmxww==",
+      "resolved": "https://registry.npmjs.org/@modelcontextprotocol/client/-/client-2.4.0.tgz"
+    },
+    "@modelcontextprotocol/core": {
+      "version": "2.4.0",
+      "integrity": "sha512-z8QBKqdfXLPzkLQuG4xp8hrVEMm1PZ1IgxMN2sMbJiFiAKOWXnAzogXn2W4aqIBlP1ea6U5yiqVquvUNM1Cj6Q==",
+      "resolved": "https://registry.npmjs.org/@modelcontextprotocol/core/-/core-2.4.0.tgz"
+    },
+    "@modelcontextprotocol/server": {
+      "version": "2.4.0",
+      "integrity": "sha512-rgR9yxSaAJ+bcsi/XroT/S2AfPiIWloXAnrdfYSCms9ivVju0ishu/wW0J21Ho6+ZOR1r7RyeRbjiRuF87ix5Q==",
+      "resolved": "https://registry.npmjs.org/@modelcontextprotocol/server/-/server-2.4.0.tgz"
+    },
+    "cross-spawn": {
+      "version": "7.0.6",
+      "integrity": "sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==",
+      "resolved": "https://registry.npmjs.org/cross-spawn/-/cross-spawn-7.0.6.tgz"
+    },
+    "eventsource": {
+      "version": "3.0.7",
+      "integrity": "sha512-CRT1WTyuQoD771GW56XEZFQ/ZoSfWid1alKGDYMmkt2yl8UXrVR4pspqWNEcqKvVIzg6PAltWjxcSSPrboA4iA==",
+      "resolved": "https://registry.npmjs.org/eventsource/-/eventsource-3.0.7.tgz"
+    },
+    "eventsource-parser": {
+      "version": "3.1.1",
+      "integrity": "sha512-EKN1vKAMcZ8MlYMpaNuxN6R9yakzH6uajHcHVTqWJzvu5pWw9DyhbP35HH8MVBQ+dZjAfDxk+A8NiR9KWaXiyQ==",
+      "resolved": "https://registry.npmjs.org/eventsource-parser/-/eventsource-parser-3.1.1.tgz"
+    },
+    "isexe": {
+      "version": "2.0.0",
+      "integrity": "sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==",
+      "resolved": "https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz"
+    },
+    "jose": {
+      "version": "6.2.17",
+      "integrity": "sha512-wOuK9V1yujQFH5S0ZWmLcDZN7+IKh9bUCC2ZPCf2HDlol3WWHy+PPyNjEI75FXRLMp3vDKQcupP59xhVU95hcg==",
+      "resolved": "https://registry.npmjs.org/jose/-/jose-6.2.17.tgz"
+    },
+    "path-key": {
+      "version": "3.1.1",
+      "integrity": "sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==",
+      "resolved": "https://registry.npmjs.org/path-key/-/path-key-3.1.1.tgz"
+    },
+    "pkce-challenge": {
+      "version": "5.0.1",
+      "integrity": "sha512-wQ0b/W4Fr01qtpHlqSqspcj3EhBvimsdh0KlHhH8HRZnMsEa0ea2fTULOXOS9ccQr3om+GcGRk4e+isrZWV8qQ==",
+      "resolved": "https://registry.npmjs.org/pkce-challenge/-/pkce-challenge-5.0.1.tgz"
+    },
+    "shebang-command": {
+      "version": "2.0.0",
+      "integrity": "sha512-kHxr2zZpYtdmrN1qDjrrX/Z1rR1kG8Dx+gkpK1G4eXmvXswmcE1hTWBWYUzlraYw1/yZp6YuDY77YtvbN0dmDA==",
+      "resolved": "https://registry.npmjs.org/shebang-command/-/shebang-command-2.0.0.tgz"
+    },
+    "shebang-regex": {
+      "version": "3.0.0",
+      "integrity": "sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==",
+      "resolved": "https://registry.npmjs.org/shebang-regex/-/shebang-regex-3.0.0.tgz"
+    },
+    "which": {
+      "version": "2.0.2",
+      "integrity": "sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==",
+      "resolved": "https://registry.npmjs.org/which/-/which-2.0.2.tgz"
+    },
+    "zod": {
+      "version": "4.6.7",
+      "integrity": "sha512-g8W2D2kU6a8untc053fX1uVBKzM7yqAxW/3zwk83+6RyF2+SKOuV+c0wBDhUwzV1PaGapmZH+rmcUzPf+3CGwg==",
+      "resolved": "https://registry.npmjs.org/zod/-/zod-4.6.7.tgz"
+    }
+  },
+  "packageLockSha256": "8cb3acc28f209b31a8992e94df2081228c3066da4f8de1620c0c059ccf91e7f0",
+  "installVerification": {
+    "command": "npm ci --ignore-scripts --no-audit --no-fund (writable cache, bounded official-registry fetches)",
+    "success": true,
+    "lifecycleScriptsExecuted": false,
+    "npmCiLogSha256": "3821f0b483277fe8e347b86b893d1352e58a3577cf39f0f300adbb70b4beb04b"
+  },
+  "suites": {
+    "existingInterface": 302,
+    "sourceParser": 32,
+    "attachmentApi": 46,
+    "providerEnvelope": 72,
+    "mimeHandoff": 78,
+    "mailFixture": 10,
+    "mailVerifier": 28,
+    "boundedDocuments": 36,
+    "selectedMailSearch": 28,
+    "syntheticProfiles": 51,
+    "syntheticFileProfiles": 23,
+    "syntheticHostQuery": 44,
+    "previewEvidence": 54,
+    "syntheticHostHttp": 32,
+    "failed": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "syntheticMcpQuery": 42,
+    "syntheticMcpStdio": 11
+  },
+  "demo": {
+    "cases": 4,
+    "providers": [
+      "gmail",
+      "icloud"
+    ],
+    "statuses": [
+      "matches_found",
+      "no_match"
+    ],
+    "actualLocalPdfJs": true,
+    "fakeProviderResponsesOnly": true,
+    "realChildProcessTransport": true
+  },
+  "independentReview": {
+    "focusedPassed": 11,
+    "demoPassed": 4,
+    "additionalRawPipeChecksPassed": 3,
+    "reviewedFileHashesStable": true,
+    "blockingFindings": 0
+  },
+  "build": {
+    "bytes": 3740357,
+    "sha256": "6842618014df5b10d24bb618acbfb3b2556066e2074cf076be621f664797bf79",
+    "unchanged": true,
+    "stdioSdkImportedByWorker": false
+  },
+  "verifyLogSha256": "603ac3a5f9cfbf1c80761c8b2cb73cebf9b1b76acd3f013f8f79b8e4dd4bfb90",
+  "sourceSha256": {
+    "src/synthetic-mcp-stdio.mjs": "1c8cea29bc8d0cbb68c2c1e33e05cc6aec88a41bd413b7e73db3143b06ffbec2",
+    "scripts/serve-synthetic-mcp.mjs": "0772533d75df97d8e80b8ebdc19064df858684e19f0d37c77d9014020cf057b5",
+    "scripts/demo-mcp-stdio.mjs": "fd269b4337fad879ac6accf1b46f7bbaaa046a814c43a109e76e9a4923edff74",
+    "tests/synthetic-mcp-stdio.test.mjs": "65a88efe5b4893760f96fb499b48c58a3387b18abbb1ba4bb8e1bf9ecb700542"
+  },
+  "remaining": [
+    "No ChatGPT/mobile registration or live user authentication",
+    "No remote MCP/HTTP deployment or connector-account integration",
+    "Only fixed synthetic selections and public fake profile; not arbitrary documents or secret vault",
+    "Cancellation suppresses response, not proof of parser/CPU hard stop",
+    "Official SDK local interoperability is not universal protocol/client certification",
+    "Cloudflare authorized POST route and Free per-request CPU remain unverified",
+    "Issues #1 and #3 remain open"
+  ]
+}
