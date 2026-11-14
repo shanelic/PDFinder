@@ -1,0 +1,91 @@
+{
+  "schema": "pdfinder-synthetic-profile-revision-guard-v1",
+  "recordedBy": "Jarvis",
+  "observedAt": "2026-11-14T03:44:26.895057+00:00",
+  "baseRemoteCommit": "d7c09c70721f2637a6d6cfd644f1ad2d2174c52b",
+  "scope": "Opt-in per-query revision guard using existing in-memory synthetic profiles, fixed public values, fake provider responses and vendored PDF.js; not production vault",
+  "distinctGap": {
+    "unguardedHostAcceptsInParseABARotation": true,
+    "baselineRevision": 1,
+    "revisionAfter": 3,
+    "baselineResult": "matches_found",
+    "guardedGmailAndIcloudReject": "profile_unavailable",
+    "newIndependentGuardAtRevision3Succeeds": true
+  },
+  "guard": {
+    "bindsProfileAndExactSource": true,
+    "snapshotsCallerInputs": true,
+    "pinsFirstObservedActiveRevision": true,
+    "checksBeforeAndAfterResolution": true,
+    "detectsSameValueNewRevision": true,
+    "rejectsOverlappingUseOfSameGuard": true,
+    "failureLatched": true,
+    "automaticRetries": 0,
+    "onlyExistingPublicFakeValues": true,
+    "defaultHostBehaviorChanged": false,
+    "deployedServicesChanged": false
+  },
+  "verification": {
+    "command": "node --test tests/synthetic-profile-revision-guard.test.mjs tests/synthetic-password-profiles.test.mjs tests/synthetic-host-query.test.mjs",
+    "focusedCases": 18,
+    "existingProfileCases": 51,
+    "existingHostCases": 44,
+    "affectedTotalPassed": 113,
+    "failed": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "independentFocusedPassed": 18,
+    "independentAdditionalCasesPassed": 3,
+    "fullSuiteRun": false,
+    "buildRun": false
+  },
+  "installAttempt": {
+    "mode": "offline, lifecycle scripts disabled",
+    "success": false,
+    "errorCode": "ENOTCACHED",
+    "missingLockedPackage": "zod@4.6.7",
+    "networkAttempted": false,
+    "policyDenialObserved": false,
+    "localNodeModulesRemovedByNpmCiBeforeFailure": true,
+    "mcpSdkImportErrorAfterFailure": "ERR_MODULE_NOT_FOUND",
+    "recoveryRequired": "Restore dependencies from the unchanged lockfile through an allowed installation path before full verify/build; not performed this round"
+  },
+  "packageLockUnchanged": true,
+  "packageLockSha256": "8cb3acc28f209b31a8992e94df2081228c3066da4f8de1620c0c059ccf91e7f0",
+  "existingBuild": {
+    "sha256": "6842618014df5b10d24bb618acbfb3b2556066e2074cf076be621f664797bf79",
+    "unchanged": true,
+    "rebuiltThisRound": false
+  },
+  "logSha256": {
+    "affected": "512ea2aa0eedfe9f90ba28d3a121ff85fde55705bde5dfc7423fb0bd85339ff7",
+    "offlineInstallFailure": "65c8ea32c754b821c501a0dfc3e3cf7496f315b9a7b18f8d4edba85063f93ced",
+    "fullSuitePrerequisite": "f60595c24edf73b4dda70912f093cd1341fcf126117e8416ac1ce33ae232d0bb",
+    "independentFocused": "baa91e3b61e43b141c80313c244c9c304a8b2341ac5a35ad1fbcd0267a260cee",
+    "independentCases": "340397e709b3f9f4ba7edac1c545f6906608a60ca7087ac6a8d6f8bca4596ebd"
+  },
+  "sourceSha256": {
+    "src/synthetic-profile-revision-guard.mjs": "8946935ba4f676ec329ba20b77cb727db08512d7579f4d6fe3078baaad8aa9a4",
+    "tests/synthetic-profile-revision-guard.test.mjs": "614ad37b0999abbc51ea2119127a442c53aa5ffa03ed559e05c00a7d5be36234"
+  },
+  "liveMailCalls": 0,
+  "cloudExtractorCalls": 0,
+  "newCredentials": 0,
+  "cloudChanges": 0,
+  "remaining": [
+    "Explicit opt-in per query; existing hosts and cloud services unchanged",
+    "Trusted fresh monotonic metadata required; malicious rollback or same-revision value changes not prevented",
+    "No cross-service transaction or atomicity between final check and result delivery",
+    "Already obtained strings/bytes may remain and parsing may continue; no erasure or hard-stop proof",
+    "Guard error/log assertions do not cover dependency or platform logging",
+    "Real vault enrollment, secret version/metadata coordination, user authentication and deployment still unverified",
+    "Full regression/build blocked by missing offline dependency cache; no previous pass reused"
+  ],
+  "baselineRecovery": {
+    "localDocumentationBehindRemoteDetected": true,
+    "remoteBaseline": "d7c09c70721f2637a6d6cfd644f1ad2d2174c52b",
+    "documentsRestoredWithExactGitBlobHashes": 7,
+    "existingProductSourcesMatchedRemoteBeforeRecovery": true,
+    "newerRemoteHistoryOverwritten": false
+  }
+}

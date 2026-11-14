@@ -41,3 +41,7 @@ Demo 透過既有單文件搜尋橋接、fake Gmail／iCloud 回應及真 PDF.js
 - 本原始 Map 不防惡意或回滾的 storage adapter、不提供跨程序一致性、使用者登入、加密保管、權限管理、審計或正式資料保存政策。若日後接入真實儲存／密碼，需要另外設計、授權及驗收，不能因本機測試通過就替換成正式 vault。
 
 本輪 51 項新增測試與 10 個雙 provider demo 通過；另重用已取得的真正合成信回應／原檔做 10 個生命週期情境，沒有新增郵件外呼。全部既有回歸與建置通過，Worker hash 不變。最終獨立覆核另重跑 51/51 與 10 個 demo，並核對 accessor 與 3 個 opaque 來源錯配反例。[本輪機器紀錄](verification/synthetic-profile-lifecycle-20261113.json)。獨立覆核發現的 storage accessor 改變值問題，已改為先 clone 再驗證同一快照，避免驗證與使用不同紀錄。Cloudflare CPU／正式呼叫仍在 [#1](https://github.com/shanelic/PDFinder/issues/1)，正式 profile 權限、文件與發布驗收仍在 [#3](https://github.com/shanelic/PDFinder/issues/3)。
+
+## 後續可選的逐工作 revision 檢查
+
+[新的 revision guard](synthetic-profile-revision-guard.zh-TW.md)針對一份工作多次查值之間的替換／換回（ABA）新增候選檢查，不重做持久性。每個query必須另建guard，不能當全域快取。原本resolver及host預設仍不綁工作revision；guard是明確opt-in，沒有回溯改寫本頁原始測試或已部署服務。

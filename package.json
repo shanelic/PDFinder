@@ -17,7 +17,7 @@
     "test:mail-fixture": "node --test tests/synthetic-mail-fixture.test.mjs",
     "prepare:synthetic-mail": "node scripts/prepare-synthetic-mail.mjs",
     "demo:synthetic": "node scripts/demo-synthetic.mjs",
-    "verify": "npm test && npm run test:parser && npm run test:attachments && npm run test:providers && npm run test:mime && npm run test:mail-fixture && npm run test:mail-verifier && npm run verify:synthetic-mail && npm run test:documents && npm run demo:documents && npm run test:mail-search && npm run demo:selected-mail && npm run test:profiles && npm run demo:profiles && npm run test:profile-storage && npm run demo:profile-restart && npm run test:host-query && npm run demo:host-query && npm run test:preview-evidence && npm run demo:preview-evidence && npm run test:host-http && npm run demo:host-http && npm run test:mcp-query && npm run demo:mcp-query && npm run test:mcp-stdio && npm run demo:mcp-stdio && npm run test:mcp-http && npm run demo:mcp-http && npm run build",
+    "verify": "npm test && npm run test:parser && npm run test:attachments && npm run test:providers && npm run test:mime && npm run test:mail-fixture && npm run test:mail-verifier && npm run verify:synthetic-mail && npm run test:documents && npm run demo:documents && npm run test:mail-search && npm run demo:selected-mail && npm run test:profiles && npm run demo:profiles && npm run test:profile-revision && npm run test:profile-storage && npm run demo:profile-restart && npm run test:host-query && npm run demo:host-query && npm run test:preview-evidence && npm run demo:preview-evidence && npm run test:host-http && npm run demo:host-http && npm run test:mcp-query && npm run demo:mcp-query && npm run test:mcp-stdio && npm run demo:mcp-stdio && npm run test:mcp-http && npm run demo:mcp-http && npm run build",
     "test:mail-verifier": "node --test tests/synthetic-mail-verifier.test.mjs",
     "verify:synthetic-mail": "node scripts/verify-synthetic-mail.mjs",
     "test:documents": "node --test tests/bounded-document-search.test.mjs",
@@ -39,7 +39,8 @@
     "test:mcp-stdio": "node --test tests/synthetic-mcp-stdio.test.mjs",
     "demo:mcp-stdio": "node scripts/demo-mcp-stdio.mjs",
     "test:mcp-http": "node --test tests/synthetic-mcp-http.test.mjs",
-    "demo:mcp-http": "node scripts/demo-mcp-http.mjs"
+    "demo:mcp-http": "node scripts/demo-mcp-http.mjs",
+    "test:profile-revision": "node --test tests/synthetic-profile-revision-guard.test.mjs"
   },
   "devDependencies": {
     "@modelcontextprotocol/client": "2.4.0",

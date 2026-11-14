@@ -116,6 +116,12 @@ Cloudflare MCP 官方契約限制 execute 的外連目標為 Cloudflare API；�
 
 [手機驗收紀錄](iphone-jarvis-acceptance.zh-TW.md)已新增iOS發起的當次實測：同一已授權iCloud原附件只讀1次、私人extractor只呼叫1次，1,825 bytes及固定SHA／完整oracle通過。PDF命中第1頁[16,19)，固定不存在字串零命中；兩查詢使用同次新回應，反例零額外外呼。對話於02:24:26 UTC接受回覆，但尚無已讀／畫面確認，狀態為cloud_result_returned_mobile_receipt_unconfirmed，不冒稱完整手機驗收。原準備證據保留歷史狀態，#1／#3正式缺口未提前勾選。[新去識別證據](verification/ios-fresh-synthetic-acceptance-20261114.json)。
 
+### 合成 profile 新增逐工作 revision guard 候選
+
+[可選guard](synthetic-profile-revision-guard.zh-TW.md)補一個非重複缺口：原host在解析期間profile換值再恢復（ABA）仍可能交付結果；新guard綁同一工作revision，真PDF.js的Gmail／iCloud路徑遇此變更會拒絕，新獨立工作仍可使用新revision。18個新case連既有profile／host共113/113通過，不重做檔案持久化。
+
+這是未發布、opt-in的合成候選，不是真實vault或跨服務交易，不保證最後檢查到送達間的原子性、字串抹除或dependency日誌。原host預設與雲端服務未變。本輪離線npm ci因缺少鎖版zod快取失敗，MCP SDK未安裝，因此沒有完整回歸或重建成績；只報可重現的受影響檢查，#3正式保管與上線仍未完成。[本輪證據](verification/synthetic-profile-revision-20261114.json)。
+
 ## 尚未驗收
 
 - 真正 Cloudflare Free 環境的冷啟動、每請求 CPU、記憶體與錯誤結果。
