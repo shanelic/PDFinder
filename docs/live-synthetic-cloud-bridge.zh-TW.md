@@ -1,8 +1,8 @@
-# Gmail 合成附件 → 既有私人雲端解析器
+# 合成郵件 → 既有私人雲端解析器
 
 2026-11-13 UTC，由 Jarvis 記錄。**一份真正從已授權合成測試信取回的附件，已成功交給既有私人雲端解析工具，回傳完整合成文字與頁碼。** 不是只跑內建 fixture 自測，也不是重新寄信或部署服務。
 
-## 實際驗收
+## 11/13 Gmail 實際驗收
 
 1. 精確讀取 11/13 已授權合成測試信的 Gmail raw 寄件副本一次，不搜尋或讀取其他信。沿用現有 MIME selector，必須唯一符合指定附件。
 2. 取出的 `AES-256.pdf` 為 **1,825 bytes**，SHA-256 為 `88bcd7d2be5ff65e024d6b3a5964da2a0d10b1f36cbb2616abfc60556a8fe47c`。實際 bytes 與既有公開 allowlisted fixture 完全一致，canonical base64 長度為 2,436。
@@ -13,13 +13,21 @@
 
 [去識別化驗收紀錄](verification/live-synthetic-cloud-bridge-20261113.json)只保留公開合成 fixture、結果、呼叫次數與界線，不包含原始郵件、私人識別資料、base64 payload、access token 或 secret。
 
+## 11/14 iCloud parity 驗收
+
+延續同一封先前已授權的合成測試信，精確讀取 iCloud 原附件一次。先核對既有訊息身份、唯一附件、指定 filename／size 與原檔參照，經官方檔案交接取得 bytes，再重算 SHA 並與公開 fixture 完整比對。沒有搜尋其他信或改動信件。
+
+原檔同為 1,825 bytes、上方指定 SHA。呼叫同一私人 extractor 一次，只傳相同四個合成欄位及假 profile 參照；雲端回傳1頁，完整文字 oracle 與頁1 `PDF` `[16,19)` 引用均通過，與11/13 Gmail結果一致。這是新的 iCloud → 雲端解析驗收，不是重播舊本機解析紀錄。
+
+[11/14 去識別證據](verification/icloud-cloud-bridge-20261114.json)。兩個 provider 分別在兩輪完成，各一個 extractor 呼叫；本輪未重讀 Gmail、未再次呼叫其測試、沒有新郵件或部署。公開紀錄不含任何信箱／訊息識別碼、原檔參照、base64 payload 或秘密。
+
 ## 證據的精確界線
 
 - 這是 本次授權的**雲端工具測試**完成的單次橋接，不是 iOS 原生或手機裝置驗收，也不是無人值守產品。
-- 本輪只重新讀 Gmail。先前 iCloud 合成取件成功的證據仍屬[另一輪雙信箱驗收](live-synthetic-mail-acceptance.zh-TW.md)，不能合計成此次 iCloud → 雲端解析也已測過。
+- 11/13 只重新讀 Gmail；11/14 才完成上述 iCloud → 私人雲端解析。更早的[雙信箱本機解析驗收](live-synthetic-mail-acceptance.zh-TW.md)仍保留其原始範圍，不改寫成當時已驗收雲端。
 - 使用既有私人服務，**不是使用者 Cloudflare Workers Free 帳號的 CPU 測試**。沒有每請求 CPU、記憶體或效能配額證據；#1 仍開啟。
 - 本次 extractor 回應未包含 parser version。不能把另一個自測工具回傳的 PDF.js 版本，當成這一次 extractor 回應中實際包含的欄位。
 - 固定 hash／文字 oracle 證明此次合成內容一致，不是一般文件完整性、信箱真實身份、正式密碼保管或解析／網路隔離的證明。
-- 沒有寄信、修改信件、建立憑證、改設定或部署。此紀錄工作沒有第二次 extractor 呼叫，也沒有重跑既有程式完整回歸，因為沒有變更功能來源或依賴；不宣稱新增 CI 驗收。
+- 沒有寄信、修改信件、建立憑證、改設定或部署。每輪只有一次 extractor 呼叫，記錄階段不重試；也沒有重跑既有程式完整回歸，因為沒有變更功能來源或依賴；不宣稱新增 CI 驗收。
 
 #3 的正式 host、真實資料／秘密與上線條件仍未完成，保持開啟。這個新成果縮短了「取件後只能本機解析」的差距，沒有改寫其他路線的歷史限制。

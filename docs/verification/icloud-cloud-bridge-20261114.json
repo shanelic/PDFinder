@@ -1,0 +1,60 @@
+{
+  "schema": "pdfinder-icloud-private-cloud-extractor-parity-v1",
+  "recordedBy": "Jarvis",
+  "observedAt": "2026-11-14T01:28:01.608Z",
+  "provider": "icloud",
+  "scope": "Same previously authorized synthetic email, one fresh original-attachment read and one existing private cloud extractor call",
+  "providerReadCount": 1,
+  "selectedAttachmentCount": 1,
+  "samePreviouslyVerifiedMessage": true,
+  "strictEnvelopeValidated": true,
+  "originalMaterializationVerified": true,
+  "fixture": {
+    "filename": "AES-256.pdf",
+    "bytes": 1825,
+    "sha256": "88bcd7d2be5ff65e024d6b3a5964da2a0d10b1f36cbb2616abfc60556a8fe47c",
+    "canonicalBase64Length": 2436
+  },
+  "originalBytesEqualPublicFixture": true,
+  "extractor": "existing private extract_synthetic_pdf",
+  "extractorCalls": 1,
+  "profileReference": "synthetic-fixture",
+  "transmittedFieldNames": [
+    "filename",
+    "data_base64",
+    "sha256",
+    "password_profile"
+  ],
+  "mailMetadataTransmittedToExtractor": false,
+  "rawPasswordProvided": false,
+  "fullFixtureOracleMatched": true,
+  "page_count": 1,
+  "citation": {
+    "page": 1,
+    "quote": "PDF",
+    "range": {
+      "start": 16,
+      "end": 19,
+      "unit": "unicode_codepoint",
+      "end_exclusive": true
+    },
+    "context": "Synthetic cloud PDF transport proof."
+  },
+  "priorGmailParity": {
+    "evidence": "live-synthetic-cloud-bridge-20261113.json",
+    "originalBytesSamePinnedFixture": true,
+    "pageCountAndTextOracleEqual": true,
+    "citationEqual": true
+  },
+  "extractorResponseReportedParserVersion": false,
+  "newMailSent": 0,
+  "mailMutations": 0,
+  "newCredentials": 0,
+  "deployedChanges": 0,
+  "notVerified": [
+    "iPhone or native mobile invocation",
+    "Unattended mailbox integration",
+    "Real documents or real secret storage",
+    "Cloudflare Workers Free CPU, memory or production isolation"
+  ]
+}

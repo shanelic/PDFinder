@@ -1,6 +1,6 @@
 # PDFinder 目前進度
 
-更新：2026-11-13 UTC。由 Jarvis 記錄；本頁區分已驗證成果、歷史證據與待完成事項。
+更新：2026-11-14 UTC。由 Jarvis 記錄；本頁區分已驗證成果、歷史證據與待完成事項。
 
 ## 產品目標與順序
 
@@ -106,11 +106,11 @@ Cloudflare MCP 官方契約限制 execute 的外連目標為 Cloudflare API；�
 
 這不是遠端連線或 ChatGPT 相容性實測。當前官方 Help Center 的自建 MCP 連線 FAQ 為 web-only，未區分手機瀏覽器與原生 App；帳號資格、目標手機使用方式仍需另行核實。未建立 endpoint、tunnel、OAuth 或新憑證，#1／#3 維持 open；取消與 close 不保證已開始 parser 的硬停止。[本輪證據](verification/synthetic-mcp-http-20261113.json)。
 
-### 真正 Gmail 合成附件已交給私人雲端解析器
+### Gmail 與 iCloud 合成附件均已交給私人雲端解析器
 
-[本輪 live 橋接](live-synthetic-cloud-bridge.zh-TW.md)精確讀取已授權測試信一次，唯一取出已驗證的 1,825-byte AES-256 fixture，僅將 allowlisted bytes、filename、hash 與假 profile 參照交給既有私人解析工具。一次呼叫成功回傳 1 頁，完整文字 oracle 與第 1 頁 `PDF` 引用 `[16,19)` 均通過；沒有將郵件 metadata 或秘密傳給解析服務。
+[11/13 Gmail 橋接](live-synthetic-cloud-bridge.zh-TW.md)精確讀取已授權測試信一次，唯一取出已驗證的 1,825-byte AES-256 fixture，僅將 allowlisted bytes、filename、hash 與假 profile 參照交給既有私人解析工具。一次呼叫成功回傳 1 頁，完整文字 oracle 與第 1 頁 `PDF` 引用 `[16,19)` 均通過；沒有將郵件 metadata 或秘密傳給解析服務。
 
-這是本次授權雲端工具測試的真正取件→雲端解析，不是 iOS／手機、無人值守或使用者 Cloudflare Free CPU 驗收。本輪沒有重新驗收 iCloud、寄信、改設定或部署，沒有更動功能程式。正式 host／保管／效能與發布缺口保留，#1／#3 不提前結案。[去識別紀錄](verification/live-synthetic-cloud-bridge-20261113.json)。
+11/14另完成同一已授權測試信的iCloud parity：精確原附件取回、1,825 bytes及SHA／fixture完整比對，再呼叫同一私人extractor一次，1頁文字oracle及引用與Gmail一致。沒有重讀Gmail、寄信、改設定、部署或更動功能程式。這是授權雲端工具測試的真正取件→雲端解析，不是iOS／手機、無人值守或使用者Cloudflare Free CPU驗收。正式 host／保管／效能與發布缺口保留，#1／#3 不提前結案。[Gmail紀錄](verification/live-synthetic-cloud-bridge-20261113.json) · [iCloud紀錄](verification/icloud-cloud-bridge-20261114.json)。
 
 ## 尚未驗收
 

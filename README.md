@@ -60,3 +60,5 @@ npm run verify
 [本機 Streamable HTTP MCP 接線](docs/synthetic-mcp-http.zh-TW.md)讓官方 client 經注入的 fetch 驗證 modern JSON／SSE 與 legacy stateless；`npm run demo:mcp-http` 可重跑 8 個合成雙 provider 案例。沒有 socket、遠端註冊或 OAuth，亦未驗證 ChatGPT／手機使用資格；手機交付門檻與 Cloudflare CPU 量測分開保留。
 
 [真正 Gmail 合成附件到私人雲端解析器](docs/live-synthetic-cloud-bridge.zh-TW.md)已完成一次取件、嚴格原檔比對與既有工具呼叫，回傳 1 頁完整合成文字及引用。僅傳 allowlisted bytes 與假 profile，未傳郵件 metadata 或密碼；不等於手機／無人值守產品或 Cloudflare Free CPU 已驗收。
+
+2026-11-14 另完成同一已授權合成信的 [iCloud → 私人雲端解析 parity](docs/live-synthetic-cloud-bridge.zh-TW.md#1114-icloud-parity-驗收)：原檔 hash／bytes、雲端完整文字及頁碼引用與 Gmail 一致。本輪一個原附件讀取、一個 extractor 呼叫，未寄信或部署；手機使用與 Cloudflare Free CPU 仍未驗收。
