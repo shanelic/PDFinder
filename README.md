@@ -62,3 +62,5 @@ npm run verify
 [真正 Gmail 合成附件到私人雲端解析器](docs/live-synthetic-cloud-bridge.zh-TW.md)已完成一次取件、嚴格原檔比對與既有工具呼叫，回傳 1 頁完整合成文字及引用。僅傳 allowlisted bytes 與假 profile，未傳郵件 metadata 或密碼；不等於手機／無人值守產品或 Cloudflare Free CPU 已驗收。
 
 2026-11-14 另完成同一已授權合成信的 [iCloud → 私人雲端解析 parity](docs/live-synthetic-cloud-bridge.zh-TW.md#1114-icloud-parity-驗收)：原檔 hash／bytes、雲端完整文字及頁碼引用與 Gmail 一致。本輪一個原附件讀取、一個 extractor 呼叫，未寄信或部署；手機使用與 Cloudflare Free CPU 仍未驗收。
+
+[iPhone Jarvis 驗收指令](docs/iphone-jarvis-acceptance.zh-TW.md)已備妥：正例查固定合成附件的 `PDF`，安全反例沿用同次雲端回應查不存在字串，毋須密碼或設定變更。目前只是準備完成，尚未宣稱手機來回驗收。

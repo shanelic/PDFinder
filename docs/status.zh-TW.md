@@ -112,6 +112,10 @@ Cloudflare MCP 官方契約限制 execute 的外連目標為 Cloudflare API；�
 
 11/14另完成同一已授權測試信的iCloud parity：精確原附件取回、1,825 bytes及SHA／fixture完整比對，再呼叫同一私人extractor一次，1頁文字oracle及引用與Gmail一致。沒有重讀Gmail、寄信、改設定、部署或更動功能程式。這是授權雲端工具測試的真正取件→雲端解析，不是iOS／手機、無人值守或使用者Cloudflare Free CPU驗收。正式 host／保管／效能與發布缺口保留，#1／#3 不提前結案。[Gmail紀錄](verification/live-synthetic-cloud-bridge-20261113.json) · [iCloud紀錄](verification/icloud-cloud-bridge-20261114.json)。
 
+### 下一步已縮成 iPhone 的兩段驗收指令
+
+[手機驗收手冊](iphone-jarvis-acceptance.zh-TW.md)提供可貼的正例與no-match反例、精確來源／固定fixture限制、手機表面證據及送達／閱讀確認。反例重用同次解析頁面，禁止額外取件或解析；不以錯誤profile試打或改動密碼設定。只核對公開fixture的預期值，沒有新外呼，狀態為prepared_not_run。待使用者從iPhone發起後才有手機實測證據；#1／#3未提前勾選。
+
 ## 尚未驗收
 
 - 真正 Cloudflare Free 環境的冷啟動、每請求 CPU、記憶體與錯誤結果。
