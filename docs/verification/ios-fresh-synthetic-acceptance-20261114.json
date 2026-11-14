@@ -1,0 +1,66 @@
+{
+  "schema": "pdfinder-ios-fresh-synthetic-acceptance-v1",
+  "recordedBy": "Jarvis",
+  "status": "cloud_result_returned_mobile_receipt_unconfirmed",
+  "observedAt": "2026-11-14T02:24:14.283Z",
+  "provider": "icloud",
+  "filename": "AES-256.pdf",
+  "bytes": 1825,
+  "sha256": "88bcd7d2be5ff65e024d6b3a5964da2a0d10b1f36cbb2616abfc60556a8fe47c",
+  "page_count": 1,
+  "fullFreshResponseOracleMatched": true,
+  "positive": {
+    "query": "PDF",
+    "matchCount": 1,
+    "page": 1,
+    "quote": "PDF",
+    "range": {
+      "start": 16,
+      "end": 19,
+      "unit": "unicode_codepoint",
+      "end_exclusive": true
+    },
+    "originalLine": "Synthetic cloud PDF transport proof."
+  },
+  "negative": {
+    "query": "PDFINDER_SYNTHETIC_NO_MATCH_20261114",
+    "matches": [],
+    "truncated": false
+  },
+  "freshProviderReadCount": 1,
+  "extractorCallCount": 1,
+  "negativeAdditionalReads": 0,
+  "negativeAdditionalExtractorCalls": 0,
+  "rawPasswordsProvided": 0,
+  "ownerReadingConfirmed": false,
+  "conversationEvidence": {
+    "inboundSurfaceObserved": "iOS",
+    "inboundObservationSource": "conversation host observation",
+    "replyAcceptedByChat": true,
+    "replyAcceptedAt": "2026-11-14T02:24:26Z",
+    "readReceiptObserved": false,
+    "ownerReadingConfirmed": false,
+    "privateMessageOrDeviceIdsPublished": false
+  },
+  "scope": {
+    "exactPriorAuthorizedSyntheticIcloudMessageOnly": true,
+    "freshOriginalBytesMatchedPublicFixture": true,
+    "sameFreshExtractorResponseForBothQueries": true,
+    "oldEvidenceSubstitutedForFreshResponse": false,
+    "mailMetadataTransmittedToExtractor": false,
+    "profileReference": "synthetic-fixture",
+    "extractorReportedParserVersion": false,
+    "additionalCallsDuringPublication": 0,
+    "mailSends": 0,
+    "mailMutations": 0,
+    "newCredentials": 0,
+    "cloudConfigurationChanges": 0
+  },
+  "notVerified": [
+    "Owner reading or rendering of the accepted chat reply",
+    "Cross-turn reuse: both queries were in the same request",
+    "General native mobile/custom-MCP entitlement or external remote MCP registration",
+    "Real documents, production authentication or real password vault",
+    "Unattended service and Cloudflare Workers Free CPU, memory, isolation or release"
+  ]
+}

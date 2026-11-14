@@ -1,10 +1,20 @@
 # iPhone → Jarvis 合成 PDF 驗收
 
-2026-11-14 UTC，由 Jarvis 準備。**尚未執行手機驗收。** 目前雙信箱取件到既有私人雲端解析已完成；本輪只把下一步縮成兩段可貼上的指令，沒有讀信、解析或自測工具呼叫。
+2026-11-14 UTC，由 Jarvis 記錄。**已觀察到 iOS 發起的新合成驗收，雲端正例／反例成功，回覆已獲對話接受；尚無閱讀確認。** 下方保留原準備指令，新的實測結果與原準備紀錄分開記錄。
+
+## 11/14 實際執行結果
+
+使用者從iOS發起後，精確讀取同一先前授權的iCloud合成信原附件一次，唯一取得 `AES-256.pdf`，驗證1,825 bytes、指定SHA及完整bytes與allowlisted fixture一致。只傳四個合成欄位及 `synthetic-fixture` 參照到既有私人extractor一次，沒有提供密碼或郵件metadata。
+
+同一次新雲端回應的完整文字oracle通過。查 `PDF`：第1頁1筆命中，Unicode codepoint `[16,19)`，原文 `Synthetic cloud PDF transport proof.`；查 `PDFINDER_SYNTHETIC_NO_MATCH_20261114`：零命中、`truncated=false`，沒有捏造命中頁碼或引用，亦沒有新增讀信／解析。
+
+對話於 **2026-11-14 02:24:26 UTC** 接受結果回覆。這只證明回覆提交成功，**不代表使用者已讀或手機畫面已驗收**；目前狀態為 `cloud_result_returned_mobile_receipt_unconfirmed`。公開紀錄只標示對話host觀察到iOS來源，不公開訊息或裝置識別資料。兩個查詢在同一請求中執行，因此不宣稱已測跨回合結果保存。
+
+[新實測去識別證據](verification/ios-fresh-synthetic-acceptance-20261114.json)。本輪沒有其他測試、郵件操作、設定變更或部署；紀錄階段沒有再取件或呼叫extractor。手機來回的閱讀確認、正式產品及Cloudflare Free CPU等缺口仍分開保留。
 
 ## 使用方式
 
-在 iPhone 上，開啟平常使用的 Jarvis 對話，貼上正例。收到結果後，再貼反例。不要新建自訂 MCP 連線、上傳文件、輸入密碼、提供 token 或修改設定。這裡驗收的是既有 Jarvis 對話路線，不是宣稱任意 iOS 自訂 MCP server 都受支援。
+原準備方式是在 iPhone 的 Jarvis 對話貼上正例，再貼反例；實際驗收將兩個查詢合併為同一指令，共用一次新解析。以下保留可重現的查詢內容，不是要求自動再跑。不要新建自訂 MCP 連線、上傳文件、輸入密碼、提供 token 或修改設定。這裡驗收的是既有 Jarvis 對話路線，不是宣稱任意 iOS 自訂 MCP server 都受支援。
 
 ### 正例：手機發起，雲端取件、解析、引用
 
@@ -26,7 +36,7 @@
 
 ## 執行者的最小核對
 
-以下是驗收計畫，不是本輪已執行紀錄：
+以下保留原驗收核對表；當次結果以本頁開頭的新證據為準，未符合的項目不視為完成：
 
 1. **由新手機指令開始**：記錄開始時間及該次指令與回覆的關聯。不得以已完成的 Gmail／iCloud 桌面或雲端呼叫紀錄直接填成手機通過。
 2. **精確來源**：只用可信 host 已保存的同一已授權 iCloud 訊息／完整附件 ID；缺少映射就停，不搜尋其他信。必須唯一附件、filename `AES-256.pdf`、1,825 bytes，SHA-256 `88bcd7d2be5ff65e024d6b3a5964da2a0d10b1f36cbb2616abfc60556a8fe47c`，且原檔 bytes 等於公開 allowlisted fixture。
@@ -43,6 +53,6 @@
 
 分開記錄三種結果：`prepared_not_run`、`cloud_result_returned_mobile_receipt_unconfirmed`、`mobile_round_trip_confirmed`。這些是記錄標籤，不是新增 API 或驗證框架；只有足夠證據才提升狀態。若裝置僅為使用者回報，確認結果仍須明載該較弱證據，不能改寫成原生 App 的技術 attestation。
 
-本輪只以現有 `findLiteralMatches` 在公開 fixture oracle 核對正例與反例的預期值，不重跑已驗收 provider／extractor，不新增程式或套件。[本輪準備紀錄](verification/iphone-acceptance-preparation-20261114.json)明確標為尚未執行手機驗收。
+最初的手冊準備階段只以現有 `findLiteralMatches` 在公開fixture oracle核對預期值，沒有外呼。[原準備紀錄](verification/iphone-acceptance-preparation-20261114.json)保留當時的prepared_not_run，不改寫成新實測證據；後續實測使用新雲端回傳頁面，記錄在本頁開頭的新證據。兩階段皆未新增程式或套件。
 
 此步若通過，只完成既有 Jarvis 路線的合成手機來回；不完成一般文件、正式秘密保管、無人值守產品、使用者 Cloudflare Free CPU／隔離或上線。#1／#3仍需各自的驗收，不能整張 issue 因手機通過就關閉。

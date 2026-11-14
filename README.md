@@ -63,4 +63,6 @@ npm run verify
 
 2026-11-14 另完成同一已授權合成信的 [iCloud → 私人雲端解析 parity](docs/live-synthetic-cloud-bridge.zh-TW.md#1114-icloud-parity-驗收)：原檔 hash／bytes、雲端完整文字及頁碼引用與 Gmail 一致。本輪一個原附件讀取、一個 extractor 呼叫，未寄信或部署；手機使用與 Cloudflare Free CPU 仍未驗收。
 
-[iPhone Jarvis 驗收指令](docs/iphone-jarvis-acceptance.zh-TW.md)已備妥：正例查固定合成附件的 `PDF`，安全反例沿用同次雲端回應查不存在字串，毋須密碼或設定變更。目前只是準備完成，尚未宣稱手機來回驗收。
+[iPhone Jarvis 驗收指令](docs/iphone-jarvis-acceptance.zh-TW.md)已備妥：正例查固定合成附件的 `PDF`，安全反例沿用同次雲端回應查不存在字串，毋須密碼或設定變更。此項最初只是準備完成；後續新實測與尚未確認部分見下一段。
+
+2026-11-14 已完成 [iOS 發起的新合成查詢](docs/iphone-jarvis-acceptance.zh-TW.md#1114-實際執行結果)：同一次新取件／雲端解析產生第1頁命中與安全no-match結果，回覆已獲對話接受。尚無使用者閱讀確認，不宣稱完整手機產品或正式遠端／Cloudflare Free驗收。
